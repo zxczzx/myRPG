@@ -1,6 +1,5 @@
 #pragma once
-#include <string>
-#include <memory>
+#include "libraries.h"
 #include "Inventory.h"
 #include "Abilities.h"
 
@@ -29,13 +28,15 @@ public:
 	std::string getName();
 	bool getFriendly();
 	std::shared_ptr<Inventory> getInventory();
+	std::shared_ptr<Abilities> getAbilities();
 	
 	//setter
 	void setHitPoints(int hp);
 	void setMana(int mp);
 	void setLevel(int level);
-	void setName(std::string name);
+	void setName(std::string myName);
 	void setFriedly(bool ff);
 	void setInventory(std::shared_ptr<Inventory> inv);
+	void setAbilities(std::shared_ptr<Abilities> myAbilities);
 };
 
