@@ -2,6 +2,13 @@
 
 Character::Character(){
 	std::cout << "Created character" << std::endl;
+	hitPoints = 0;
+	mana = 0;
+	level = 0;
+	name = "default";
+	friendly = true;
+	inventory = nullptr;
+	abilities = nullptr;
 }
 
 Character::~Character(){

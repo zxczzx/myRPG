@@ -2,8 +2,7 @@
 #include "Character.h"
 #include "libraries.h"
 
-class Player :
-	public Character
+class Player : public Character
 {
 protected:
 	int experience;

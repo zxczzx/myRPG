@@ -50,5 +50,8 @@
     <ClInclude Include="Abilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libraries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
