@@ -28,6 +28,10 @@ int Character::getLevel(){
 	return level;
 }
 
+double Character::getDamage() {
+	return damage;
+}
+
 std::string Character::getName(){
 	return name;
 }
@@ -55,6 +59,10 @@ void Character::setHitPoints(int hp){
 
 void Character::setLevel(int lvl){
 	level = lvl;
+}
+
+void Character::setDamage(double dmg) {
+	damage = dmg;
 }
 
 void Character::setMana(int mp){

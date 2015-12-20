@@ -9,6 +9,8 @@ protected:
 	int hitPoints;
 	int mana;
 	int level;
+	double damage;
+	double armor;
 	std::string name;
 	bool friendly;
 	std::shared_ptr<Inventory> inventory;
@@ -25,6 +27,7 @@ public:
 	int getHitPoints();
 	int getMana();
 	int getLevel();
+	double getDamage();
 	std::string getName();
 	bool getFriendly();
 	std::shared_ptr<Inventory> getInventory();
@@ -34,6 +37,7 @@ public:
 	void setHitPoints(int hp);
 	void setMana(int mp);
 	void setLevel(int level);
+	void setDamage(double dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);
 	void setInventory(std::shared_ptr<Inventory> inv);
