@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player(){
 	std::cout << "Player created " << std::endl;
 	experience = 0;

@@ -1,6 +1,5 @@
 #include "Enemy.h"
 
-
 Enemy::Enemy(){
 	rewardExperience = 0;
 }

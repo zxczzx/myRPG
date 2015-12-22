@@ -2,6 +2,7 @@
 #include "libraries.h"
 #include "Inventory.h"
 #include "Abilities.h"
+#include "Resistance.h"
 
 class Character
 {
@@ -15,6 +16,7 @@ protected:
 	bool friendly;
 	std::shared_ptr<Inventory> inventory;
 	std::shared_ptr<Abilities> abilities;
+	std::shared_ptr<Resistance> resistance;
 
 public:
 	Character();
