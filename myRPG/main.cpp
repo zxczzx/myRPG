@@ -1,14 +1,11 @@
-#include <vector>
-#include "libraries.h"
-#include "Enemy.h"
-#include "Player.h"
+#include "MainMenu.h"
 
 
 int main(){
-	std::cout << "cokolwiek" << std::endl;
+	std::cout << "started" << std::endl;
 
-	std::vector<std::shared_ptr<Character> > vector;
-
+	std::unique_ptr<MainMenu> menu(new MainMenu());
+	menu->start();
 
 	return 0;
 }

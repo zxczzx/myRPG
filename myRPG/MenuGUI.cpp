@@ -1,33 +1,29 @@
 #include "MenuGUI.h"
 
-
 MenuGUI::MenuGUI(){
 }
-
 
 MenuGUI::~MenuGUI(){
 }
 
-void MenuGUI::interaction(int action){
+bool MenuGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
 	switch (action){
 	case 1:
-		//clear screen
-		//std::shared_ptr<GUI> a(new std::shared_ptr<StoryGUI>());
-		//nextGUI = new std::shared_ptr<GUI>();
-		//std::cout << "whatever";
-		//nextGUI->printScreen();
-		//GUI* a = new StoryGUI();
-		//a->printScreen();
-		//std::shared_ptr<GUI> a = new std::shared_ptr<StoryGUI>();
-		break;
+	{
+		//TODO clear screen
+		std::shared_ptr<GUI> storyGUIptr(new StoryGUI());
+		nextGUI = storyGUIptr;
+		nextGUI->printScreen();
+		return true;
+	}
 	case 2:
-		break;
+		return true;
 	case 3:
-		break;
+		return true;
 	case 4:
-		break;
+		return false;
 	default:
-		break;
+		return true;
 	}
 }
 

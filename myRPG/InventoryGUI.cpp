@@ -8,8 +8,8 @@ InventoryGUI::InventoryGUI(){
 InventoryGUI::~InventoryGUI(){
 }
 
-void InventoryGUI::interaction(int action){
-
+bool InventoryGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
+	return true;
 }
 
 void InventoryGUI::printScreen(){

@@ -6,7 +6,7 @@ class MenuGUI : public GUI
 {
 private:
 	//interation returns object->action
-	void interaction(int action) override;
+	bool interaction(int action, std::shared_ptr<GUI>& nextGUI) override;
 	void printScreen() override;
 
 public:

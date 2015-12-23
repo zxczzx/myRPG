@@ -1,7 +1,6 @@
 #pragma once
 #include "libraries.h"
 
-
 class GUI
 {
 protected:
@@ -19,6 +18,6 @@ public:
 
 	//method
 	virtual void printScreen() = 0;
-	virtual void interaction(int action) = 0;
+	virtual bool interaction(int action, std::shared_ptr<GUI>& nextGUI) = 0;
 };
 

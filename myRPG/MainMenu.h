@@ -1,16 +1,10 @@
 #pragma once
-#include "libraries.h"
-#include "GUI.h"
+#include "MenuGUI.h"
 
 class MainMenu
 {
 private:
 	std::shared_ptr<GUI> gui;
-
-	void startGame();
-	void loadGame();
-	void exitGame();
-	void options();
 
 public:
 	MainMenu() : gui(nullptr) {}
@@ -21,5 +15,9 @@ public:
 
 	//setter
 	void setInterface(std::shared_ptr<GUI> interf);
+
+	//method
+	void start();
+	static void cls();
 };
 
