@@ -15,8 +15,7 @@ void MainMenu::setInterface(std::shared_ptr<GUI> interf){
 
 //METHODS
 void MainMenu::start(){
-	std::shared_ptr<GUI> menu(new MenuGUI());
-	gui = menu;
+	gui = std::make_shared<MenuGUI>();
 	int action;
 	bool running = true;
 
@@ -30,5 +29,4 @@ void MainMenu::start(){
 
 void MainMenu::cls(){
 	system("CLS");
-	//std::cout << std::string(31, '\n');
 }

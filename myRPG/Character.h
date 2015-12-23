@@ -10,6 +10,7 @@ protected:
 	int hitPoints;
 	int mana;
 	int level;
+	short int initiative;
 	double damage;
 	double armor;
 	std::string name;

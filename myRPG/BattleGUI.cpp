@@ -12,9 +12,7 @@ bool BattleGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
 	switch (action){
 	case 1:
 	{
-		std::shared_ptr<GUI> storyGUIptr(new BattleGUI());
-		nextGUI = storyGUIptr;
-		nextGUI->printScreen();
+		nextGUI = std::make_unique<BattleGUI>();
 		return true;
 	}
 	case 2:

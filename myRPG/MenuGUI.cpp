@@ -10,10 +10,7 @@ bool MenuGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
 	switch (action){
 	case 1:
 	{
-		//TODO clear screen
-		std::shared_ptr<GUI> storyGUIptr(new StoryGUI());
-		nextGUI = storyGUIptr;
-		nextGUI->printScreen();
+		nextGUI = std::make_unique<StoryGUI>();
 		return true;
 	}
 	case 2:
