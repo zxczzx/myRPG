@@ -82,6 +82,7 @@
     <ClCompile Include="BattleGUI.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="ExitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryGUI.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="BattleGUI.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="ExitGUI.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryGUI.h" />

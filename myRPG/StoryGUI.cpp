@@ -18,8 +18,9 @@ bool StoryGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
 	case 2:
 	case 3:
 	{
-		int random = rand() % 100 + 1;
-		if (random < 50){
+		srand(time(NULL));
+		int random = rand() % 10 + 1;
+		if (random < 5){
 			nextGUI = std::make_unique<StoryGUI>();
 		}
 		else{
@@ -30,6 +31,7 @@ bool StoryGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
 	case 4:
 		break;
 	case 5:
+		nextGUI = std::make_unique<MenuGUI>();
 		break;
 	default:
 		break;

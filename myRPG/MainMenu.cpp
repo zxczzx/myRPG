@@ -15,14 +15,14 @@ void MainMenu::setInterface(std::shared_ptr<GUI> interf){
 
 //METHODS
 void MainMenu::start(){
-	gui = std::make_shared<MenuGUI>();
+	gui = std::make_unique<MenuGUI>();
 	int action;
-	bool running = true;
 
-	while (running){
+	while (true){
 		gui->printScreen();
 		std::cin >> action;
-		running = gui->interaction(action, gui);
+		if (!gui->interaction(action, gui))
+			break;
 		MainMenu::cls();
 	}
 }

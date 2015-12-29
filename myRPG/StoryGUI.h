@@ -1,6 +1,7 @@
 #pragma once
 #include "GUI.h"
 #include "BattleGUI.h"
+#include "MenuGUI.h"
 
 class StoryGUI : public GUI
 {
