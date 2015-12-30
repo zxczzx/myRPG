@@ -11,7 +11,10 @@ std::shared_ptr<GUI> QuitGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
 	case 1:
+		exit(0);
 		return std::make_shared<QuitGUI>();
+	case 2:
+		return std::make_shared<MenuGUI>();
 	default:
 		return std::make_shared<MenuGUI>();
 	}
