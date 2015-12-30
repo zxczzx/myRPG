@@ -1,4 +1,6 @@
 #include "MenuGUI.h"
+#include "StoryGUI.h"
+#include "QuitGUI.h"
 
 MenuGUI::MenuGUI(){
 }
@@ -6,27 +8,22 @@ MenuGUI::MenuGUI(){
 MenuGUI::~MenuGUI(){
 }
 
-bool MenuGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
-	switch (action){
-	case 1:
+std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
+	switch (input)
 	{
-		nextGUI = std::make_unique<StoryGUI>();
-		return true;
-	}
+	case 1:
+		return std::make_shared<StoryGUI>();
 	case 2:
-		return true;
 	case 3:
-		return true;
 	case 4:
-		return false;
+	case 5:
+		//return std::make_shared<ExitGUI>();
 	default:
-		return true;
+		return std::make_shared<QuitGUI>();
 	}
 }
 
-void MenuGUI::printScreen(){
-	std::cout << "1. Start game" << std::endl;
-	std::cout << "2. Load Game" << std::endl;
-	std::cout << "3. Options" << std::endl;
-	std::cout << "4. Exit" << std::endl;
+void MenuGUI::enter(Game& game){
+	Graphic graphic = Graphic::MENU_GUI;
+	game.setGraphic(graphic);
 }

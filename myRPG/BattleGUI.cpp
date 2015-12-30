@@ -4,28 +4,20 @@
 BattleGUI::BattleGUI(){
 }
 
-
 BattleGUI::~BattleGUI(){
 }
 
-bool BattleGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
-	switch (action){
-	case 1:
+std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
+	switch (input)
 	{
-		nextGUI = std::make_unique<BattleGUI>();
-		return true;
-	}
-	case 2:
-		return true;
-	case 3:
-		return true;
-	case 4:
-		return false;
+	case 1:
+		return std::make_shared<BattleGUI>();
 	default:
-		return true;
+		return std::make_shared<BattleGUI>();
 	}
 }
 
-void BattleGUI::printScreen(){
-	std::cout << "1. BattleGUI" << std::endl;
+void BattleGUI::enter(Game& game){
+	Graphic graphic = Graphic::BATTLE_GUI;
+	game.setGraphic(graphic);
 }

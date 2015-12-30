@@ -1,5 +1,6 @@
 #include "StoryGUI.h"
-
+#include "BattleGUI.h"
+#include "MenuGUI.h"
 
 StoryGUI::StoryGUI(){
 }
@@ -8,41 +9,32 @@ StoryGUI::StoryGUI(){
 StoryGUI::~StoryGUI(){
 }
 
-bool StoryGUI::interaction(int action, std::shared_ptr<GUI>& nextGUI){
-	switch (action){
-	case 1:
+std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
+	switch (input)
 	{
-		nextGUI = std::make_unique<BattleGUI>();
-		break;
-	}
+	case 1:
+		return std::make_shared<BattleGUI>();
 	case 2:
 	case 3:
 	{
 		srand(time(NULL));
 		int random = rand() % 10 + 1;
 		if (random < 5){
-			nextGUI = std::make_unique<StoryGUI>();
+			return std::make_unique<StoryGUI>();
 		}
 		else{
-			nextGUI = std::make_unique<BattleGUI>();
+			return std::make_unique<BattleGUI>();
 		}
-		break;
 	}
 	case 4:
-		break;
 	case 5:
-		nextGUI = std::make_unique<MenuGUI>();
-		break;
+		return std::make_shared<MenuGUI>();
 	default:
-		break;
+		return std::make_unique<StoryGUI>();
 	}
-	return true;
 }
 
-void StoryGUI::printScreen(){
-	std::cout << "1. Go to Battle GUI" << std::endl;
-	std::cout << "2. Turn right" << std::endl;
-	std::cout << "3. Turn left" << std::endl;
-	std::cout << "4. Inventory" << std::endl;
-	std::cout << "5. Menu" << std::endl;
+void StoryGUI::enter(Game& game){
+	Graphic graphic = Graphic::STORY_GUI;
+	game.setGraphic(graphic);
 }

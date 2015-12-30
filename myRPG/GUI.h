@@ -1,23 +1,14 @@
 #pragma once
 #include "libraries.h"
+#include "Game.h"
 
 class GUI
 {
-protected:
-	std::shared_ptr<GUI> nextGUI;
-
 public:
 	GUI();
 	~GUI();
 
-	//getter
-	std::shared_ptr<GUI> getNextGUI();
-
-	//setter
-	void setNextGUI(std::shared_ptr<GUI> next);
-
-	//method
-	virtual void printScreen() = 0;
-	virtual bool interaction(int action, std::shared_ptr<GUI>& nextGUI) = 0;
+	virtual std::shared_ptr<GUI> handleInput(Game& game, int input) = 0;
+	virtual void enter(Game& game) = 0;
 };
 

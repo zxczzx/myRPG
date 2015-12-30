@@ -53,6 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,31 +80,36 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Abilities.cpp" />
-    <ClCompile Include="BattleGUI.cpp" />
+    <ClCompile Include="BattleGUI.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
+    </ClCompile>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="ExitGUI.cpp" />
+    <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryGUI.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="MenuGUI.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resistance.cpp" />
-    <ClCompile Include="StoryGUI.cpp" />
+    <ClCompile Include="StoryGUI.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abilities.h" />
     <ClInclude Include="BattleGUI.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="ExitGUI.h" />
+    <ClInclude Include="QuitGUI.h" />
+    <ClInclude Include="Graphic.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryGUI.h" />
     <ClInclude Include="libraries.h" />
-    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="MenuGUI.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resistance.h" />

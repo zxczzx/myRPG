@@ -1,9 +1,14 @@
-#include "MainMenu.h"
-
+#include "Game.h"
 
 int main(){
-	std::unique_ptr<MainMenu> menu(new MainMenu());
-	menu->start();
+	std::unique_ptr<Game> game = std::make_unique<Game>();
+	int action;
+	game->setGraphic(Graphic::MENU_GUI);
+
+	while (true){
+		std::cin >> action;
+		game->handleInput(action);
+	}
 
 	return 0;
 }
