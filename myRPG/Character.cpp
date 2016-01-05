@@ -5,6 +5,9 @@ Character::Character(){
 	hitPoints = 0;
 	mana = 0;
 	level = 0;
+	initiative = 0;
+	damage = 0;
+	armor = 0;
 	name = "default";
 	friendly = true;
 	inventory = nullptr;
@@ -12,6 +15,17 @@ Character::Character(){
 }
 
 Character::~Character(){
+}
+
+void Character::operator=(const Character &c){
+	hitPoints = c.hitPoints;
+	level = c.level;
+	damage = c.damage;
+	name = c.name;
+	friendly = c.friendly;
+	inventory = c.inventory;
+	abilities = c.abilities;
+	resistance = c.resistance;
 }
 
 //GETTERS

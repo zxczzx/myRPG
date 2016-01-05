@@ -8,13 +8,34 @@ BattleGUI::~BattleGUI(){
 }
 
 std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
-	switch (input)
-	{
-	case 1:
-		return std::make_shared<BattleGUI>();
-	default:
-		return std::make_shared<BattleGUI>();
+	for (auto character : game.getEnemies()){
+		if (character->getFriendly() == true){
+			//players turn
+			switch (input)
+			{
+			case 1: //attack
+				//actions
+				continue;
+				return std::make_shared<BattleGUI>();
+			case 2: //special ability
+				return std::make_shared<BattleGUI>();
+			case 3: //spell
+				return std::make_shared<BattleGUI>();
+			case 4: //inventory access
+				return std::make_shared<BattleGUI>();
+			case 5: //pass turn
+				return std::make_shared<BattleGUI>();
+			case 6: //retreat
+				return std::make_shared<BattleGUI>();
+			default:
+				break;
+			}
+		}
+		else{
+			//enemies turn
+		}
 	}
+	return std::make_shared<BattleGUI>();
 }
 
 void BattleGUI::enter(Game& game){

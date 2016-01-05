@@ -2,6 +2,7 @@
 
 Enemy::Enemy(){
 	rewardExperience = 0;
+	friendly = false;
 }
 
 Enemy::~Enemy(){

@@ -1,5 +1,5 @@
 #include "MenuGUI.h"
-#include "StoryGUI.h"
+#include "StartGameGUI.h"
 #include "QuitGUI.h"
 
 MenuGUI::MenuGUI(){
@@ -12,7 +12,7 @@ std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
 	case 1:
-		return std::make_shared<StoryGUI>();
+		return std::make_shared<StartGameGUI>();
 	case 2:
 	case 3:
 	case 4:

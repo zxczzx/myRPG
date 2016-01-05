@@ -22,6 +22,9 @@ protected:
 public:
 	Character();
 	~Character();
+
+	void operator=(const Character &c);
+
 	//methods
 	void attack();
 	void death();

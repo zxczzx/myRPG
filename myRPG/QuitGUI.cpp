@@ -20,6 +20,6 @@ std::shared_ptr<GUI> QuitGUI::handleInput(Game& game, int input){
 }
 
 void QuitGUI::enter(Game& game){
-	Graphic graphic = Graphic::QUIT_GUI;
+	Graphic graphic = Graphic::MENU_QUIT_GUI;
 	game.setGraphic(graphic);
 }

@@ -1,6 +1,7 @@
 #include "StoryGUI.h"
 #include "BattleGUI.h"
 #include "MenuGUI.h"
+#include "Enemy.h"
 
 StoryGUI::StoryGUI(){
 }
@@ -23,6 +24,26 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			return std::make_unique<StoryGUI>();
 		}
 		else{
+			//create enemies
+			srand(time(NULL));
+			int enemy_number = rand() % 3 + 1;
+			std::vector<std::shared_ptr<Character> > characters;
+			for (int i = 0; i < enemy_number; i++){
+				std::shared_ptr<Enemy> enemy = std::make_shared<Enemy>();
+				enemy->setName("Orc");
+				characters.push_back(enemy);
+			}
+			//add characters
+			characters.push_back(game.getPlayer());
+			game.setEnemies(characters);
+			characters.clear();
+
+			//initiative rolls
+			srand(time(NULL));
+			int random = rand() % 10 + 1;
+
+			//sort vector
+
 			return std::make_unique<BattleGUI>();
 		}
 	}
@@ -35,6 +56,6 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 }
 
 void StoryGUI::enter(Game& game){
-	Graphic graphic = Graphic::STORY_GUI;
+	Graphic graphic = Graphic::MENU_STORY_GUI;
 	game.setGraphic(graphic);
 }

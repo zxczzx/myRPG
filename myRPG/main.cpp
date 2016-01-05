@@ -6,6 +6,7 @@ int main(){
 	game->setGraphic(Graphic::MENU_GUI);
 
 	while (true){
+		_CrtDumpMemoryLeaks();
 		std::cin >> action;
 		game->handleInput(action);
 	}
