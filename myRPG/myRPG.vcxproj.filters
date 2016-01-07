@@ -111,6 +111,9 @@
     <ClCompile Include="Resistance.cpp">
       <Filter>Source Files\Character\Attributes</Filter>
     </ClCompile>
+    <ClCompile Include="Orc.cpp">
+      <Filter>Source Files\Character\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries.h">
@@ -168,6 +171,9 @@
       <Filter>Header Files\Character\Player classes</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Character\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Orc.h">
       <Filter>Header Files\Character\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

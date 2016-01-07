@@ -6,6 +6,7 @@ int main(){
 	game->setGraphic(Graphic::MENU_GUI);
 
 	while (true){
+		std::cout << "> ";
 		std::cin >> action;
 		game->handleInput(action);
 	}

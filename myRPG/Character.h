@@ -11,8 +11,8 @@ protected:
 	int mana;
 	int level;
 	short int initiative;
-	double damage;
-	double armor;
+	int damage;
+	int armor;
 	std::string name;
 	bool friendly;
 	std::shared_ptr<Inventory> inventory;
@@ -34,7 +34,7 @@ public:
 	int getMana();
 	int getLevel();
 	short int getInitiative();
-	double getDamage();
+	int getDamage();
 	std::string getName();
 	bool getFriendly();
 	std::shared_ptr<Inventory> getInventory();
@@ -45,7 +45,7 @@ public:
 	void setMana(int mp);
 	void setLevel(int level);
 	void setInitiative(short int init);
-	void setDamage(double dmg);
+	void setDamage(int dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);
 	void setInventory(std::shared_ptr<Inventory> inv);

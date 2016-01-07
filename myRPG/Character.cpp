@@ -45,7 +45,7 @@ short int Character::getInitiative(){
 	return initiative;
 }
 
-double Character::getDamage() {
+int Character::getDamage() {
 	return damage;
 }
 
@@ -82,7 +82,7 @@ void Character::setInitiative(short int init){
 	initiative = init;
 }
 
-void Character::setDamage(double dmg) {
+void Character::setDamage(int dmg) {
 	damage = dmg;
 }
 

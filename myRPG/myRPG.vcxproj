@@ -87,6 +87,7 @@
     <ClCompile Include="CreatePlayerGUI.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Mage.cpp" />
+    <ClCompile Include="Orc.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Mage.h" />
+    <ClInclude Include="Orc.h" />
     <ClInclude Include="QuitGUI.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="GUI.h" />

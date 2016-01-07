@@ -23,6 +23,7 @@ public:
 	//setter
 	void setPlayer(std::shared_ptr<Player> player);
 	void setCharacters(std::vector<std::shared_ptr<Character> > enemiesList);
+	void setGraphicUpdate(std::string inputGraphic);
 
 	//method
 	virtual void handleInput(int input);

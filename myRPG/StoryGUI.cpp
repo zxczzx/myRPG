@@ -2,6 +2,7 @@
 #include "BattleGUI.h"
 #include "MenuGUI.h"
 #include "Enemy.h"
+#include "Orc.h"
 
 StoryGUI::StoryGUI(){
 }
@@ -33,8 +34,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			int enemy_number = random_enemies(gen);
 			std::vector<std::shared_ptr<Character> > characters;
 			for (int i = 0; i < enemy_number; i++){
-				std::shared_ptr<Enemy> enemy = std::make_shared<Enemy>();
-				enemy->setName("Orc");
+				std::shared_ptr<Enemy> enemy = std::make_shared<Orc>();
 				characters.push_back(enemy);
 			}
 			//add characters

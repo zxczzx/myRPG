@@ -50,6 +50,7 @@ void Game::setGraphic(Graphic graphic){
 	switch (graphic)
 	{
 	case Graphic::MENU_GUI:
+		std::cout << "Main Menu" << std::endl << std::endl;
 		std::cout << "1. Start game" << std::endl;
 		std::cout << "2. Save game" << std::endl;
 		std::cout << "3. Load game" << std::endl;
@@ -57,6 +58,7 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "5. Exit" << std::endl;
 		break;
 	case Graphic::MENU_STORY_GUI:
+		std::cout << "Where do you want to go?" << std::endl << std::endl;
 		std::cout << "1. Go to Battle GUI" << std::endl;
 		std::cout << "2. Turn right" << std::endl;
 		std::cout << "3. Turn left" << std::endl;
@@ -64,33 +66,34 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "5. Menu" << std::endl;
 		break;
 	case Graphic::MENU_START_GAME_GUI:
+		std::cout << "Start game" << std::endl << std::endl;
 		std::cout << "1. Create new player" << std::endl;
 		std::cout << "2. Load game" << std::endl;
 		std::cout << "3. Back" << std::endl;
 		break;
 	case Graphic::MENU_QUIT_GUI:
-		std::cout << "Do you really want to quit?" << std::endl;
+		std::cout << "Do you really want to quit?" << std::endl << std::endl;
 		std::cout << "1. Yes" << std::endl;
 		std::cout << "2. No" << std::endl;
 		break;
 	case Graphic::CREATE_PLAYER:
-		std::cout << "Create your character" << std::endl;
+		std::cout << "Create your character" << std::endl << std::endl;
 		std::cout << "1. Change name \t\t" << "Your name: " << player_->getName() << std::endl;
 		std::cout << "2. Change class \t" << "Your class: " << player_->getClassType() << std::endl;
 		std::cout << "3. Start game" << std::endl;
 		std::cout << "4. Back" << std::endl;
 		break;
 	case Graphic::CREATE_CLASS_OPTION:
-		std::cout << "What class do you choose?" << std::endl;
+		std::cout << "What class do you choose?" << std::endl << std::endl;
 		std::cout << "1. Warrior" << std::endl;
 		std::cout << "2. Mage" << std::endl;
 		break;
 	case Graphic::CREATE_WRITE_OPTION:
 		std::cout << "Your text" << std::endl;
-		std::cout << "> ";
 		break;
 	case Graphic::BATTLE_GUI:
 		//GUI
+		std::cout << "Battle!" << std::endl << std::endl;
 		std::cout << "1. Attack" << std::endl;
 		std::cout << "2. Special ability" << std::endl;
 		std::cout << "3. Spell" << std::endl;
@@ -99,11 +102,11 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "6. Retreat" << std::endl;
 		//Graphic
 		std::cout << std::endl;
-		for (auto& character : characters_){
-			std::cout << "* " << character->getName() << "\t initiative: \t" << character->getInitiative() << std::endl;
-		}
+		std::cout << "Status: " << player_->getName() << " " << player_->getHitPoints() << " hp" << std::endl;
+
 		break;
 	case Graphic::INENTORY_GUI:
+		std::cout << "Inventory" << std::endl << std::endl;
 		break;
 	default:
 		break;
