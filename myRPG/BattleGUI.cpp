@@ -8,7 +8,7 @@ BattleGUI::~BattleGUI(){
 }
 
 std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
-	for (auto character : game.getEnemies()){
+	for (auto character : game.getCharacters()){
 		if (character->getFriendly() == true){
 			//players turn
 			switch (input)

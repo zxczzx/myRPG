@@ -1,7 +1,6 @@
 #include "Player.h"
 
 Player::Player() : Character() {
-	std::cout << "Player created " << std::endl;
 	hitPoints = 20;
 	level = 1;
 	damage = 1;

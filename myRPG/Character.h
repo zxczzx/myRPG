@@ -33,6 +33,7 @@ public:
 	int getHitPoints();
 	int getMana();
 	int getLevel();
+	short int getInitiative();
 	double getDamage();
 	std::string getName();
 	bool getFriendly();
@@ -43,6 +44,7 @@ public:
 	void setHitPoints(int hp);
 	void setMana(int mp);
 	void setLevel(int level);
+	void setInitiative(short int init);
 	void setDamage(double dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);

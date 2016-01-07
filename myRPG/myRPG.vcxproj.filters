@@ -25,28 +25,40 @@
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{1e26c9f2-63cc-40e7-ba09-83e4eb8153a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Character\Abilities">
+      <UniqueIdentifier>{4e6a0ecf-22cb-486c-898a-c9f5a260f529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Inventory">
+      <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Player classes">
+      <UniqueIdentifier>{22fa9c7a-07cb-4c94-a4b3-267f243eb0dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Enemies">
+      <UniqueIdentifier>{0eb13cf4-ae1c-42f0-a0b2-b0e6c26e1fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Abilities">
+      <UniqueIdentifier>{217bf720-2eda-4e24-88f7-693f6e661972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Attributes">
+      <UniqueIdentifier>{05d885bd-d601-46a8-8948-48efad0da31c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Attributes">
+      <UniqueIdentifier>{c7bfff20-4917-4ba7-86ec-c43234cf1f8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Inventory">
+      <UniqueIdentifier>{06c6a7b5-ce1b-4f15-bd10-2430004464f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Enemies">
+      <UniqueIdentifier>{df77fa47-398a-44f1-9cac-2f4c981de200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Player classes">
+      <UniqueIdentifier>{3a85e667-2650-4d32-9b1f-ff1c1ca66aa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Abilities.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Resistance.cpp">
-      <Filter>Source Files\Character</Filter>
     </ClCompile>
     <ClCompile Include="GUI.cpp">
       <Filter>Source Files\GUI</Filter>
@@ -69,39 +81,42 @@
     <ClCompile Include="QuitGUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Warrior.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
     <ClCompile Include="CreatePlayerGUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Mage.cpp">
-      <Filter>Source Files\Character</Filter>
-    </ClCompile>
     <ClCompile Include="StartGameGUI.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Abilities.cpp">
+      <Filter>Source Files\Character\Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Mage.cpp">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Warrior.cpp">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\Character\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Character\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Resistance.cpp">
+      <Filter>Source Files\Character\Attributes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Abilities.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Resistance.h">
       <Filter>Header Files\Character</Filter>
     </ClInclude>
     <ClInclude Include="GUI.h">
@@ -128,17 +143,32 @@
     <ClInclude Include="QuitGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Warrior.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
     <ClInclude Include="CreatePlayerGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Mage.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
     <ClInclude Include="StartGameGUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Abilities.h">
+      <Filter>Header Files\Character\Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Resistance.h">
+      <Filter>Header Files\Character\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\Character\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Character\Player classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Warrior.h">
+      <Filter>Header Files\Character\Player classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Mage.h">
+      <Filter>Header Files\Character\Player classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Character\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

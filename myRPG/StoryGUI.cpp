@@ -11,6 +11,12 @@ StoryGUI::~StoryGUI(){
 }
 
 std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> random_path(1, 10);
+	std::uniform_int_distribution<> random_enemies(1, 3);
+	std::uniform_int_distribution<> random_init(1, 100);
+
 	switch (input)
 	{
 	case 1:
@@ -18,15 +24,13 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	case 2:
 	case 3:
 	{
-		srand(time(NULL));
-		int random = rand() % 10 + 1;
+		int random = random_path(gen);
 		if (random < 5){
 			return std::make_unique<StoryGUI>();
 		}
 		else{
 			//create enemies
-			srand(time(NULL));
-			int enemy_number = rand() % 3 + 1;
+			int enemy_number = random_enemies(gen);
 			std::vector<std::shared_ptr<Character> > characters;
 			for (int i = 0; i < enemy_number; i++){
 				std::shared_ptr<Enemy> enemy = std::make_shared<Enemy>();
@@ -35,14 +39,17 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			}
 			//add characters
 			characters.push_back(game.getPlayer());
-			game.setEnemies(characters);
+			game.setCharacters(characters);
 			characters.clear();
 
 			//initiative rolls
-			srand(time(NULL));
-			int random = rand() % 10 + 1;
+			for (auto& character : game.getCharacters()){
+				int rand_initiative = random_init(gen);
+				character->setInitiative(character->getInitiative() + rand_initiative);
+			}
 
 			//sort vector
+			game.initiaviveSort();
 
 			return std::make_unique<BattleGUI>();
 		}

@@ -1,7 +1,6 @@
 #include "Character.h"
 
 Character::Character(){
-	std::cout << "Created character" << std::endl;
 	hitPoints = 0;
 	mana = 0;
 	level = 0;
@@ -42,6 +41,10 @@ int Character::getLevel(){
 	return level;
 }
 
+short int Character::getInitiative(){
+	return initiative;
+}
+
 double Character::getDamage() {
 	return damage;
 }
@@ -73,6 +76,10 @@ void Character::setHitPoints(int hp){
 
 void Character::setLevel(int lvl){
 	level = lvl;
+}
+
+void Character::setInitiative(short int init){
+	initiative = init;
 }
 
 void Character::setDamage(double dmg) {

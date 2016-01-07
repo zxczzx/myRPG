@@ -14,7 +14,7 @@ std::shared_ptr<Player> Game::getPlayer(){
 	return player_;
 }
 
-std::vector<std::shared_ptr<Character> > Game::getEnemies(){
+std::vector<std::shared_ptr<Character> > Game::getCharacters(){
 	return characters_;
 }
 
@@ -23,7 +23,7 @@ void Game::setPlayer(std::shared_ptr<Player> player){
 	player_ = player;
 }
 
-void Game::setEnemies(std::vector<std::shared_ptr<Character> > enemiesList){
+void Game::setCharacters(std::vector<std::shared_ptr<Character> > enemiesList){
 	characters_ = enemiesList;
 }
 
@@ -36,6 +36,13 @@ void Game::handleInput(int input){
 
 		state_->enter(*this);
 	}
+}
+
+void Game::initiaviveSort(){
+	std::sort(characters_.begin(), characters_.end(),
+		[](std::shared_ptr<Character>& a, std::shared_ptr<Character>& b)-> bool {
+		return a->getInitiative() > b->getInitiative();
+	});
 }
 
 void Game::setGraphic(Graphic graphic){
@@ -93,7 +100,7 @@ void Game::setGraphic(Graphic graphic){
 		//Graphic
 		std::cout << std::endl;
 		for (auto& character : characters_){
-			std::cout << "* " << character->getName() << std::endl;
+			std::cout << "* " << character->getName() << "\t initiative: \t" << character->getInitiative() << std::endl;
 		}
 		break;
 	case Graphic::INENTORY_GUI:

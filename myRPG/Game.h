@@ -18,14 +18,15 @@ public:
 
 	//getter
 	std::shared_ptr<Player> getPlayer();
-	std::vector<std::shared_ptr<Character> > getEnemies();
+	std::vector<std::shared_ptr<Character> > getCharacters();
 
 	//setter
 	void setPlayer(std::shared_ptr<Player> player);
-	void setEnemies(std::vector<std::shared_ptr<Character> > enemiesList);
+	void setCharacters(std::vector<std::shared_ptr<Character> > enemiesList);
 
 	//method
 	virtual void handleInput(int input);
 	void setGraphic(Graphic graphic);
+	void initiaviveSort();
 };
 
