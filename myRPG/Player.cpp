@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player() : Character() {
-	hitPoints = 20;
+	hitPoints = 14;
 	level = 1;
 	damage = 1;
 	name = "default";
@@ -11,7 +11,6 @@ Player::Player() : Character() {
 	abilities = std::make_shared<Abilities>();
 	resistance = std::make_shared<Resistance>();
 }
-
 
 Player::~Player(){
 }
@@ -42,6 +41,12 @@ std::string Player::getClassType(){
 
 void Player::setExperience(int exp){
 	experience = exp;
+
+	//check if character lvl'ed up
+	if (isLvlUp()){
+		setLevel(this->level + 1);
+		std::cout << "You leveled up to level " << this->level << "!" << std::endl;
+	}
 }
 
 void Player::setClassType(std::string myClassType){
@@ -56,4 +61,17 @@ void Player::useAbility(std::shared_ptr<Abilities> ability){
 
 void Player::useItem(std::shared_ptr<Inventory> item){
 	std::cout << "Player used item " << item << std::endl;
+}
+
+bool Player::isLvlUp(){
+	//pair { level, experience }
+	std::map<int, int> lvlMap{
+		{ 1, 5 }, { 2, 50 }, { 3, 100 }, { 4, 200 }, { 5, 400 }, { 6, 800 }, {7, 1600}, {8, 3200}, {9, 6400}, {10, 12800},
+	};
+	if (this->experience >= lvlMap.find(this->level)->second){
+		return true;
+	}
+	else{
+		return false;
+	}
 }

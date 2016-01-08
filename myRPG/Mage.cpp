@@ -2,7 +2,9 @@
 
 Mage::Mage(){
 	classType = "Mage";
-	mana = 20;
+	hitPoints += 4 * level;
+	damage = 2 + level;
+	mana = 20*level;
 }
 
 Mage::~Mage(){

@@ -86,6 +86,8 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CreatePlayerGUI.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameOverGUI.cpp" />
+    <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Mage.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
@@ -101,6 +103,7 @@
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
+    <ClCompile Include="VictoryGUI.cpp" />
     <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +112,8 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameOverGUI.h" />
+    <ClInclude Include="Loot.h" />
     <ClInclude Include="Mage.h" />
     <ClInclude Include="Orc.h" />
     <ClInclude Include="QuitGUI.h" />
@@ -123,6 +128,7 @@
     <ClInclude Include="Resistance.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
+    <ClInclude Include="VictoryGUI.h" />
     <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

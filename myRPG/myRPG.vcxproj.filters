@@ -28,9 +28,6 @@
     <Filter Include="Source Files\Character\Abilities">
       <UniqueIdentifier>{4e6a0ecf-22cb-486c-898a-c9f5a260f529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Character\Inventory">
-      <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Character\Player classes">
       <UniqueIdentifier>{22fa9c7a-07cb-4c94-a4b3-267f243eb0dc}</UniqueIdentifier>
     </Filter>
@@ -46,14 +43,17 @@
     <Filter Include="Header Files\Character\Attributes">
       <UniqueIdentifier>{c7bfff20-4917-4ba7-86ec-c43234cf1f8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Character\Inventory">
-      <UniqueIdentifier>{06c6a7b5-ce1b-4f15-bd10-2430004464f9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Character\Enemies">
       <UniqueIdentifier>{df77fa47-398a-44f1-9cac-2f4c981de200}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Character\Player classes">
       <UniqueIdentifier>{3a85e667-2650-4d32-9b1f-ff1c1ca66aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inventory">
+      <UniqueIdentifier>{06c6a7b5-ce1b-4f15-bd10-2430004464f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory">
+      <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +84,6 @@
     <ClCompile Include="CreatePlayerGUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="StartGameGUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Abilities.cpp">
       <Filter>Source Files\Character\Abilities</Filter>
     </ClCompile>
@@ -100,7 +97,7 @@
       <Filter>Source Files\Character</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files\Character\Inventory</Filter>
+      <Filter>Source Files\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Character\Player classes</Filter>
@@ -113,6 +110,18 @@
     </ClCompile>
     <ClCompile Include="Orc.cpp">
       <Filter>Source Files\Character\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Loot.cpp">
+      <Filter>Source Files\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="StartGameGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +158,6 @@
     <ClInclude Include="CreatePlayerGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="StartGameGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Abilities.h">
       <Filter>Header Files\Character\Abilities</Filter>
     </ClInclude>
@@ -159,7 +165,7 @@
       <Filter>Header Files\Character\Attributes</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>Header Files\Character\Inventory</Filter>
+      <Filter>Header Files\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Character\Player classes</Filter>
@@ -175,6 +181,18 @@
     </ClInclude>
     <ClInclude Include="Orc.h">
       <Filter>Header Files\Character\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Loot.h">
+      <Filter>Header Files\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="StartGameGUI.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

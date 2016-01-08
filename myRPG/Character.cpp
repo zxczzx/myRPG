@@ -1,3 +1,4 @@
+#include <windows.h>
 #include "Character.h"
 
 Character::Character(){
@@ -25,6 +26,22 @@ void Character::operator=(const Character &c){
 	inventory = c.inventory;
 	abilities = c.abilities;
 	resistance = c.resistance;
+}
+
+//METHODS
+
+void Character::attack(std::shared_ptr<Character> enemy){
+	enemy->setHitPoints(enemy->getHitPoints() - this->damage);
+	std::cout << this->name << " attacked " << enemy->getName() << " for " << this->damage << " dmg" << std::endl;
+	Sleep(2000);
+}
+
+void Character::death(){
+	std::cout << "Character is dead" << std::endl;
+}
+
+bool Character::isDead(){
+	return hitPoints > 0 ? false : true;
 }
 
 //GETTERS
@@ -100,14 +117,4 @@ void Character::setInventory(std::shared_ptr<Inventory> inv){
 
 void Character::setAbilities(std::shared_ptr<Abilities> myAbilities){
 	abilities = myAbilities;
-}
-
-//METHODS
-
-void Character::attack(){
-	std::cout << "Character attack!" << std::endl;
-}
-
-void Character::death(){
-	std::cout << "Character is dead" << std::endl;
 }

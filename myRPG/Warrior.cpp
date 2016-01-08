@@ -3,8 +3,9 @@
 
 Warrior::Warrior() : Player(){
 	classType = "Warrior";
-	damage = 3;
-	mana = 5;
+	hitPoints *= 2 * level;
+	damage = 2+2*level;
+	mana = 3+2*level;
 }
 
 

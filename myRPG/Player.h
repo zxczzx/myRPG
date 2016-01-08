@@ -7,6 +7,9 @@ class Player : public Character
 protected:
 	int experience;
 	std::string classType;
+
+	bool isLvlUp();
+
 public:
 	Player();
 	~Player();

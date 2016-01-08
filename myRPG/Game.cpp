@@ -3,7 +3,6 @@
 
 Game::Game(){
 	state_ = std::make_shared<MenuGUI>();
-	running = true;
 }
 
 Game::~Game(){
@@ -14,6 +13,10 @@ std::shared_ptr<Player> Game::getPlayer(){
 	return player_;
 }
 
+std::shared_ptr<Loot> Game::getLoot(){
+	return loot_;
+}
+
 std::vector<std::shared_ptr<Character> > Game::getCharacters(){
 	return characters_;
 }
@@ -21,6 +24,10 @@ std::vector<std::shared_ptr<Character> > Game::getCharacters(){
 //SETTERS
 void Game::setPlayer(std::shared_ptr<Player> player){
 	player_ = player;
+}
+
+void Game::setLoot(std::shared_ptr<Loot> myLoot){
+	loot_ = myLoot;
 }
 
 void Game::setCharacters(std::vector<std::shared_ptr<Character> > enemiesList){
@@ -102,8 +109,26 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "6. Retreat" << std::endl;
 		//Graphic
 		std::cout << std::endl;
-		std::cout << "Status: " << player_->getName() << " " << player_->getHitPoints() << " hp" << std::endl;
+		std::cout << "Status: " << player_->getName() << " " << player_->getLevel() 
+			<< " lvl " << player_->getHitPoints() << " hp" << std::endl;
+		break;
+	case Graphic::BATTLE_GAME_OVER_GUI:
+		std::cout << "...you died" << std::endl << std::endl;
+		std::cout << "\t\tGAME OVER" << std::endl << std::endl << std::endl;
+		std::cout << "1. Main Menu" << std::endl << std::endl;
+		std::cout << "2. Exit game" << std::endl << std::endl;
+		break;
+	case Graphic::BATTLE_VICTORY_GUI:
+		std::cout << "YOU ARE VICTORIOUS!" << std::endl << std::endl;
+		std::cout << "Your reward is:" << std::endl;
+		std::cout << "\t\t" << loot_->expReward << " experience" << std::endl;
+		std::cout << "\t\t" << loot_->goldReward << " gold" << std::endl;
+		for (auto& item : loot_->items){
+			std::cout << "\t\t" << item << std::endl;
+		}
+		player_->setExperience(loot_->expReward);
 
+		std::cout << std::endl << "Press any key to continue..." << std::endl;
 		break;
 	case Graphic::INENTORY_GUI:
 		std::cout << "Inventory" << std::endl << std::endl;

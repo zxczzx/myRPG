@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 Enemy::Enemy(){
-	rewardExperience = 0;
+	loot = nullptr;
 	friendly = false;
 }
 
@@ -10,14 +10,14 @@ Enemy::~Enemy(){
 
 //GETTERS
 
-int Enemy::getRewardExperience(){
-	return rewardExperience;
+std::shared_ptr<Loot> Enemy::getLoot(){
+	return loot;
 }
 
 //SETTERS
 
-void Enemy::setRewardExperience(int exp){
-	rewardExperience = exp;
+void Enemy::setLoot(std::shared_ptr<Loot> myLoot){
+	loot = myLoot;
 }
 
 //METHODS

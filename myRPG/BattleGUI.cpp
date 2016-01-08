@@ -1,6 +1,7 @@
-#include <windows.h>
 #include "BattleGUI.h"
 #include "Enemy.h"
+#include "VictoryGUI.h"
+#include "GameOverGUI.h"
 
 BattleGUI::BattleGUI(){
 }
@@ -12,9 +13,35 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	//create enemy list
 	std::vector<std::shared_ptr<Enemy> > enemiesList;
 	for (auto& character : game.getCharacters()){
-		if (character->getFriendly() == false){
+		if (character->getFriendly() == false && !character->isDead()){
 			enemiesList.push_back(std::static_pointer_cast<Enemy>(character));
 		}
+	}
+	
+	//no enemies player won the battle
+	if (enemiesList.size() == 0){
+		//add loot
+		std::unique_ptr<Loot> loot = std::make_unique<Loot>();
+		for (auto& character : game.getCharacters()){
+			if (character->isDead()){
+				loot->expReward += std::static_pointer_cast<Enemy>(character)->getLoot()->expReward;
+				loot->goldReward += std::static_pointer_cast<Enemy>(character)->getLoot()->goldReward;
+
+				//append vector to vector
+				loot->items.insert(std::end(loot->items), 
+					std::begin(std::static_pointer_cast<Enemy>(character)->getLoot()->items), 
+					std::end(std::static_pointer_cast<Enemy>(character)->getLoot()->items)
+				);
+			}
+		}
+		game.setLoot(std::move(loot));
+
+		//clear table
+		loot.reset();
+		enemiesList.clear();
+		enemiesList.shrink_to_fit();
+
+		return std::make_shared<VictoryGUI>();
 	}
 
 	for (auto& character : game.getCharacters()){
@@ -29,13 +56,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				for (unsigned i = 0; i < enemiesList.size(); i++){
 					std::cout << i+1 << ". " << enemiesList[i]->getName() << "\t" << enemiesList[i]->getHitPoints() << " hp" << std::endl;
 				}
-				int enemyNumber = 0;
+				int enemyNumber;
 				std::cout << "> ";
 				std::cin >> enemyNumber;
 				// make dmg to enemy
-				enemiesList[enemyNumber - 1]->setHitPoints(enemiesList[enemyNumber - 1]->getHitPoints() - game.getPlayer()->getDamage());
-				std::cout << "You attacked " << enemiesList[enemyNumber - 1]->getName() << " for " << character->getDamage() << " dmg" << std::endl;
-				Sleep(2000);
+				game.getPlayer()->attack(enemiesList[enemyNumber - 1]);
 				continue;
 			}
 			case 2: //special ability
@@ -54,13 +79,20 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		}
 		else{
 			//enemy turn
-			game.getPlayer()->setHitPoints(game.getPlayer()->getHitPoints() - character->getDamage());
-			//attack
-			std::cout << character->getName() << " attacked you for " << character->getDamage() << " dmg" << std::endl;
-			//wait 1,5 sec
-			Sleep(2000);
+			if (!character->isDead()){
+				character->attack(game.getPlayer());
+			}
+			
+			//enemy gave the killing blow. Game over
+			if (game.getPlayer()->getHitPoints() <= 0){
+				return std::make_shared<GameOverGUI>();
+			}
 		}
 	}
+
+	//remove enemiesList to free up the memory
+	enemiesList.clear();
+	enemiesList.shrink_to_fit();
 	return std::make_shared<BattleGUI>();
 }
 

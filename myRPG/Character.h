@@ -26,8 +26,9 @@ public:
 	void operator=(const Character &c);
 
 	//methods
-	void attack();
+	void attack(std::shared_ptr<Character> enemy);
 	void death();
+	bool isDead();
 
 	//getter
 	int getHitPoints();

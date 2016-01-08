@@ -1,22 +1,20 @@
 #pragma once
 #include "Character.h"
 #include "libraries.h"
-#include "Inventory.h"
+#include "Loot.h"
 
 class Enemy : public Character
 {
 protected:
-	int rewardExperience;
-	int rewardGold;
-	std::vector<Inventory> loot;
+	std::shared_ptr<Loot> loot;
 
 public:
 	Enemy();
 	~Enemy();
 
 	//getter
-	int getRewardExperience();
+	std::shared_ptr<Loot> getLoot();
 	//setter
-	void setRewardExperience(int exp);
+	void setLoot(std::shared_ptr<Loot> myLoot);
 };
 

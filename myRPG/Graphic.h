@@ -12,6 +12,8 @@ enum class Graphic {
 
 	//Battle enums (attack, special, spell etc.)
 	BATTLE_GUI,
+	BATTLE_VICTORY_GUI,
+	BATTLE_GAME_OVER_GUI,
 
 	//Inventory enums (weapon, armor etc.)
 	INENTORY_GUI,

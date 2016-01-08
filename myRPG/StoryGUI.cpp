@@ -41,6 +41,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			characters.push_back(game.getPlayer());
 			game.setCharacters(characters);
 			characters.clear();
+			characters.shrink_to_fit();
 
 			//initiative rolls
 			for (auto& character : game.getCharacters()){
