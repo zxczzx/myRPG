@@ -21,9 +21,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
 	case 1:
-		return std::make_shared<BattleGUI>();
 	case 2:
-	case 3:
 	{
 		int random = random_path(gen);
 		if (random < 5){
@@ -55,8 +53,8 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			return std::make_unique<BattleGUI>();
 		}
 	}
+	case 3:
 	case 4:
-	case 5:
 		return std::make_shared<MenuGUI>();
 	default:
 		return std::make_unique<StoryGUI>();

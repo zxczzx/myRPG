@@ -65,12 +65,13 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "5. Exit" << std::endl;
 		break;
 	case Graphic::MENU_STORY_GUI:
+		std::cout << "You are in a dark room. Torches are burning in a distant corridors." << std::endl;
+		std::cout << "The feeling that someone is looking at you makes you tremble, but still... \nYou came here to find the ancient tresure there is no way you turn and go back to your boring life. \nProve yourself in battle and live glorious life as a hero or die." << std::endl << std::endl;
 		std::cout << "Where do you want to go?" << std::endl << std::endl;
-		std::cout << "1. Go to Battle GUI" << std::endl;
-		std::cout << "2. Turn right" << std::endl;
-		std::cout << "3. Turn left" << std::endl;
-		std::cout << "4. Inventory" << std::endl;
-		std::cout << "5. Menu" << std::endl;
+		std::cout << "1. Turn right" << std::endl;
+		std::cout << "2. Turn left" << std::endl;
+		std::cout << "3. Inventory" << std::endl;
+		std::cout << "4. Menu" << std::endl;
 		break;
 	case Graphic::MENU_START_GAME_GUI:
 		std::cout << "Start game" << std::endl << std::endl;
