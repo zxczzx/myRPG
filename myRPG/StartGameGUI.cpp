@@ -18,12 +18,12 @@ std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
 	{
 		std::shared_ptr<Player> player = std::make_shared<Player>();
 		game.setPlayer(player);
-		return std::make_shared<CreatePlayerGUI>();
+		return returnProperGUI<CreatePlayerGUI>();
 	}
 	case 2:	//load game
-		return std::make_shared<MenuGUI>();
+		break;
 	case 3:	//back
-		return std::make_shared<MenuGUI>();
+		return prev;
 	default:
 		break;
 	}

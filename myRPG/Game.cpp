@@ -3,6 +3,8 @@
 
 Game::Game(){
 	state_ = std::make_shared<MenuGUI>();
+	state_->setPrev(nullptr);
+	state_->setHead(state_);
 }
 
 Game::~Game(){
@@ -74,7 +76,8 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "2. Save game" << std::endl;
 		std::cout << "3. Load game" << std::endl;
 		std::cout << "4. Options" << std::endl;
-		std::cout << "5. Back" << std::endl;
+		std::cout << "5. Exit" << std::endl;
+		std::cout << "6. Back" << std::endl;
 		break;
 	case Graphic::MENU_STORY_GUI:
 		std::cout << "You are in a dark room. Torches are burning in a distant corridors." << std::endl;

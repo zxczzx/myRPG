@@ -13,9 +13,9 @@ std::shared_ptr<GUI> InventoryGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
 	case 1:
-		return std::make_shared<MenuGUI>();
+		return prev;
 	default:
-		return std::make_shared<InventoryGUI>();
+		break;
 	}
 }
 

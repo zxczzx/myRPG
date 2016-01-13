@@ -16,7 +16,7 @@ std::shared_ptr<GUI> GameOverGUI::handleInput(Game& game, int input){
 	case 1:
 		return std::make_shared<MenuGUI>();
 	case 2:
-		return std::make_shared<QuitGUI>();
+		return returnProperGUI<QuitGUI>();
 	default:
 		break;
 	}

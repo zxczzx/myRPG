@@ -1,6 +1,7 @@
 #include "StoryGUI.h"
 #include "BattleGUI.h"
 #include "MenuGUI.h"
+#include "InventoryGUI.h"
 #include "Enemy.h"
 #include "Orc.h"
 
@@ -25,7 +26,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	{
 		int random = random_path(gen);
 		if (random < 5){
-			return std::make_unique<StoryGUI>();
+			return returnProperGUI<StoryGUI>();
 		}
 		else{
 			//create enemies
@@ -50,12 +51,13 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			//sort vector
 			game.initiaviveSort();
 
-			return std::make_unique<BattleGUI>();
+			return returnProperGUI<BattleGUI>();
 		}
 	}
 	case 3:	//inventory
+		return returnProperGUI<InventoryGUI>();
 	case 4:	//menu
-		return std::make_shared<MenuGUI>();
+		return returnProperGUI<MenuGUI>();
 	default:
 		break;
 	}

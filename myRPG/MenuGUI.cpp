@@ -12,18 +12,29 @@ std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
 	case 1:	//start game
-		return std::make_shared<StartGameGUI>();
+		return returnProperGUI<StartGameGUI>();
 	case 2:	//save game
 	case 3:	//load game
 	case 4:	//options
 	case 5:	//exit
-		return std::make_shared<QuitGUI>();
+		return returnProperGUI<QuitGUI>();
+	case 6:	//back
+		if (prev != nullptr){
+			return prev;
+		}
 	default:
 		break;
 	}
 }
 
 void MenuGUI::enter(Game& game){
-	Graphic graphic = Graphic::MENU_GUI;
+	Graphic graphic;
+	if (prev == nullptr){
+		graphic = Graphic::MENU_GUI;
+	}
+	else{
+		graphic = Graphic::MENU_GUI_BACK;
+	}
 	game.setGraphic(graphic);
+	
 }

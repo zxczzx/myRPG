@@ -17,14 +17,14 @@ std::shared_ptr<GUI> CreatePlayerGUI::handleInput(Game& game, int input){
 		game.accum_mutex.lock();
 		setName(game);
 		game.accum_mutex.unlock();
-		return std::make_shared<CreatePlayerGUI>();
+		return returnProperGUI<CreatePlayerGUI>();
 	case 2:	//change class
 		chooseClass(game);
-		return std::make_shared<CreatePlayerGUI>();
+		return returnProperGUI<CreatePlayerGUI>();
 	case 3:	//start game
-		return std::make_shared<StoryGUI>();
+		return returnProperGUI<StoryGUI>();
 	case 4:	//back
-		return std::make_shared<MenuGUI>();
+		return prev;
 	default:
 		break;
 	}

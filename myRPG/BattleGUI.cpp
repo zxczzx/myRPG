@@ -44,7 +44,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		enemiesList.clear();
 		enemiesList.shrink_to_fit();
 
-		return std::make_shared<VictoryGUI>();
+		return returnProperGUI<VictoryGUI>();
 	}
 
 	for (auto& character : game.getCharacters()){
@@ -63,7 +63,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 					std::cout << i+1 << ". " << enemiesList[i]->getName() << "\t" << enemiesList[i]->getHitPoints() << " hp" << std::endl;
 				}
 				std::cout << "> ";
-				int enemyNumber;
+				unsigned enemyNumber;
 
 				//to prevent ArrayOutOfBandsException
 				do{
@@ -75,11 +75,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				continue;
 			}
 			case 2: //special ability
-				return std::make_shared<BattleGUI>();
+				return returnProperGUI<BattleGUI>();
 			case 3: //spell
-				return std::make_shared<BattleGUI>();
+				return returnProperGUI<BattleGUI>();
 			case 4: //inventory access
-				return std::make_shared<BattleGUI>();
+				return returnProperGUI<BattleGUI>();
 			case 5: //pass turn
 				std::cout << "You passed this turn" << std::endl;
 				continue;
@@ -98,7 +98,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 						}
 					}
 				}
-				return std::make_shared<StoryGUI>();
+				return returnProperGUI<StoryGUI>();
 			}
 			default:
 				break;
@@ -112,7 +112,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			
 			//enemy gave the killing blow. Game over
 			if (game.getPlayer()->getHitPoints() <= 0){
-				return std::make_shared<GameOverGUI>();
+				return returnProperGUI<GameOverGUI>(); 
 			}
 		}
 	}
@@ -120,7 +120,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	//remove enemiesList to free up the memory
 	enemiesList.clear();
 	enemiesList.shrink_to_fit();
-	return std::make_shared<BattleGUI>();
+	return returnProperGUI<BattleGUI>();
 }
 
 void BattleGUI::enter(Game& game){
