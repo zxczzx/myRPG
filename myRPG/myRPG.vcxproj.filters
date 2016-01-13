@@ -114,13 +114,13 @@
     <ClCompile Include="Loot.cpp">
       <Filter>Source Files\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="VictoryGUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameOverGUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="StartGameGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryGUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,13 +185,13 @@
     <ClInclude Include="Loot.h">
       <Filter>Header Files\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="VictoryGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameOverGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
     <ClInclude Include="StartGameGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>

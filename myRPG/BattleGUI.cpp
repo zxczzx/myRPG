@@ -2,12 +2,15 @@
 #include "Enemy.h"
 #include "VictoryGUI.h"
 #include "GameOverGUI.h"
+#include <windows.h>
 
 BattleGUI::BattleGUI(){
 }
 
 BattleGUI::~BattleGUI(){
 }
+
+//executeBattle powinno uruchamiaæ siê w metodzie enter po wyœwietleniu grafiki
 
 std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	//create enemy list
@@ -47,18 +50,20 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	for (auto& character : game.getCharacters()){
 		if (character->getFriendly() == true){
 			//players turn
+			std::cout << "Your turn. " << std::endl;
+			std::cout << "> ";
+			input = game.getInput<int>();
 			switch (input)
 			{
 			case 1: //attack
 			{
 				//actions
-				std::cout << std::endl;
+				std::cout << std::endl << "Choose enemy to attack " << std::endl;
 				for (unsigned i = 0; i < enemiesList.size(); i++){
 					std::cout << i+1 << ". " << enemiesList[i]->getName() << "\t" << enemiesList[i]->getHitPoints() << " hp" << std::endl;
 				}
-				int enemyNumber;
 				std::cout << "> ";
-				std::cin >> enemyNumber;
+				int enemyNumber = game.getInput<int>();
 				// make dmg to enemy
 				game.getPlayer()->attack(enemiesList[enemyNumber - 1]);
 				continue;

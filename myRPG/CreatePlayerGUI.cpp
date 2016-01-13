@@ -41,6 +41,7 @@ void CreatePlayerGUI::setName(Game& game){
 	//set new name
 	std::string name;
 	std::cin >> name;
+
 	game.getPlayer()->setName(name);
 }
 
@@ -49,13 +50,12 @@ void CreatePlayerGUI::chooseClass(Game& game){
 	game.setGraphic(graphic);
 
 	//set new name
-	std::string myClass;
-	std::cin >> myClass;
+	int myClass = game.getInput<int>();
 
-	if (myClass == "1"){
+	if (myClass == 1){
 		changePlayerClass<Warrior>(game);
 	}
-	else if (myClass == "2"){
+	else if (myClass == 2){
 		changePlayerClass<Mage>(game);
 	}
 }

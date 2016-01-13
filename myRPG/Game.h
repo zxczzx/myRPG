@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "Graphic.h"
 #include "Loot.h"
+#include <mutex>
+#include <atomic>
 
 class GUI;
 
@@ -16,6 +18,11 @@ private:
 public:
 	Game();
 	~Game();
+
+	//thread variables
+	bool gotInput;
+	std::mutex accum_mutex;
+	std::atomic_int atomicAction;
 
 	//getter
 	std::shared_ptr<Player> getPlayer();
@@ -32,5 +39,18 @@ public:
 	virtual void handleInput(int input);
 	void setGraphic(Graphic graphic);
 	void initiaviveSort();
+	template<typename T>
+	int getInput();
 };
+
+//Doesn't work if placed in .cpp file...
+template<class T>
+int Game::getInput(){
+	gotInput = false;
+	int value;
+	while (!gotInput){
+		value = atomicAction.load();
+	}
+	return value;
+}
 

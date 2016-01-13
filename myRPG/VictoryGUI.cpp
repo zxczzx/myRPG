@@ -8,6 +8,7 @@ VictoryGUI::~VictoryGUI(){
 }
 
 std::shared_ptr<GUI> VictoryGUI::handleInput(Game& game, int input){
+	input = game.getInput<int>();
 	switch (input)
 	{
 	default:

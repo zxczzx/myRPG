@@ -54,6 +54,10 @@ void Game::initiaviveSort(){
 
 void Game::setGraphic(Graphic graphic){
 	system("CLS");
+	if (graphic == Graphic::BATTLE_GUI || graphic == Graphic::MENU_STORY_GUI)
+	std::cout << player_->getName() << ", " << player_->getLevel()
+		<< " lvl, " << player_->getHitPoints() << " hp" << std::endl << std::endl;
+
 	switch (graphic)
 	{
 	case Graphic::MENU_GUI:
@@ -110,8 +114,13 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "6. Retreat" << std::endl;
 		//Graphic
 		std::cout << std::endl;
-		std::cout << "Status: " << player_->getName() << " " << player_->getLevel() 
-			<< " lvl " << player_->getHitPoints() << " hp" << std::endl;
+		std::cout << "Encountered enemies: ";
+		for (auto character : characters_){
+			if (!character->getFriendly()){
+				std::cout << character->getName() << ", ";
+			}
+		}
+		std::cout << std::endl;
 		break;
 	case Graphic::BATTLE_GAME_OVER_GUI:
 		std::cout << "...you died" << std::endl << std::endl;

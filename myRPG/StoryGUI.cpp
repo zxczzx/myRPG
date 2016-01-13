@@ -57,7 +57,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	case 4:
 		return std::make_shared<MenuGUI>();
 	default:
-		return std::make_unique<StoryGUI>();
+		break;
 	}
 }
 
