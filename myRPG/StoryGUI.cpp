@@ -20,8 +20,8 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 
 	switch (input)
 	{
-	case 1:
-	case 2:
+	case 1:	//turn right
+	case 2:	//turn left
 	{
 		int random = random_path(gen);
 		if (random < 5){
@@ -53,8 +53,8 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 			return std::make_unique<BattleGUI>();
 		}
 	}
-	case 3:
-	case 4:
+	case 3:	//inventory
+	case 4:	//menu
 		return std::make_shared<MenuGUI>();
 	default:
 		break;

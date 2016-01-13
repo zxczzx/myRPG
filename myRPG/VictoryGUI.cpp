@@ -11,7 +11,7 @@ std::shared_ptr<GUI> VictoryGUI::handleInput(Game& game, int input){
 	input = game.getInput<int>();
 	switch (input)
 	{
-	default:
+	default:	//press any key
 		return std::make_shared<StoryGUI>();
 	}
 }

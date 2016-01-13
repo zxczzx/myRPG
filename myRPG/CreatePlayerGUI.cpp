@@ -13,15 +13,17 @@ CreatePlayerGUI::~CreatePlayerGUI(){
 std::shared_ptr<GUI> CreatePlayerGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
-	case 1:
+	case 1:	//change name
+		game.accum_mutex.lock();
 		setName(game);
+		game.accum_mutex.unlock();
 		return std::make_shared<CreatePlayerGUI>();
-	case 2:
+	case 2:	//change class
 		chooseClass(game);
 		return std::make_shared<CreatePlayerGUI>();
-	case 3:
+	case 3:	//start game
 		return std::make_shared<StoryGUI>();
-	case 4:
+	case 4:	//back
 		return std::make_shared<MenuGUI>();
 	default:
 		break;
@@ -38,7 +40,7 @@ void CreatePlayerGUI::setName(Game& game){
 	Graphic graphic = Graphic::CREATE_WRITE_OPTION;
 	game.setGraphic(graphic);
 
-	//set new name
+	//set new name	
 	std::string name;
 	std::cin >> name;
 

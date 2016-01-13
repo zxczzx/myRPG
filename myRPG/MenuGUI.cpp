@@ -11,12 +11,12 @@ MenuGUI::~MenuGUI(){
 std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
-	case 1:
+	case 1:	//start game
 		return std::make_shared<StartGameGUI>();
-	case 2:
-	case 3:
-	case 4:
-	case 5:
+	case 2:	//save game
+	case 3:	//load game
+	case 4:	//options
+	case 5:	//exit
 		return std::make_shared<QuitGUI>();
 	default:
 		break;

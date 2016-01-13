@@ -46,12 +46,14 @@ void MainThread::handleMainInput(){
 
 void MainThread::MainInput(){
 	while (true){
+		game->accum_mutex.lock();
 		std::cin >> action;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		game->atomicAction.store(action);
 		game->gotInput = true;
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		game->accum_mutex.unlock();
 	}
 }
 

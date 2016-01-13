@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include "VictoryGUI.h"
 #include "GameOverGUI.h"
-#include <windows.h>
+#include "StoryGUI.h"
 
 BattleGUI::BattleGUI(){
 }
@@ -63,7 +63,13 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 					std::cout << i+1 << ". " << enemiesList[i]->getName() << "\t" << enemiesList[i]->getHitPoints() << " hp" << std::endl;
 				}
 				std::cout << "> ";
-				int enemyNumber = game.getInput<int>();
+				int enemyNumber;
+
+				//to prevent ArrayOutOfBandsException
+				do{
+					enemyNumber = game.getInput<int>();
+				} while (enemyNumber > enemiesList.size());
+
 				// make dmg to enemy
 				game.getPlayer()->attack(enemiesList[enemyNumber - 1]);
 				continue;
@@ -75,9 +81,25 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			case 4: //inventory access
 				return std::make_shared<BattleGUI>();
 			case 5: //pass turn
-				return std::make_shared<BattleGUI>();
+				std::cout << "You passed this turn" << std::endl;
+				continue;
 			case 6: //retreat
-				return std::make_shared<BattleGUI>();
+			{
+				std::random_device rd;
+				std::mt19937 gen(rd());
+				std::uniform_int_distribution<> randInit(1, 100);
+				int playerRandInit = randInit(gen);
+				int playerInit = game.getPlayer()->getInitiative() + playerRandInit;
+				for (auto& enemy : enemiesList){
+					if (!enemy->isDead()){
+						int rand_initiative = randInit(gen);
+						if (playerInit < enemy->getInitiative() + rand_initiative){
+							return std::make_shared<GameOverGUI>();
+						}
+					}
+				}
+				return std::make_shared<StoryGUI>();
+			}
 			default:
 				break;
 			}

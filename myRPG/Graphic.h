@@ -1,6 +1,7 @@
 enum class Graphic {
 	//Menu enums (save load etc.)
 	MENU_GUI,
+	MENU_GUI_BACK,
 	MENU_STORY_GUI,
 	MENU_START_GAME_GUI,
 	MENU_QUIT_GUI,

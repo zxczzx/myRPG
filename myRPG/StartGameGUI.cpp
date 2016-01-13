@@ -14,15 +14,15 @@ StartGameGUI::~StartGameGUI(){
 std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
 	switch (input)
 	{
-	case 1:
+	case 1:	//create new player
 	{
 		std::shared_ptr<Player> player = std::make_shared<Player>();
 		game.setPlayer(player);
 		return std::make_shared<CreatePlayerGUI>();
 	}
-	case 2:
+	case 2:	//load game
 		return std::make_shared<MenuGUI>();
-	case 3:
+	case 3:	//back
 		return std::make_shared<MenuGUI>();
 	default:
 		break;
