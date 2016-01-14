@@ -2,7 +2,9 @@
 #include "Character.h"
 
 Character::Character(){
+	maxHitPoints = 0;
 	hitPoints = 0;
+	maxMana = 0;
 	mana = 0;
 	level = 0;
 	initiative = 0;
@@ -50,8 +52,16 @@ int Character::getHitPoints(){
 	return hitPoints;
 }
 
+int Character::getMaxHitPoints(){
+	return maxHitPoints;
+}
+
 int Character::getMana(){
 	return mana;
+}
+
+int Character::getMaxMana(){
+	return maxMana;
 }
 
 int Character::getLevel(){
@@ -91,6 +101,10 @@ void Character::setHitPoints(int hp){
 	hitPoints = hp;
 }
 
+void Character::setMaxHitPoints(int hp){
+	maxHitPoints = hp;
+}
+
 void Character::setLevel(int lvl){
 	level = lvl;
 }
@@ -105,6 +119,10 @@ void Character::setDamage(int dmg) {
 
 void Character::setMana(int mp){
 	mana = mp;
+}
+
+void Character::setMaxMana(int mp){
+	maxMana = mp;
 }
 
 void Character::setName(std::string myName){

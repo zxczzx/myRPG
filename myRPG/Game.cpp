@@ -58,7 +58,9 @@ void Game::setGraphic(Graphic graphic){
 	system("CLS");
 	if (graphic == Graphic::BATTLE_GUI || graphic == Graphic::MENU_STORY_GUI)
 	std::cout << player_->getName() << ", " << player_->getLevel()
-		<< " lvl, " << player_->getHitPoints() << " hp" << std::endl << std::endl;
+		<< " lvl, " << player_->getExperience() << "/" << player_->getLvLMap().find(player_->getLevel())->second  << " exp, "
+		<< player_->getHitPoints() << "/" << player_->getMaxHitPoints() << " hp, " 
+		<< player_->getMana() << "/" << player_->getMaxMana() << " mp" << std::endl << std::endl;
 
 	switch (graphic)
 	{

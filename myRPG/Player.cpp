@@ -1,8 +1,10 @@
 #include "Player.h"
 
 Player::Player() : Character() {
+	maxHitPoints = 14;
 	hitPoints = 14;
 	level = 1;
+	experience = 0;
 	damage = 1;
 	name = "default";
 	classType = "default";
@@ -10,7 +12,12 @@ Player::Player() : Character() {
 	inventory = std::make_shared<Inventory>();
 	abilities = std::make_shared<Abilities>();
 	resistance = std::make_shared<Resistance>();
+
 }
+
+std::map<int, int> Player::lvlMap = { 
+	{ 1, 5 }, { 2, 50 }, { 3, 100 }, { 4, 200 }, { 5, 400 }, { 6, 800 }, { 7, 1600 }, { 8, 3200 }, { 9, 6400 }, { 10, 12800 } 
+};
 
 Player::~Player(){
 }
@@ -37,6 +44,10 @@ std::string Player::getClassType(){
 	return classType;
 }
 
+std::map<int, int> Player::getLvLMap(){
+	return lvlMap;
+}
+
 //SETTERS
 
 void Player::setExperience(int exp){
@@ -45,6 +56,9 @@ void Player::setExperience(int exp){
 	//check if character lvl'ed up
 	if (isLvlUp()){
 		setLevel(this->level + 1);
+		statsGrowth();
+		hitPoints = maxHitPoints;
+		mana = maxMana;
 		std::cout << "You leveled up to level " << this->level << "!" << std::endl;
 	}
 }
@@ -64,14 +78,18 @@ void Player::useItem(std::shared_ptr<Inventory> item){
 }
 
 bool Player::isLvlUp(){
-	//pair { level, experience }
-	std::map<int, int> lvlMap{
-		{ 1, 5 }, { 2, 50 }, { 3, 100 }, { 4, 200 }, { 5, 400 }, { 6, 800 }, {7, 1600}, {8, 3200}, {9, 6400}, {10, 12800},
-	};
 	if (this->experience >= lvlMap.find(this->level)->second){
 		return true;
 	}
 	else{
 		return false;
 	}
+}
+
+void Player::statsGrowth(){
+	maxHitPoints += level;
+	maxMana += level;
+}
+
+void Player::evaluate(){
 }

@@ -3,11 +3,19 @@
 
 Warrior::Warrior() : Player(){
 	classType = "Warrior";
-	hitPoints *= 2 * level;
-	damage = 2+2*level;
-	mana = 3+2*level;
+	maxHitPoints = 20;
+	hitPoints = maxHitPoints;
+	damage = 4;
+	maxMana = 5;
+	mana = maxMana;
 }
 
 
 Warrior::~Warrior(){
+}
+
+void Warrior::statsGrowth(){
+	maxHitPoints += 4 * level;
+	maxMana += 2 * level;
+	damage += 2 * level;
 }

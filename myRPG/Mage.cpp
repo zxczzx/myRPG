@@ -2,10 +2,18 @@
 
 Mage::Mage(){
 	classType = "Mage";
-	hitPoints += 4 * level;
-	damage = 2 + level;
-	mana = 20*level;
+	maxHitPoints = 20;
+	hitPoints = maxHitPoints;
+	damage = 2;
+	maxMana = 20;
+	mana = maxMana;
 }
 
 Mage::~Mage(){
+}
+
+void Mage::statsGrowth(){
+	maxHitPoints += 2 * level;
+	maxMana += 4 * level;
+	damage += level;
 }

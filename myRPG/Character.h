@@ -7,7 +7,9 @@
 class Character
 {
 protected:
+	int maxHitPoints;
 	int hitPoints;
+	int maxMana;
 	int mana;
 	int level;
 	short int initiative;
@@ -32,7 +34,9 @@ public:
 
 	//getter
 	int getHitPoints();
+	int getMaxHitPoints();
 	int getMana();
+	int getMaxMana();
 	int getLevel();
 	short int getInitiative();
 	int getDamage();
@@ -43,7 +47,9 @@ public:
 	
 	//setter
 	void setHitPoints(int hp);
+	void setMaxHitPoints(int hp);
 	void setMana(int mp);
+	void setMaxMana(int mp);
 	void setLevel(int level);
 	void setInitiative(short int init);
 	void setDamage(int dmg);

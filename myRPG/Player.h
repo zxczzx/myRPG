@@ -5,10 +5,15 @@
 class Player : public Character
 {
 protected:
+	//pair { level, experience }
+	static std::map<int, int> lvlMap;
+
 	int experience;
 	std::string classType;
 
+	virtual void statsGrowth();
 	bool isLvlUp();
+	void evaluate();
 
 public:
 	Player();
@@ -23,6 +28,7 @@ public:
 	//getter
 	int getExperience();
 	std::string getClassType();
+	std::map<int, int> getLvLMap();
 	//setter
 	void setExperience(int exp);
 	void setClassType(std::string myClassType);

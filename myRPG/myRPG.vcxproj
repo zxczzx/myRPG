@@ -86,6 +86,7 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CreatePlayerGUI.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Mage.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Filesystem.h" />
     <ClInclude Include="GameOverGUI.h" />
     <ClInclude Include="Loot.h" />
     <ClInclude Include="Mage.h" />
