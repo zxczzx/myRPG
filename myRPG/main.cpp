@@ -70,3 +70,4 @@ std::thread MainThread::handleInputThread(){
 std::thread MainThread::InputThread(){
 	return std::thread([=] { MainInput(); });
 }
+

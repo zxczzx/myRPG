@@ -23,12 +23,8 @@ std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
 			std::cout << "Do you wish to override this file? (yes/no)" << std::endl;
 			std::cin >> choice;
 			if (choice == "yes"){
-				std::cout << "Your save name: " << std::endl; 
-				std::cin >> name;
-				saveGame(game, name);
-				//remove overriden file
-				filesystem->deleteFile(game.getSavedGames()[input - 1]);
-				return prev;
+				saveGame(game, game.getSavedGames()[input - 1]);
+				std::cout << "Game saved" << std::endl;
 			}
 			else{
 				return prev;
@@ -38,7 +34,7 @@ std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
 			std::cout << "Your save name: " << std::endl;
 			std::cin >> name;
 			saveGame(game, name);
-			return prev;
+			std::cout << "Game saved" << std::endl;
 		}
 	case 6:
 		return prev;
@@ -53,7 +49,7 @@ void SaveGameGUI::enter(Game& game){
 }
 
 void SaveGameGUI::saveGame(Game& game, std::string filename){
-	std::ofstream fout("./SavedGames/" + filename + ".save");
+	std::ofstream fout("./SavedGames/" + filename);
 	fout << "name " << game.getPlayer()->getName() << std::endl;
 	fout << "class " << game.getPlayer()->getClassType() << std::endl;
 	fout << "level " << game.getPlayer()->getLevel() << std::endl;

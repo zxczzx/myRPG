@@ -54,6 +54,6 @@ std::vector<std::string> Filesystem::listDirectory(){
 }
 
 void Filesystem::deleteFile(std::string filename){
-	std::string file("./SavedGames/" + filename + ".saved");
+	std::string file("./SavedGames/" + filename);
 	std::remove(file.c_str());
 }
