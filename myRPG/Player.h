@@ -4,6 +4,7 @@
 
 class Player : public Character
 {
+	friend class LoadGameGUI;
 protected:
 	//pair { level, experience }
 	static std::map<int, int> lvlMap;

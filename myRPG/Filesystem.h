@@ -8,7 +8,7 @@ public:
 	~Filesystem();
 
 	void AppendToFile(FILE f);
-	std::map<std::string, std::string> ReadFromFile(FILE f);
-	std::string listDirectory();
+	std::map<std::string, std::string> ReadFromFile(std::string filename);
+	std::vector<std::string> listDirectory();
 };
 

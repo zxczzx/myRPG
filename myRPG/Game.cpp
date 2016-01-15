@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "MenuGUI.h"
+#include "Filesystem.h"
 
 Game::Game(){
 	state_ = std::make_shared<MenuGUI>();
@@ -23,6 +24,10 @@ std::vector<std::shared_ptr<Character> > Game::getCharacters(){
 	return characters_;
 }
 
+std::vector<std::string> Game::getSavedGames(){
+	return savedGames_;
+}
+
 //SETTERS
 void Game::setPlayer(std::shared_ptr<Player> player){
 	player_ = player;
@@ -34,6 +39,10 @@ void Game::setLoot(std::shared_ptr<Loot> myLoot){
 
 void Game::setCharacters(std::vector<std::shared_ptr<Character> > enemiesList){
 	characters_ = enemiesList;
+}
+
+void Game::setSavedGames(std::vector<std::string> games){
+	savedGames_ = games;
 }
 
 //METHODS
@@ -101,6 +110,20 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "1. Yes" << std::endl;
 		std::cout << "2. No" << std::endl;
 		break;
+	case Graphic::MENU_LOAD_GAME_GUI:
+	{
+		std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
+		savedGames_ = file->listDirectory();
+		while (savedGames_.size() < 5){
+			savedGames_.push_back("");
+		}
+		std::cout << "Load game:" << std::endl << std::endl;
+		for (unsigned i = 1; i <= savedGames_.size(); i++){
+			std::cout << i << ". " << savedGames_[i-1] << std::endl;
+		}
+		std::cout << "6. Back" << std::endl;
+		break;
+	}
 	case Graphic::CREATE_PLAYER:
 		std::cout << "Create your character" << std::endl << std::endl;
 		std::cout << "1. Change name \t\t" << "Your name: " << player_->getName() << std::endl;
@@ -149,7 +172,7 @@ void Game::setGraphic(Graphic graphic){
 		for (auto& item : loot_->items){
 			std::cout << "\t\t" << item << std::endl;
 		}
-		player_->setExperience(loot_->expReward);
+		player_->setExperience(player_->getExperience() + loot_->expReward);
 
 		std::cout << std::endl << "Press any key to continue..." << std::endl;
 		break;

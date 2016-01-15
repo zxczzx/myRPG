@@ -2,6 +2,7 @@
 #include <mutex>
 #include <chrono>
 #include <limits>
+#include <regex>
 #include "Game.h"
 
 class MainThread {
@@ -45,13 +46,18 @@ void MainThread::handleMainInput(){
 }
 
 void MainThread::MainInput(){
+	std::regex r("[[:digit:]]+");
+	std::string input;
 	while (true){
 		game->accum_mutex.lock();
-		std::cin >> action;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		game->atomicAction.store(action);
-		game->gotInput = true;
+		std::cin >> input;
+
+		if (std::regex_match(input, r)){
+			action = std::stoi(input);
+			game->atomicAction.store(action);
+			game->gotInput = true;
+		}
+
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		game->accum_mutex.unlock();
 	}

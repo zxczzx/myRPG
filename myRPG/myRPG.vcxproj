@@ -47,13 +47,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -88,6 +88,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
+    <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Mage.cpp" />
     <ClCompile Include="Orc.cpp" />
@@ -112,9 +113,11 @@
     <ClInclude Include="BattleGUI.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
+    <ClInclude Include="dirent.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="GameOverGUI.h" />
+    <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="Loot.h" />
     <ClInclude Include="Mage.h" />
     <ClInclude Include="Orc.h" />

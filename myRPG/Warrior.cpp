@@ -10,7 +10,6 @@ Warrior::Warrior() : Player(){
 	mana = maxMana;
 }
 
-
 Warrior::~Warrior(){
 }
 

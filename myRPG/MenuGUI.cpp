@@ -1,6 +1,7 @@
 #include "MenuGUI.h"
 #include "StartGameGUI.h"
 #include "QuitGUI.h"
+#include "LoadGameGUI.h"
 
 MenuGUI::MenuGUI(){
 }
@@ -15,6 +16,7 @@ std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
 		return returnProperGUI<StartGameGUI>();
 	case 2:	//save game
 	case 3:	//load game
+		return returnProperGUI<LoadGameGUI>();
 	case 4:	//options
 	case 5:	//exit
 		return returnProperGUI<QuitGUI>();

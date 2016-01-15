@@ -5,6 +5,7 @@ enum class Graphic {
 	MENU_STORY_GUI,
 	MENU_START_GAME_GUI,
 	MENU_QUIT_GUI,
+	MENU_LOAD_GAME_GUI,
 
 	//Player creation
 	CREATE_PLAYER,
