@@ -12,7 +12,7 @@ LoadGameGUI::~LoadGameGUI(){
 }
 
 std::shared_ptr<GUI> LoadGameGUI::handleInput(Game& game, int input){
-	input = game.getInput<int>();
+	//input = game.getInput<int>();
 	switch (input)
 	{
 	case 1: //load file 1
@@ -20,8 +20,13 @@ std::shared_ptr<GUI> LoadGameGUI::handleInput(Game& game, int input){
 	case 3: //load file 3
 	case 4: //load file 4
 	case 5: //load file 5
-		loadGame(game, game.getSavedGames()[input - 1]);
-		return returnProperGUI<StoryGUI>();
+		if (game.getSavedGames()[input - 1] != ""){
+			loadGame(game, game.getSavedGames()[input - 1]);
+			return returnProperGUI<StoryGUI>();
+		}
+		else{
+			break;
+		}
 	case 6: //back
 		return prev;
 	default:
@@ -38,7 +43,7 @@ void LoadGameGUI::loadGame(Game& game, std::string filename){
 	//load info from file
 	std::map<std::string, std::string> fileMap;
 	std::shared_ptr<Filesystem> filesystem = std::make_shared<Filesystem>();
-	fileMap = filesystem->ReadFromFile(filename);
+	fileMap = filesystem->readFromFile("./SavedGames/" + filename);
 	//set proper class
 	std::string classType = fileMap.find("class")->second;
 	if (classType == "Warrior"){
@@ -56,7 +61,7 @@ void LoadGameGUI::loadGame(Game& game, std::string filename){
 	game.getPlayer()->setMana(std::stoi(fileMap.find("mp")->second));
 	game.getPlayer()->setExperience(std::stoi(fileMap.find("exp")->second));
 
-	for (unsigned i = 1; i < game.getPlayer()->getLevel(); i++){
+	for (int i = 1; i < game.getPlayer()->getLevel(); i++){
 		game.getPlayer()->statsGrowth();
 	}
 }

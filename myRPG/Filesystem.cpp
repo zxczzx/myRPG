@@ -1,21 +1,18 @@
 #include <fstream>
+#include <cstdio>
 #include "Filesystem.h"
 #include "dirent.h"
 
-Filesystem::Filesystem()
-{
+Filesystem::Filesystem(){
 }
 
-
-Filesystem::~Filesystem()
-{
+Filesystem::~Filesystem(){
 }
 
-void Filesystem::AppendToFile(FILE f){
-
+void Filesystem::writeToFile(std::string filename){
 }
 
-std::map<std::string, std::string> Filesystem::ReadFromFile(std::string filename){
+std::map<std::string, std::string> Filesystem::readFromFile(std::string filename){
 	std::map<std::string, std::string> map;
 	std::ifstream infile(filename);
 
@@ -54,4 +51,9 @@ std::vector<std::string> Filesystem::listDirectory(){
 		resultParsed.push_back(result[i]);
 	}
 	return resultParsed;
+}
+
+void Filesystem::deleteFile(std::string filename){
+	std::string file("./SavedGames/" + filename + ".saved");
+	std::remove(file.c_str());
 }

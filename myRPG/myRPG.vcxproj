@@ -101,6 +101,7 @@
     <ClCompile Include="MenuGUI.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resistance.cpp" />
+    <ClCompile Include="SaveGameGUI.cpp" />
     <ClCompile Include="StartGameGUI.cpp" />
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
@@ -131,6 +132,7 @@
     <ClInclude Include="MenuGUI.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resistance.h" />
+    <ClInclude Include="SaveGameGUI.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
     <ClInclude Include="VictoryGUI.h" />

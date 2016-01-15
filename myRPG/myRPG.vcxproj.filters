@@ -127,7 +127,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LoadGameGUI.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGameGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,11 +206,14 @@
     <ClInclude Include="Filesystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoadGameGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dirent.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGameGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGameGUI.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

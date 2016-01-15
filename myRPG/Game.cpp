@@ -71,6 +71,14 @@ void Game::setGraphic(Graphic graphic){
 		<< player_->getHitPoints() << "/" << player_->getMaxHitPoints() << " hp, " 
 		<< player_->getMana() << "/" << player_->getMaxMana() << " mp" << std::endl << std::endl;
 
+
+	std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
+	savedGames_ = file->listDirectory();
+	while (savedGames_.size() < 5){
+		savedGames_.push_back("");
+	}
+
+	
 	switch (graphic)
 	{
 	case Graphic::MENU_GUI:
@@ -112,12 +120,7 @@ void Game::setGraphic(Graphic graphic){
 		break;
 	case Graphic::MENU_LOAD_GAME_GUI:
 	{
-		std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
-		savedGames_ = file->listDirectory();
-		while (savedGames_.size() < 5){
-			savedGames_.push_back("");
-		}
-		std::cout << "Load game:" << std::endl << std::endl;
+		std::cout << "Save/load game:" << std::endl << std::endl;
 		for (unsigned i = 1; i <= savedGames_.size(); i++){
 			std::cout << i << ". " << savedGames_[i-1] << std::endl;
 		}
