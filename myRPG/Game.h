@@ -4,6 +4,7 @@
 #include "Loot.h"
 #include <mutex>
 #include <atomic>
+#include <string>
 
 class GUI;
 

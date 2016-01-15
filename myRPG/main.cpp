@@ -41,7 +41,7 @@ void MainThread::handleMainInput(){
 	while (true){
 		game->handleInput(game->atomicAction.load());
 		game->atomicAction.store(0);
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
 
