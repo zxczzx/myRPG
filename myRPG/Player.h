@@ -1,6 +1,7 @@
 #pragma once
 #include "Character.h"
 #include "libraries.h"
+#include "ItemSlot.h"
 
 class Player : public Character
 {
@@ -8,6 +9,9 @@ class Player : public Character
 protected:
 	//pair { level, experience }
 	static std::map<int, int> lvlMap;
+	static std::map<ItemSlot, bool> BodySlots;
+
+	std::vector<std::shared_ptr<Inventory> > usedItems;
 
 	int experience;
 	std::string classType;

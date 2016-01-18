@@ -20,6 +20,6 @@ std::shared_ptr<GUI> InventoryGUI::handleInput(Game& game, int input){
 }
 
 void InventoryGUI::enter(Game& game){
-	Graphic graphic = Graphic::INENTORY_GUI;
+	Graphic graphic = Graphic::INVENTORY_GUI;
 	game.setGraphic(graphic);
 }

@@ -55,6 +55,60 @@
     <Filter Include="Source Files\Inventory">
       <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Inventory\Usable">
+      <UniqueIdentifier>{e169b61e-3dee-44e0-b789-86da4a4f87ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inventory\Trash">
+      <UniqueIdentifier>{e924819b-99a9-4f9b-9f40-4e8a3762ac31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory\Usable">
+      <UniqueIdentifier>{f9f01718-44c7-4260-ae07-7b1c5e2ebd84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory\Trash">
+      <UniqueIdentifier>{c493a624-453f-4892-86b2-3e2f57db71a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI\Menu">
+      <UniqueIdentifier>{f242b5ea-83b1-4393-95bf-8ef9e4ce68fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI\Create">
+      <UniqueIdentifier>{a8a11226-ee02-4d2b-b73e-118a875a21e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI\Battle">
+      <UniqueIdentifier>{9b0369d3-12d6-407f-a9aa-c788ecd5ff8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI\Inventory">
+      <UniqueIdentifier>{b8050ac9-09e0-47aa-8621-9c369482ff9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\Menu">
+      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\Battle">
+      <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\Inventory">
+      <UniqueIdentifier>{26b579fc-5a1a-42b6-b604-4f5cc048129f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\Create">
+      <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inventory\Usable\Weapon">
+      <UniqueIdentifier>{d0882651-5acc-4c3e-a28c-8b508e100736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inventory\Usable\Consumable">
+      <UniqueIdentifier>{59929622-da86-4e18-9b81-411bb074fc21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inventory\Usable\Armor">
+      <UniqueIdentifier>{e9e34cac-30a2-401c-b01c-6910216d0bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory\Usable\Armor">
+      <UniqueIdentifier>{ea791fd4-f504-46ee-a613-1492a895bb35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory\Usable\Weapon">
+      <UniqueIdentifier>{865eea7d-896d-4354-8768-5a56a55da82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inventory\Usable\Consumable">
+      <UniqueIdentifier>{b1c3546d-917b-447d-a419-e749bbb53580}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,26 +117,8 @@
     <ClCompile Include="GUI.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="StoryGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="BattleGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="InventoryGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QuitGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="CreatePlayerGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Abilities.cpp">
       <Filter>Source Files\Character\Abilities</Filter>
@@ -114,23 +150,68 @@
     <ClCompile Include="Loot.cpp">
       <Filter>Source Files\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="GameOverGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="StartGameGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="VictoryGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="Filesystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UsableItem.cpp">
+      <Filter>Source Files\Inventory\Usable</Filter>
+    </ClCompile>
+    <ClCompile Include="TrashItem.cpp">
+      <Filter>Source Files\Inventory\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleGUI.cpp">
+      <Filter>Source Files\GUI\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryGUI.cpp">
+      <Filter>Source Files\GUI\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverGUI.cpp">
+      <Filter>Source Files\GUI\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePlayerGUI.cpp">
+      <Filter>Source Files\GUI\Create</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryGUI.cpp">
+      <Filter>Source Files\GUI\Inventory</Filter>
+    </ClCompile>
     <ClCompile Include="LoadGameGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Source Files\GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuGUI.cpp">
+      <Filter>Source Files\GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="QuitGUI.cpp">
+      <Filter>Source Files\GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SaveGameGUI.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Source Files\GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="StartGameGUI.cpp">
+      <Filter>Source Files\GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="StoryGUI.cpp">
+      <Filter>Source Files\GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Armor.cpp">
+      <Filter>Source Files\Inventory\Usable\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="Shirt.cpp">
+      <Filter>Source Files\Inventory\Usable\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Axe.cpp">
+      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsumableItem.cpp">
+      <Filter>Source Files\Inventory\Usable\Consumable</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPotion.cpp">
+      <Filter>Source Files\Inventory\Usable\Consumable</Filter>
+    </ClCompile>
+    <ClCompile Include="Requirements.cpp">
+      <Filter>Source Files\Inventory\Usable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,29 +224,8 @@
     <ClInclude Include="GUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="MenuGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="StoryGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="BattleGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="InventoryGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QuitGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CreatePlayerGUI.h">
-      <Filter>Header Files\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Abilities.h">
       <Filter>Header Files\Character\Abilities</Filter>
@@ -194,25 +254,76 @@
     <ClInclude Include="Loot.h">
       <Filter>Header Files\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="GameOverGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="StartGameGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="VictoryGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="Filesystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UsableItem.h">
+      <Filter>Header Files\Inventory\Usable</Filter>
+    </ClInclude>
+    <ClInclude Include="TrashItem.h">
+      <Filter>Header Files\Inventory\Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryGUI.h">
+      <Filter>Header Files\GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryGUI.h">
+      <Filter>Header Files\GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleGUI.h">
+      <Filter>Header Files\GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverGUI.h">
+      <Filter>Header Files\GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePlayerGUI.h">
+      <Filter>Header Files\GUI\Create</Filter>
+    </ClInclude>
     <ClInclude Include="LoadGameGUI.h">
-      <Filter>Header Files\GUI</Filter>
+      <Filter>Header Files\GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuGUI.h">
+      <Filter>Header Files\GUI\Menu</Filter>
     </ClInclude>
     <ClInclude Include="SaveGameGUI.h">
+      <Filter>Header Files\GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="QuitGUI.h">
+      <Filter>Header Files\GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="StartGameGUI.h">
+      <Filter>Header Files\GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="StoryGUI.h">
+      <Filter>Header Files\GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Shirt.h">
+      <Filter>Header Files\Inventory\Usable\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPotion.h">
+      <Filter>Header Files\Inventory\Usable\Consumable</Filter>
+    </ClInclude>
+    <ClInclude Include="Axe.h">
+      <Filter>Header Files\Inventory\Usable\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files\Inventory\Usable\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Inventory\Usable\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsumableItem.h">
+      <Filter>Header Files\Inventory\Usable\Consumable</Filter>
+    </ClInclude>
+    <ClInclude Include="Requirements.h">
+      <Filter>Header Files\Inventory\Usable</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSlot.h">
+      <Filter>Header Files\Inventory\Usable</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>

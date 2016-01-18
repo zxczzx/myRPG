@@ -179,7 +179,7 @@ void Game::setGraphic(Graphic graphic){
 
 		std::cout << std::endl << "Press any key to continue..." << std::endl;
 		break;
-	case Graphic::INENTORY_GUI:
+	case Graphic::INVENTORY_GUI:
 		std::cout << "Inventory" << std::endl << std::endl;
 		break;
 	default:

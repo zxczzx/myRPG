@@ -19,6 +19,10 @@ std::map<int, int> Player::lvlMap = {
 	{ 1, 5 }, { 2, 50 }, { 3, 100 }, { 4, 200 }, { 5, 400 }, { 6, 800 }, { 7, 1600 }, { 8, 3200 }, { 9, 6400 }, { 10, 12800 } 
 };
 
+std::map<ItemSlot, bool> Player::BodySlots = {
+	{ ItemSlot::HEAD, false }, { ItemSlot::BODY, false }, { ItemSlot::FEET, false }, { ItemSlot::SHOULDERS, false }, { ItemSlot::GLOVES, false }, { ItemSlot::POTIONS, false }, { ItemSlot::MAIN_HAND, false }, { ItemSlot::OFFHAND, false }
+};
+
 Player::~Player(){
 }
 

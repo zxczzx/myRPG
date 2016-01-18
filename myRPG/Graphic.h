@@ -1,3 +1,5 @@
+#pragma once
+
 enum class Graphic {
 	//Menu enums (save load etc.)
 	MENU_GUI,
@@ -18,5 +20,5 @@ enum class Graphic {
 	BATTLE_GAME_OVER_GUI,
 
 	//Inventory enums (weapon, armor etc.)
-	INENTORY_GUI,
+	INVENTORY_GUI,
 };
