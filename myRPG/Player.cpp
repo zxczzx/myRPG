@@ -95,7 +95,16 @@ void Player::useItem(std::shared_ptr<UsableItem> item){
 	}
 }
 
-void Player::removeItem(std::shared_ptr<UsableItem> item){
+void Player::takeOffItem(std::shared_ptr<UsableItem> item){
+	item->unuse(*this);
+}
+
+void Player::removeItem(std::shared_ptr<Inventory> item){
+	for (unsigned i = 0; inventory.size(); i++){
+		if (inventory[i]->getName() == item->getName()){
+			inventory.erase(inventory.begin() + i);
+		}
+	}
 }
 
 bool Player::isLvlUp(){

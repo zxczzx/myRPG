@@ -21,7 +21,7 @@ public:
 
 	//methods
 	void useItem(std::shared_ptr<UsableItem> item);
-	void removeItem(std::shared_ptr<UsableItem> item);
+	void removeItem(std::shared_ptr<Inventory> item);
 	void takeOffItem(std::shared_ptr<UsableItem> item);
 	void useAbility(std::shared_ptr<Abilities> ability);
 

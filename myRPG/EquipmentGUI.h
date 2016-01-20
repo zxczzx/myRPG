@@ -9,5 +9,7 @@ public:
 
 	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
 	void enter(Game& game) override;
+
+	void takeOffItem(std::shared_ptr<Player> player, ItemSlot slot);
 };
 

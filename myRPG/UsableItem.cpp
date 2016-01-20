@@ -22,6 +22,10 @@ bool UsableItem::getUsed(){
 	return used;
 }
 
+void UsableItem::setUsed(bool isused){
+	used = isused;
+}
+
 void UsableItem::use(Player& player){
 
 }

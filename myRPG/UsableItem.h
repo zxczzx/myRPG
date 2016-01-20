@@ -27,6 +27,7 @@ public:
 
 	ItemSlot getItemSlot();
 	bool getUsed();
+	void setUsed(bool isused);
 };
 
 
