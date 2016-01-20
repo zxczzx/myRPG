@@ -6,6 +6,10 @@ Armor::Armor(){
 Armor::~Armor(){
 }
 
-void Armor::use(std::shared_ptr<Player> player){
+void Armor::use(Player& player){
+
+}
+
+void Armor::unuse(Player& player){
 
 }

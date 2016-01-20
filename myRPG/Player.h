@@ -1,7 +1,5 @@
 #pragma once
 #include "Character.h"
-#include "libraries.h"
-#include "ItemSlot.h"
 
 class Player : public Character
 {
@@ -9,25 +7,22 @@ class Player : public Character
 protected:
 	//pair { level, experience }
 	static std::map<int, int> lvlMap;
-	static std::map<ItemSlot, bool> BodySlots;
-
-	std::vector<std::shared_ptr<Inventory> > usedItems;
-
 	int experience;
 	std::string classType;
 
 	virtual void statsGrowth();
 	bool isLvlUp();
-	void evaluate();
 
 public:
 	Player();
 	~Player();
-
-	void Player::operator=(const Player &c);
+	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots;
+	void Player::operator=(const Player& c);
 
 	//methods
-	void useItem(std::shared_ptr<Inventory> item);
+	void useItem(std::shared_ptr<UsableItem> item);
+	void removeItem(std::shared_ptr<UsableItem> item);
+	void takeOffItem(std::shared_ptr<UsableItem> item);
 	void useAbility(std::shared_ptr<Abilities> ability);
 
 	//getter

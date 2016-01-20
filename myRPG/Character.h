@@ -1,6 +1,6 @@
 #pragma once
 #include "libraries.h"
-#include "Inventory.h"
+#include "UsableItem.h"
 #include "Abilities.h"
 #include "Resistance.h"
 
@@ -17,9 +17,15 @@ protected:
 	int armor;
 	std::string name;
 	bool friendly;
-	std::shared_ptr<Inventory> inventory;
-	std::shared_ptr<Abilities> abilities;
+	std::vector<std::shared_ptr<Inventory> > inventory;
+	std::vector<std::shared_ptr<Abilities> > abilities;
 	std::shared_ptr<Resistance> resistance;
+
+	int realArmor;
+	int realDamage;
+	int realMana;
+	int realHitPoints;
+	int realInitiative;
 
 public:
 	Character();
@@ -31,6 +37,7 @@ public:
 	void attack(std::shared_ptr<Character> enemy);
 	void death();
 	bool isDead();
+	void setRealValues();
 
 	//getter
 	int getHitPoints();
@@ -42,8 +49,14 @@ public:
 	int getDamage();
 	std::string getName();
 	bool getFriendly();
-	std::shared_ptr<Inventory> getInventory();
-	std::shared_ptr<Abilities> getAbilities();
+	std::vector<std::shared_ptr<Inventory> > getInventory();
+	std::vector<std::shared_ptr<Abilities> > getAbilities();
+
+	int getRealArmor();
+	int getRealDamage();
+	int getRealMana();
+	int getRealHitPoints();
+	int getRealInitiative();
 	
 	//setter
 	void setHitPoints(int hp);
@@ -55,7 +68,13 @@ public:
 	void setDamage(int dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);
-	void setInventory(std::shared_ptr<Inventory> inv);
-	void setAbilities(std::shared_ptr<Abilities> myAbilities);
+	void setInventory(std::vector<std::shared_ptr<Inventory> > inv);
+	void setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities);
+
+	void setRealArmor(int realarmor);
+	void setRealDamage(int realdamage);
+	void setRealMana(int realmana);
+	void setRealHitPoints(int realhp);
+	void setRealInitiative(int realinitiative);
 };
 

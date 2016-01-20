@@ -4,7 +4,7 @@ enum class ItemSlot {
 	//armor
 	HEAD,
 	BODY,
-	LEGGS,
+	LEGS,
 	FEET,
 	SHOULDERS,
 	GLOVES,

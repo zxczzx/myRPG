@@ -213,6 +213,18 @@
     <ClCompile Include="Requirements.cpp">
       <Filter>Source Files\Inventory\Usable</Filter>
     </ClCompile>
+    <ClCompile Include="SpellsGUI.cpp">
+      <Filter>Source Files\GUI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialAbilitiesGUI.cpp">
+      <Filter>Source Files\GUI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentGUI.cpp">
+      <Filter>Source Files\GUI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="BackpackGUI.cpp">
+      <Filter>Source Files\GUI\Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries.h">
@@ -325,6 +337,18 @@
     </ClInclude>
     <ClInclude Include="Graphic.h">
       <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="BackpackGUI.h">
+      <Filter>Header Files\GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentGUI.h">
+      <Filter>Header Files\GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialAbilitiesGUI.h">
+      <Filter>Header Files\GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellsGUI.h">
+      <Filter>Header Files\GUI\Inventory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

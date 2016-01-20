@@ -21,4 +21,8 @@ enum class Graphic {
 
 	//Inventory enums (weapon, armor etc.)
 	INVENTORY_GUI,
+	INVENTORY_EQUIPMENT,
+	INVENTORY_BACKPACK,
+	INVENTORY_SPELLS,
+	INVENTORY_SPECIAL_ABILITIES,
 };

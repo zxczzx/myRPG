@@ -82,6 +82,7 @@
     <ClCompile Include="Abilities.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Axe.cpp" />
+    <ClCompile Include="BackpackGUI.cpp" />
     <ClCompile Include="BattleGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
@@ -89,6 +90,7 @@
     <ClCompile Include="ConsumableItem.cpp" />
     <ClCompile Include="CreatePlayerGUI.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EquipmentGUI.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
@@ -108,6 +110,8 @@
     <ClCompile Include="Resistance.cpp" />
     <ClCompile Include="SaveGameGUI.cpp" />
     <ClCompile Include="Shirt.cpp" />
+    <ClCompile Include="SpecialAbilitiesGUI.cpp" />
+    <ClCompile Include="SpellsGUI.cpp" />
     <ClCompile Include="StartGameGUI.cpp" />
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
@@ -122,12 +126,14 @@
     <ClInclude Include="Abilities.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Axe.h" />
+    <ClInclude Include="BackpackGUI.h" />
     <ClInclude Include="BattleGUI.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ConsumableItem.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="dirent.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EquipmentGUI.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="GameOverGUI.h" />
     <ClInclude Include="HealthPotion.h" />
@@ -149,6 +155,8 @@
     <ClInclude Include="Resistance.h" />
     <ClInclude Include="SaveGameGUI.h" />
     <ClInclude Include="Shirt.h" />
+    <ClInclude Include="SpecialAbilitiesGUI.h" />
+    <ClInclude Include="SpellsGUI.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
     <ClInclude Include="TrashItem.h" />

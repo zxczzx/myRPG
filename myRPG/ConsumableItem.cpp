@@ -6,7 +6,10 @@ ConsumableItem::ConsumableItem(){
 ConsumableItem::~ConsumableItem(){
 }
 
-void ConsumableItem::use(std::shared_ptr<Player> player){
+void ConsumableItem::use(Player& player){
 	quantity--;
 	use(player);
+}
+
+void ConsumableItem::unuse(Player& player){
 }

@@ -12,8 +12,7 @@ Character::Character(){
 	armor = 0;
 	name = "default";
 	friendly = true;
-	inventory = nullptr;
-	abilities = nullptr;
+	setRealValues();
 }
 
 Character::~Character(){
@@ -33,8 +32,8 @@ void Character::operator=(const Character &c){
 //METHODS
 
 void Character::attack(std::shared_ptr<Character> enemy){
-	enemy->setHitPoints(enemy->getHitPoints() - this->damage);
-	std::cout << this->name << " attacked " << enemy->getName() << " for " << this->damage << " dmg" << std::endl;
+	enemy->setHitPoints(enemy->getHitPoints() - this->realDamage);
+	std::cout << this->name << " attacked " << enemy->getName() << " for " << this->realDamage << " dmg" << std::endl;
 	Sleep(2000);
 }
 
@@ -44,6 +43,14 @@ void Character::death(){
 
 bool Character::isDead(){
 	return hitPoints > 0 ? false : true;
+}
+
+void Character::setRealValues(){
+	realArmor = armor;
+	realDamage = damage;
+	realMana = maxMana;
+	realHitPoints = maxHitPoints;
+	realInitiative = initiative;
 }
 
 //GETTERS
@@ -83,12 +90,32 @@ bool Character::getFriendly(){
 	return friendly;
 }
 
-std::shared_ptr<Inventory> Character::getInventory(){
+std::vector<std::shared_ptr<Inventory> > Character::getInventory(){
 	return inventory;
 }
 
-std::shared_ptr<Abilities> Character::getAbilities(){
+std::vector<std::shared_ptr<Abilities> > Character::getAbilities(){
 	return abilities;
+}
+
+int Character::getRealArmor(){
+	return realArmor;
+}
+
+int Character::getRealDamage(){
+	return realDamage;
+}
+
+int Character::getRealMana(){
+	return realMana;
+}
+
+int Character::getRealHitPoints(){
+	return realHitPoints;
+}
+
+int Character::getRealInitiative(){
+	return realInitiative;
 }
 
 //SETTERS
@@ -129,10 +156,30 @@ void Character::setName(std::string myName){
 	name = myName;
 }
 
-void Character::setInventory(std::shared_ptr<Inventory> inv){
+void Character::setInventory(std::vector<std::shared_ptr<Inventory> > inv){
 	inventory = inv;
 }
 
-void Character::setAbilities(std::shared_ptr<Abilities> myAbilities){
+void Character::setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities){
 	abilities = myAbilities;
+}
+
+void Character::setRealArmor(int realarmor){
+	realArmor = realarmor;
+}
+
+void Character::setRealDamage(int realdamage){
+	realDamage = realdamage;
+}
+
+void Character::setRealMana(int realmana){
+	realMana = realmana;
+}
+
+void Character::setRealHitPoints(int realhp){
+	realHitPoints = realhp;
+}
+
+void Character::setRealInitiative(int realinitiative){
+	realInitiative = realinitiative;
 }

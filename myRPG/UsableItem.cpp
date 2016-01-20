@@ -1,7 +1,14 @@
 #include "UsableItem.h"
 
-UsableItem::UsableItem(){
+UsableItem::UsableItem() : Inventory() {
+	maxDurability = 0;
+	durability = maxDurability;
+	used = 0;
+	usable = true;
+	itemSlot = ItemSlot::POTIONS;
+
 	requirements = std::make_shared<Requirements>();
+	thisObj = nullptr;
 }
 
 UsableItem::~UsableItem(){
@@ -9,4 +16,16 @@ UsableItem::~UsableItem(){
 
 ItemSlot UsableItem::getItemSlot(){
 	return itemSlot;
+}
+
+bool UsableItem::getUsed(){
+	return used;
+}
+
+void UsableItem::use(Player& player){
+
+}
+
+void UsableItem::unuse(Player& player){
+
 }

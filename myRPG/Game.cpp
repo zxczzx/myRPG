@@ -68,16 +68,15 @@ void Game::setGraphic(Graphic graphic){
 	if (graphic == Graphic::BATTLE_GUI || graphic == Graphic::MENU_STORY_GUI)
 	std::cout << player_->getName() << ", " << player_->getLevel()
 		<< " lvl, " << player_->getExperience() << "/" << player_->getLvLMap().find(player_->getLevel())->second  << " exp, "
-		<< player_->getHitPoints() << "/" << player_->getMaxHitPoints() << " hp, " 
-		<< player_->getMana() << "/" << player_->getMaxMana() << " mp" << std::endl << std::endl;
+		<< player_->getHitPoints() << "/" << player_->getRealHitPoints() << " hp, " 
+		<< player_->getMana() << "/" << player_->getRealMana() << " mp" << std::endl << std::endl;
 
 
 	std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
 	savedGames_ = file->listDirectory();
 	while (savedGames_.size() < 5){
 		savedGames_.push_back("");
-	}
-
+	}  
 	
 	switch (graphic)
 	{
@@ -180,7 +179,56 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << std::endl << "Press any key to continue..." << std::endl;
 		break;
 	case Graphic::INVENTORY_GUI:
-		std::cout << "Inventory" << std::endl << std::endl;
+		std::cout << "Inventory" << "\t\t\t\t Stats \t" << std::endl << std::endl;
+		std::cout << "1. Equipment" << "\t\t\t Level: \t" << player_->getLevel() << std::endl;
+		std::cout << "2. Backpack" << "\t\t\t Experience: \t" << player_->getExperience() << "/" 
+			<< player_->getLvLMap().find(player_->getLevel())->second << std::endl;
+		std::cout << "3. Spells" << "\t\t\t Hit points: \t" << player_->getHitPoints() 
+			<< "/" << player_->getRealHitPoints() << std::endl;
+		std::cout << "4. Special abilities" << "\t\t Mana: \t\t" << player_->getMana() 
+			<< "/" << player_->getRealMana() << std::endl;
+		std::cout << "5. Back" << "\t\t\t\t Damage: \t" << player_->getRealDamage() << std::endl;
+		std::cout << "       " << "\t\t\t\t Armor: \t" << player_->getRealArmor() << std::endl;
+		break;
+	case Graphic::INVENTORY_EQUIPMENT:
+	{
+		auto getSlot = [=](ItemSlot slot) {
+			return player_->BodySlots[slot] == nullptr ? "Empty slot" : player_->BodySlots[slot]->getName(); 
+		};
+
+		std::cout << "Equipment" << std::endl << std::endl;
+		std::cout << "1. Back \t" << std::endl << std::endl;
+		std::cout << "2. Head \t" << getSlot(ItemSlot::HEAD) << std::endl;
+		std::cout << "3. Body \t" << getSlot(ItemSlot::BODY) << std::endl;
+		std::cout << "4. Legs \t" << getSlot(ItemSlot::LEGS) << std::endl;
+		std::cout << "5. Feet \t" << getSlot(ItemSlot::FEET) << std::endl;
+		std::cout << "6. Shoulders \t" << getSlot(ItemSlot::SHOULDERS) << std::endl;
+		std::cout << "7. Gloves \t" << getSlot(ItemSlot::GLOVES) << std::endl;
+		std::cout << "8. Main-hand \t" << getSlot(ItemSlot::MAIN_HAND) << std::endl;
+		std::cout << "9. Off-hand \t" << getSlot(ItemSlot::OFFHAND) << std::endl;
+		break;
+	}
+	case Graphic::INVENTORY_BACKPACK:
+		std::cout << "Backpack" << std::endl << std::endl;
+		std::cout << "1. Back" << std::endl << std::endl;
+		if (player_->getInventory().size() == 0){
+			std::cout << "You have no items in your backpack" << std::endl;
+		}
+		else{
+			for (unsigned i = 0; i < player_->getInventory().size(); i++){
+				if (std::static_pointer_cast<UsableItem>(player_->getInventory()[i])->getUsed() == false){
+					std::cout << i + 2 << ". " << player_->getInventory()[i]->getName() << std::endl;
+				}
+			}
+		}
+		break;
+	case Graphic::INVENTORY_SPELLS:
+		std::cout << "Spells" << std::endl << std::endl;
+		std::cout << "1. Back" << std::endl;
+		break;
+	case Graphic::INVENTORY_SPECIAL_ABILITIES:
+		std::cout << "Special abilities" << std::endl << std::endl;
+		std::cout << "1. Back" << std::endl;
 		break;
 	default:
 		break;

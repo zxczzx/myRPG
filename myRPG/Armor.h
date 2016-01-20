@@ -11,6 +11,7 @@ public:
 	Armor();
 	~Armor();
 
-	void use(std::shared_ptr<Player> player) override;
+	void use(Player& player) override;
+	void unuse(Player& player) override;
 };
 
