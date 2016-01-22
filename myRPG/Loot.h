@@ -9,7 +9,6 @@ public:
 	~Loot();
 
 	int expReward;
-	int goldReward;
 	std::vector<std::shared_ptr<Inventory> > items;
 };
 

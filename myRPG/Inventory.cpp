@@ -21,3 +21,11 @@ std::string Inventory::getName(){
 bool Inventory::isUsable(){
 	return usable;
 }
+
+int Inventory::getQuantity(){
+	return quantity;
+}
+
+void Inventory::setQuantity(int count){
+	quantity = count;
+}

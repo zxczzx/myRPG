@@ -18,17 +18,6 @@ Character::Character(){
 Character::~Character(){
 }
 
-void Character::operator=(const Character &c){
-	hitPoints = c.hitPoints;
-	level = c.level;
-	damage = c.damage;
-	name = c.name;
-	friendly = c.friendly;
-	inventory = c.inventory;
-	abilities = c.abilities;
-	resistance = c.resistance;
-}
-
 //METHODS
 
 void Character::attack(std::shared_ptr<Character> enemy){
@@ -88,10 +77,6 @@ std::string Character::getName(){
 }
 bool Character::getFriendly(){
 	return friendly;
-}
-
-std::vector<std::shared_ptr<Inventory> > Character::getInventory(){
-	return inventory;
 }
 
 std::vector<std::shared_ptr<Abilities> > Character::getAbilities(){
@@ -154,10 +139,6 @@ void Character::setMaxMana(int mp){
 
 void Character::setName(std::string myName){
 	name = myName;
-}
-
-void Character::setInventory(std::vector<std::shared_ptr<Inventory> > inv){
-	inventory = inv;
 }
 
 void Character::setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities){

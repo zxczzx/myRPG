@@ -10,7 +10,6 @@ class UsableItem : public Inventory
 protected:
 	int maxDurability;
 	int durability;
-	bool used;
 	ItemSlot itemSlot;
 	std::shared_ptr<Requirements> requirements;
 	std::shared_ptr<UsableItem> thisObj;
@@ -21,19 +20,25 @@ public:
 	
 	template<class T>
 	std::shared_ptr<UsableItem> createItem();
+	template<class T>
+	std::shared_ptr<UsableItem> createItem(int count);
 
 	virtual void use(Player& player);
 	virtual void unuse(Player& player);
 
 	ItemSlot getItemSlot();
-	bool getUsed();
-	void setUsed(bool isused);
 };
-
 
 template<class T>
 std::shared_ptr<UsableItem> UsableItem::createItem(){
 	std::shared_ptr<UsableItem> item = std::make_shared<T>();
+	item->thisObj = item;
+	return item;
+}
+
+template<class T>
+std::shared_ptr<UsableItem> UsableItem::createItem(int count){
+	std::shared_ptr<UsableItem> item = std::make_shared<T>(count);
 	item->thisObj = item;
 	return item;
 }

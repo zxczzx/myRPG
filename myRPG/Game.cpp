@@ -170,13 +170,13 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "YOU ARE VICTORIOUS!" << std::endl << std::endl;
 		std::cout << "Your reward is:" << std::endl;
 		std::cout << "\t\t" << loot_->expReward << " experience" << std::endl;
-		std::cout << "\t\t" << loot_->goldReward << " gold" << std::endl;
 		for (auto& item : loot_->items){
-			std::cout << "\t\t" << item << std::endl;
+			std::cout << "\t\t" << item->getQuantity() << "x " << item->getName() << std::endl;
+			player_->getBackpack()->appendToBackpack(item);
 		}
 		player_->setExperience(player_->getExperience() + loot_->expReward);
 
-		std::cout << std::endl << "Press any key to continue..." << std::endl;
+		std::cout << std::endl << "Input any key to continue..." << std::endl;
 		break;
 	case Graphic::INVENTORY_GUI:
 		std::cout << "Inventory" << "\t\t\t\t Stats \t" << std::endl << std::endl;
@@ -211,14 +211,13 @@ void Game::setGraphic(Graphic graphic){
 	case Graphic::INVENTORY_BACKPACK:
 		std::cout << "Backpack" << std::endl << std::endl;
 		std::cout << "1. Back" << std::endl << std::endl;
-		if (player_->getInventory().size() == 0){
+		if (player_->getBackpack()->getItems().size() == 0){
 			std::cout << "You have no items in your backpack" << std::endl;
 		}
 		else{
-			for (unsigned i = 0; i < player_->getInventory().size(); i++){
-				if (std::static_pointer_cast<UsableItem>(player_->getInventory()[i])->getUsed() == false){
-					std::cout << i + 2 << ". " << player_->getInventory()[i]->getName() << std::endl;
-				}
+			for (unsigned i = 0; i < player_->getBackpack()->getItems().size(); i++){
+				std::cout << i + 2 << ". " << player_->getBackpack()->getItems()[i]->getQuantity() << "x "
+					<< player_->getBackpack()->getItems()[i]->getName() << std::endl;
 			}
 		}
 		break;

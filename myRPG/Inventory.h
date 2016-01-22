@@ -15,6 +15,8 @@ public:
 
 	void showDescription();
 	std::string getName();
+	int getQuantity();
+	void setQuantity(int count);
 	bool isUsable();
 };
 

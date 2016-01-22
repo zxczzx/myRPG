@@ -17,7 +17,6 @@ protected:
 	int armor;
 	std::string name;
 	bool friendly;
-	std::vector<std::shared_ptr<Inventory> > inventory;
 	std::vector<std::shared_ptr<Abilities> > abilities;
 	std::shared_ptr<Resistance> resistance;
 
@@ -30,8 +29,6 @@ protected:
 public:
 	Character();
 	~Character();
-
-	void operator=(const Character &c);
 
 	//methods
 	void attack(std::shared_ptr<Character> enemy);
@@ -49,7 +46,6 @@ public:
 	int getDamage();
 	std::string getName();
 	bool getFriendly();
-	std::vector<std::shared_ptr<Inventory> > getInventory();
 	std::vector<std::shared_ptr<Abilities> > getAbilities();
 
 	int getRealArmor();
@@ -68,7 +64,6 @@ public:
 	void setDamage(int dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);
-	void setInventory(std::vector<std::shared_ptr<Inventory> > inv);
 	void setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities);
 
 	void setRealArmor(int realarmor);

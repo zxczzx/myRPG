@@ -1,10 +1,12 @@
 #pragma once
-#include "ConsumableItem.h"
+#include "UsableItem.h"
 
-class HealthPotion : public ConsumableItem
+class HealthPotion : public UsableItem
 {
 public:
-	HealthPotion();
+	HealthPotion(int count);
 	~HealthPotion();
+
+	void use(Player& player) override;
 };
 

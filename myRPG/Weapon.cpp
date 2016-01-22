@@ -19,18 +19,16 @@ void Weapon::use(Player& player){
 	else{
 		player.BodySlots[ItemSlot::MAIN_HAND] = thisObj;
 	}
-	used = true;
 	player.setRealDamage(player.getRealDamage() + attackValue);
+	player.getBackpack()->removeFromBackpack(thisObj);
 }
 
 void Weapon::unuse(Player& player){
 	if (itemSlot == ItemSlot::BOTH_HANDS){
-		player.BodySlots.find(ItemSlot::MAIN_HAND)->second->setUsed(false);
 		player.BodySlots[ItemSlot::MAIN_HAND] = nullptr;
 		player.BodySlots[ItemSlot::OFFHAND] = nullptr;
 	}
 	else{
-		player.BodySlots.find(ItemSlot::MAIN_HAND)->second->setUsed(false);
 		player.BodySlots[ItemSlot::MAIN_HAND] = nullptr;
 	}
 	player.setRealDamage(player.getRealDamage() - attackValue);

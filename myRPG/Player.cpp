@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Axe.h"
+#include "Shirt.h"
+#include "HealthPotion.h"
 
 Player::Player() : Character() {
 	maxHitPoints = 14;
@@ -10,10 +12,13 @@ Player::Player() : Character() {
 	name = "default";
 	classType = "default";
 	friendly = true;
+	backpack = std::make_shared<Backpack>();
 
-	//temporary
+	//temporary starting pack
 	std::shared_ptr<UsableItem> item = std::make_shared<UsableItem>();
-	inventory.push_back(item->createItem<Axe>());
+	backpack->appendToBackpack(item->createItem<Axe>());
+	backpack->appendToBackpack(item->createItem<Shirt>());
+	backpack->appendToBackpack(item->createItem<HealthPotion>(2));
 	//end temp
 
 	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots = {
@@ -30,18 +35,6 @@ std::map<int, int> Player::lvlMap = {
 Player::~Player(){
 }
 
-void Player::operator=(const Player &c){
-	hitPoints = c.hitPoints;
-	level = c.level;
-	damage = c.damage;
-	name = c.name;
-	classType = c.classType;
-	friendly = c.friendly;
-	inventory = c.inventory;
-	abilities = c.abilities;
-	resistance = c.resistance;
-}
-
 //GETTERS
 
 int Player::getExperience(){
@@ -54,6 +47,10 @@ std::string Player::getClassType(){
 
 std::map<int, int> Player::getLvLMap(){
 	return lvlMap;
+}
+
+std::shared_ptr<Backpack> Player::getBackpack(){
+	return backpack;
 }
 
 //SETTERS
@@ -97,14 +94,7 @@ void Player::useItem(std::shared_ptr<UsableItem> item){
 
 void Player::takeOffItem(std::shared_ptr<UsableItem> item){
 	item->unuse(*this);
-}
-
-void Player::removeItem(std::shared_ptr<Inventory> item){
-	for (unsigned i = 0; inventory.size(); i++){
-		if (inventory[i]->getName() == item->getName()){
-			inventory.erase(inventory.begin() + i);
-		}
-	}
+	backpack->appendToBackpack(item);
 }
 
 bool Player::isLvlUp(){

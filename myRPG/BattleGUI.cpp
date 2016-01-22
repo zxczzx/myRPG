@@ -3,6 +3,7 @@
 #include "VictoryGUI.h"
 #include "GameOverGUI.h"
 #include "StoryGUI.h"
+#include "InventoryGUI.h"
 
 BattleGUI::BattleGUI(){
 }
@@ -28,7 +29,6 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		for (auto& character : game.getCharacters()){
 			if (character->isDead()){
 				loot->expReward += std::static_pointer_cast<Enemy>(character)->getLoot()->expReward;
-				loot->goldReward += std::static_pointer_cast<Enemy>(character)->getLoot()->goldReward;
 
 				//append vector to vector
 				loot->items.insert(std::end(loot->items), 
@@ -79,7 +79,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			case 3: //spell
 				return returnProperGUI<BattleGUI>();
 			case 4: //inventory access
-				return returnProperGUI<BattleGUI>();
+				return returnProperGUI<InventoryGUI>();
 			case 5: //pass turn
 				std::cout << "You passed this turn" << std::endl;
 				continue;
