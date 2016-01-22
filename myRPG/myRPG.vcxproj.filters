@@ -109,6 +109,18 @@
     <Filter Include="Source Files\Inventory\Usable\Consumable">
       <UniqueIdentifier>{b1c3546d-917b-447d-a419-e749bbb53580}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Character\Abilities\Special abilities">
+      <UniqueIdentifier>{b1d673c0-81e3-461f-b358-659bd88df578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Abilities\Spells">
+      <UniqueIdentifier>{2836339f-b41f-4935-b671-7dc22387ff2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Abilities\Special Abilities">
+      <UniqueIdentifier>{9b49b74b-a66b-4274-80d7-3594ac126719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Abilities\Spells">
+      <UniqueIdentifier>{afc82e41-ac7e-4c4b-89d5-c4a4c4caf401}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -224,9 +236,6 @@
     </ClCompile>
     <ClCompile Include="Money.cpp">
       <Filter>Source Files\Inventory\Trash</Filter>
-    </ClCompile>
-    <ClCompile Include="Backpack.cpp">
-      <Filter>Source Files\Character\Player classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -354,7 +363,7 @@
       <Filter>Header Files\Inventory\Trash</Filter>
     </ClInclude>
     <ClInclude Include="Backpack.h">
-      <Filter>Header Files\Character\Player classes</Filter>
+      <Filter>Header Files\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

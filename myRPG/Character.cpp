@@ -79,7 +79,11 @@ bool Character::getFriendly(){
 	return friendly;
 }
 
-std::vector<std::shared_ptr<Abilities> > Character::getAbilities(){
+std::shared_ptr<Resistance> Character::getResistance(){
+	return resistance;
+}
+
+std::shared_ptr<Backpack<Abilities> > Character::getAbilitiesBackpack(){
 	return abilities;
 }
 
@@ -141,8 +145,8 @@ void Character::setName(std::string myName){
 	name = myName;
 }
 
-void Character::setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities){
-	abilities = myAbilities;
+void Character::setResistance(std::shared_ptr<Resistance> res){
+	resistance = res;
 }
 
 void Character::setRealArmor(int realarmor){

@@ -4,36 +4,36 @@ Resistance::~Resistance(){
 }
 
 //GETTERS
-double Resistance::getFireImmunity(){
+int Resistance::getFireImmunity(){
 	return fireImmunity;
 }
 
-double Resistance::getColdImmunity(){
+int Resistance::getColdImmunity(){
 	return coldImmunity;
 }
 
-double Resistance::getWaterImmunity(){
+int Resistance::getWaterImmunity(){
 	return waterImmunity;
 }
 
-double Resistance::getWindImmunity(){
-	return windImmunity;
+int Resistance::getElectricityImmunity(){
+	return electricityImmunity;
 }
 
 //SETTERS
-void Resistance::setFireImmunity(double fireImmun){
+void Resistance::setFireImmunity(int fireImmun){
 	fireImmunity = fireImmun;
 }
 
-void Resistance::setColdImmunity(double coldImmun){
+void Resistance::setColdImmunity(int coldImmun){
 	coldImmunity = coldImmun;
 }
 
-void Resistance::setWaterImmunity(double waterImmun){
+void Resistance::setWaterImmunity(int waterImmun){
 	waterImmunity = waterImmun;
 }
 
-void Resistance::setWindImmunity(double windImmun){
-	windImmunity = windImmun;
+void Resistance::setElectricityImmunity(int windImmun){
+	electricityImmunity = windImmun;
 }
 

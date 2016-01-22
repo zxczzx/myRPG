@@ -1,10 +1,47 @@
-﻿Build started 2016-01-22 11:16:25.
+﻿Build started 2016-01-22 14:09:33.
      1>Project "C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\myRPG\myRPG.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Abilities.cpp Armor.cpp Axe.cpp BackpackGUI.cpp BattleGUI.cpp Character.cpp CreatePlayerGUI.cpp Enemy.cpp EquipmentGUI.cpp GUI.cpp Game.cpp GameOverGUI.cpp HealthPotion.cpp Inventory.cpp InventoryGUI.cpp LoadGameGUI.cpp Loot.cpp Mage.cpp MenuGUI.cpp Orc.cpp Player.cpp QuitGUI.cpp SaveGameGUI.cpp Shirt.cpp SpecialAbilitiesGUI.cpp SpellsGUI.cpp StartGameGUI.cpp StoryGUI.cpp TrashItem.cpp UsableItem.cpp VictoryGUI.cpp Warrior.cpp Weapon.cpp main.cpp
+         Character.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         UsableItem.cpp
+         TrashItem.cpp
+         Shirt.cpp
+         Loot.cpp
+         Inventory.cpp
+         Axe.cpp
+         main.cpp
+         Weapon.cpp
+         Warrior.cpp
+         VictoryGUI.cpp
+         StoryGUI.cpp
+         StartGameGUI.cpp
+         SpellsGUI.cpp
+         SpecialAbilitiesGUI.cpp
+         SaveGameGUI.cpp
+         QuitGUI.cpp
+         Player.cpp
+         Orc.cpp
+         MenuGUI.cpp
+         Mage.cpp
+         LoadGameGUI.cpp
+         InventoryGUI.cpp
+         HealthPotion.cpp
+         GameOverGUI.cpp
+         Game.cpp
+         GUI.cpp
+         EquipmentGUI.cpp
+         Enemy.cpp
+         CreatePlayerGUI.cpp
+         BattleGUI.cpp
+         BackpackGUI.cpp
+         Armor.cpp
+         Abilities.cpp
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.lib" /MACHINE:X86 Debug\Abilities.obj
          Debug\Armor.obj
          Debug\Axe.obj
-         Debug\Backpack.obj
          Debug\BackpackGUI.obj
          Debug\BattleGUI.obj
          Debug\Character.obj
@@ -45,4 +82,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.28
+Time Elapsed 00:00:05.37

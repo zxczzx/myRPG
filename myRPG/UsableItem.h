@@ -2,6 +2,8 @@
 #include "Inventory.h"
 #include "Requirements.h"
 #include "ItemSlot.h"
+#include "Abilities.h"
+#include "Resistance.h"
 
 class Player;
 
@@ -13,6 +15,9 @@ protected:
 	ItemSlot itemSlot;
 	std::shared_ptr<Requirements> requirements;
 	std::shared_ptr<UsableItem> thisObj;
+	//special items
+	std::shared_ptr<Resistance> resistance;
+	std::shared_ptr<Abilities> abilities;
 
 public:
 	UsableItem();
@@ -27,6 +32,8 @@ public:
 	virtual void unuse(Player& player);
 
 	ItemSlot getItemSlot();
+	std::shared_ptr<Resistance> getResistance();
+	std::shared_ptr<Abilities> getAbilities();
 };
 
 template<class T>

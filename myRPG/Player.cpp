@@ -12,7 +12,12 @@ Player::Player() : Character() {
 	name = "default";
 	classType = "default";
 	friendly = true;
-	backpack = std::make_shared<Backpack>();
+	backpack = std::make_shared<Backpack<Inventory> >();
+	resistance = std::make_shared<Resistance>();
+	resistance->setColdImmunity(0);
+	resistance->setFireImmunity(0);
+	resistance->setElectricityImmunity(0);
+	resistance->setWaterImmunity(0);
 
 	//temporary starting pack
 	std::shared_ptr<UsableItem> item = std::make_shared<UsableItem>();
@@ -49,7 +54,7 @@ std::map<int, int> Player::getLvLMap(){
 	return lvlMap;
 }
 
-std::shared_ptr<Backpack> Player::getBackpack(){
+std::shared_ptr<Backpack<Inventory> > Player::getBackpack(){
 	return backpack;
 }
 

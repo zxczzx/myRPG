@@ -82,7 +82,6 @@
     <ClCompile Include="Abilities.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Axe.cpp" />
-    <ClCompile Include="Backpack.cpp" />
     <ClCompile Include="BackpackGUI.cpp" />
     <ClCompile Include="BattleGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>

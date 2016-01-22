@@ -3,6 +3,7 @@
 #include "UsableItem.h"
 #include "Abilities.h"
 #include "Resistance.h"
+#include "Backpack.h"
 
 class Character
 {
@@ -17,7 +18,7 @@ protected:
 	int armor;
 	std::string name;
 	bool friendly;
-	std::vector<std::shared_ptr<Abilities> > abilities;
+	std::shared_ptr<Backpack<Abilities> > abilities;
 	std::shared_ptr<Resistance> resistance;
 
 	int realArmor;
@@ -46,7 +47,8 @@ public:
 	int getDamage();
 	std::string getName();
 	bool getFriendly();
-	std::vector<std::shared_ptr<Abilities> > getAbilities();
+	std::shared_ptr<Resistance> getResistance();
+	std::shared_ptr<Backpack<Abilities> > getAbilitiesBackpack();
 
 	int getRealArmor();
 	int getRealDamage();
@@ -64,6 +66,7 @@ public:
 	void setDamage(int dmg);
 	void setName(std::string myName);
 	void setFriedly(bool ff);
+	void setResistance(std::shared_ptr<Resistance> res);
 	void setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities);
 
 	void setRealArmor(int realarmor);

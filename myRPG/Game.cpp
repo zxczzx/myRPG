@@ -179,16 +179,21 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << std::endl << "Input any key to continue..." << std::endl;
 		break;
 	case Graphic::INVENTORY_GUI:
-		std::cout << "Inventory" << "\t\t\t\t Stats \t" << std::endl << std::endl;
-		std::cout << "1. Equipment" << "\t\t\t Level: \t" << player_->getLevel() << std::endl;
-		std::cout << "2. Backpack" << "\t\t\t Experience: \t" << player_->getExperience() << "/" 
+		std::cout << "Inventory" << "\t\t\t\t Stats \t\t" << std::endl << std::endl;
+		std::cout << "1. Equipment" << "\t\t\t Level: \t\t" << player_->getLevel() << std::endl;
+		std::cout << "2. Backpack" << "\t\t\t Experience: \t\t" << player_->getExperience() << "/" 
 			<< player_->getLvLMap().find(player_->getLevel())->second << std::endl;
-		std::cout << "3. Spells" << "\t\t\t Hit points: \t" << player_->getHitPoints() 
+		std::cout << "3. Spells" << "\t\t\t Hit points: \t\t" << player_->getHitPoints() 
 			<< "/" << player_->getRealHitPoints() << std::endl;
-		std::cout << "4. Special abilities" << "\t\t Mana: \t\t" << player_->getMana() 
+		std::cout << "4. Special abilities" << "\t\t Mana: \t\t\t" << player_->getMana() 
 			<< "/" << player_->getRealMana() << std::endl;
-		std::cout << "5. Back" << "\t\t\t\t Damage: \t" << player_->getRealDamage() << std::endl;
-		std::cout << "       " << "\t\t\t\t Armor: \t" << player_->getRealArmor() << std::endl;
+		std::cout << "5. Back" << "\t\t\t\t Damage: \t\t" << player_->getRealDamage() << std::endl;
+		std::cout << "       " << "\t\t\t\t Armor: \t\t" << player_->getRealArmor() << std::endl << std::endl;
+
+		std::cout << "       " << "\t\t\t\t Fire immunity: \t" << player_->getResistance()->getFireImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Electricity immunity: \t" << player_->getResistance()->getElectricityImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Water immunity: \t" << player_->getResistance()->getWaterImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Cold immunity: \t" << player_->getResistance()->getColdImmunity() << std::endl;
 		break;
 	case Graphic::INVENTORY_EQUIPMENT:
 	{

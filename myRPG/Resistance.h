@@ -1,25 +1,25 @@
 #pragma once
 class Resistance
 {
-	double fireImmunity;
-	double coldImmunity;
-	double waterImmunity;
-	double windImmunity;
+	int fireImmunity;
+	int coldImmunity;
+	int waterImmunity;
+	int electricityImmunity;
 
 public:
-	Resistance() : fireImmunity(0), coldImmunity(0), waterImmunity(0), windImmunity(0) {}
+	Resistance() : fireImmunity(0), coldImmunity(0), waterImmunity(0), electricityImmunity(0) {}
 	~Resistance();
 
 	//getter
-	double getFireImmunity();
-	double getColdImmunity();
-	double getWaterImmunity();
-	double getWindImmunity();
+	int getFireImmunity();
+	int getColdImmunity();
+	int getWaterImmunity();
+	int getElectricityImmunity();
 
 	//setter
-	void setFireImmunity(double fireImmun);
-	void setColdImmunity(double coldImmun);
-	void setWaterImmunity(double waterImmun);
-	void setWindImmunity(double windImmun);
+	void setFireImmunity(int fireImmun);
+	void setColdImmunity(int coldImmun);
+	void setWaterImmunity(int waterImmun);
+	void setElectricityImmunity(int elecImmun);
 };
 

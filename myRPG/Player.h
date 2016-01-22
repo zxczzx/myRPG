@@ -1,6 +1,5 @@
 #pragma once
 #include "Character.h"
-#include "Backpack.h"
 
 class Player : public Character
 {
@@ -10,7 +9,7 @@ protected:
 	static std::map<int, int> lvlMap;
 	int experience;
 	std::string classType;
-	std::shared_ptr<Backpack> backpack;
+	std::shared_ptr<Backpack<Inventory> > backpack;
 
 	virtual void statsGrowth();
 	bool isLvlUp();
@@ -29,7 +28,7 @@ public:
 	int getExperience();
 	std::string getClassType();
 	std::map<int, int> getLvLMap();
-	std::shared_ptr<Backpack> getBackpack();
+	std::shared_ptr<Backpack<Inventory> > getBackpack();
 	//setter
 	void setExperience(int exp);
 	void setClassType(std::string myClassType);
