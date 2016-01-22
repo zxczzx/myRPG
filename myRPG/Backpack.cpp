@@ -7,7 +7,18 @@ Backpack::~Backpack(){
 }
 
 void Backpack::appendToBackpack(std::shared_ptr<Inventory> item){
-	items.push_back(item);
+	if (item->isUsable() == false){
+		for (auto& i : items){
+			if (i->getName() == item->getName()){
+				i->setQuantity(i->getQuantity() + item->getQuantity());
+				return;
+			}
+		}
+		items.push_back(item);
+	}
+	else{
+		items.push_back(item);
+	}
 }
 
 void Backpack::removeFromBackpack(std::shared_ptr<Inventory> item){

@@ -2,7 +2,7 @@
 
 Money::Money(int count){
 	name = "Coin";
-	description = count + "x golden coins shining in the sun";
+	description = "Golden coins shining in the sun";
 	quantity = count;
 	usable = false;
 }
