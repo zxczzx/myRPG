@@ -8,7 +8,8 @@ HealthPotion::HealthPotion(int count){
 	maxDurability = 1;
 	durability = 1;
 	itemSlot = ItemSlot::POTIONS;
-	requirements = std::make_shared<Requirements>(2);
+	requirements = std::make_shared<Requirements>();
+	requirements->level = 2;
 }
 
 HealthPotion::~HealthPotion(){

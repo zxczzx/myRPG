@@ -219,9 +219,6 @@
     <ClCompile Include="HealthPotion.cpp">
       <Filter>Source Files\Inventory\Usable\Consumable</Filter>
     </ClCompile>
-    <ClCompile Include="Requirements.cpp">
-      <Filter>Source Files\Inventory\Usable</Filter>
-    </ClCompile>
     <ClCompile Include="SpellsGUI.cpp">
       <Filter>Source Files\GUI\Inventory</Filter>
     </ClCompile>
@@ -236,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="Money.cpp">
       <Filter>Source Files\Inventory\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="Requirements.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +338,6 @@
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Inventory\Usable\Weapon</Filter>
     </ClInclude>
-    <ClInclude Include="Requirements.h">
-      <Filter>Header Files\Inventory\Usable</Filter>
-    </ClInclude>
     <ClInclude Include="ItemSlot.h">
       <Filter>Header Files\Inventory\Usable</Filter>
     </ClInclude>
@@ -364,6 +361,9 @@
     </ClInclude>
     <ClInclude Include="Backpack.h">
       <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Requirements.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

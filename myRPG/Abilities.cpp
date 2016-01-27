@@ -3,13 +3,13 @@
 
 Abilities::Abilities(){
 	usable = false;
+	requirements = std::make_shared<Requirements>();
 }
 
 Abilities::~Abilities(){
 }
 
 void Abilities::execute(std::shared_ptr<Character> target){
-
 }
 
 void Abilities::setQuantity(int count){

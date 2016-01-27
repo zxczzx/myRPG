@@ -1,5 +1,6 @@
 #pragma once
 #include "libraries.h"
+#include "Requirements.h"
 
 class Character;
 
@@ -7,9 +8,11 @@ class Abilities
 {
 	std::string name;
 	std::string description;
+	int manaConsumprion;
 	int quantity;
+	std::shared_ptr<Requirements> requirements;
 	std::shared_ptr<Abilities> thisObj;
-	bool usable;	// so I can use it with Backpack container
+	bool usable;	// needed so I can use it with Backpack container
 
 public:
 	Abilities();
