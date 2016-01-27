@@ -1,4 +1,5 @@
 #include "Mage.h"
+#include "FireBolt.h"
 
 Mage::Mage(){
 	classType = "Mage";
@@ -7,6 +8,8 @@ Mage::Mage(){
 	damage = 2;
 	maxMana = 20;
 	mana = maxMana;
+
+	abilities->appendToBackpack(Abilities::createAbility<FireBolt>());
 
 	setRealValues();
 }

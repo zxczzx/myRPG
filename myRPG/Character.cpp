@@ -12,6 +12,7 @@ Character::Character(){
 	armor = 0;
 	name = "default";
 	friendly = true;
+	abilities = std::make_shared<Backpack<Abilities> >();
 	setRealValues();
 }
 

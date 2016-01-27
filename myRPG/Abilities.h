@@ -6,8 +6,11 @@ class Character;
 
 class Abilities
 {
+protected:
 	std::string name;
 	std::string description;
+	std::string useString;
+	int damage;
 	int manaConsumprion;
 	int quantity;
 	std::shared_ptr<Requirements> requirements;
@@ -18,14 +21,18 @@ public:
 	Abilities();
 	~Abilities();
 
-	virtual void execute(std::shared_ptr<Character> target);
+	bool execute(std::shared_ptr<Character> self, std::shared_ptr<Character> target);
 
 	template<class T>
-	std::shared_ptr<Abilities> createAbility();
+	static std::shared_ptr<Abilities> createAbility();
 
 	std::string getName();
 	int getQuantity();
 	bool isUsable();
+	std::string getDescription();
+	int getDamage();
+	int getManaConsumption();
+	std::shared_ptr<Requirements> getRequireents();
 
 	void setQuantity(int count);
 };

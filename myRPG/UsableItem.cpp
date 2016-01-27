@@ -3,6 +3,8 @@
 UsableItem::UsableItem() : Inventory() {
 	maxDurability = 0;
 	durability = maxDurability;
+	armorValue = 0;
+	attackValue = 0;
 	usable = true;
 	itemSlot = ItemSlot::POTIONS;
 
@@ -35,4 +37,16 @@ std::shared_ptr<Resistance> UsableItem::getResistance(){
 
 std::shared_ptr<Abilities> UsableItem::getAbilities(){
 	return abilities;
+}
+
+int UsableItem::getAttackValue(){
+	return attackValue;
+}
+
+int UsableItem::getArmorValue(){
+	return armorValue;
+}
+
+std::shared_ptr<Requirements> UsableItem::getRequirements(){
+	return requirements;
 }

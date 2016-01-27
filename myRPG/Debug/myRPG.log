@@ -1,56 +1,8 @@
-﻿Build started 2016-01-22 14:49:44.
+﻿Build started 2016-01-27 14:54:38.
      1>Project "C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\myRPG\myRPG.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Abilities.cpp Armor.cpp Axe.cpp BackpackGUI.cpp BattleGUI.cpp Character.cpp CreatePlayerGUI.cpp Enemy.cpp EquipmentGUI.cpp GUI.cpp Game.cpp GameOverGUI.cpp HealthPotion.cpp Inventory.cpp InventoryGUI.cpp LoadGameGUI.cpp Loot.cpp Mage.cpp MenuGUI.cpp Orc.cpp Player.cpp QuitGUI.cpp SaveGameGUI.cpp Shirt.cpp SpecialAbilitiesGUI.cpp SpellsGUI.cpp StartGameGUI.cpp StoryGUI.cpp TrashItem.cpp UsableItem.cpp VictoryGUI.cpp Warrior.cpp Weapon.cpp main.cpp
-         main.cpp
-         Weapon.cpp
-         Warrior.cpp
-         VictoryGUI.cpp
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\victorygui.cpp(16): warning C4065: switch statement contains 'default' but no 'case' labels
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UsableItem.cpp
          UsableItem.cpp
-         StoryGUI.cpp
-         StartGameGUI.cpp
-         SpellsGUI.cpp
-         SpecialAbilitiesGUI.cpp
-         Shirt.cpp
-         SaveGameGUI.cpp
-         QuitGUI.cpp
-         Orc.cpp
-         MenuGUI.cpp
-         Mage.cpp
-         LoadGameGUI.cpp
-         InventoryGUI.cpp
-         HealthPotion.cpp
-         GameOverGUI.cpp
-         Game.cpp
-         Generating Code...
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\gameovergui.cpp(23): warning C4715: 'GameOverGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\inventorygui.cpp(30): warning C4715: 'InventoryGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\loadgamegui.cpp(35): warning C4715: 'LoadGameGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\menugui.cpp(32): warning C4715: 'MenuGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\quitgui.cpp(20): warning C4715: 'QuitGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\savegamegui.cpp(44): warning C4715: 'SaveGameGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\specialabilitiesgui.cpp(17): warning C4715: 'SpecialAbilitiesGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\spellsgui.cpp(17): warning C4715: 'SpellsGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\startgamegui.cpp(30): warning C4715: 'StartGameGUI::handleInput' : not all control paths return a value
-     1>c:\users\krzysztof.ozarek\desktop\prywatne\gitrepo\myrpg\myrpg\storygui.cpp(64): warning C4715: 'StoryGUI::handleInput' : not all control paths return a value
-         Compiling...
-         Abilities.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         TrashItem.cpp
-         Loot.cpp
-         Inventory.cpp
-         Player.cpp
-         GUI.cpp
-         EquipmentGUI.cpp
-         Enemy.cpp
-         CreatePlayerGUI.cpp
-         Character.cpp
-         BattleGUI.cpp
-         BackpackGUI.cpp
-         Axe.cpp
-         Armor.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\Debug\myRPG.lib" /MACHINE:X86 Debug\Abilities.obj
          Debug\Armor.obj
@@ -62,6 +14,7 @@
          Debug\Enemy.obj
          Debug\EquipmentGUI.obj
          Debug\Filesystem.obj
+         Debug\FireBolt.obj
          Debug\GameOverGUI.obj
          Debug\HealthPotion.obj
          Debug\LoadGameGUI.obj
@@ -95,4 +48,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:32.64
+Time Elapsed 00:00:04.09

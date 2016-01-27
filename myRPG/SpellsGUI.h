@@ -9,5 +9,6 @@ public:
 
 	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
 	void enter(Game& game) override;
+	void spellAction(Game& game, std::shared_ptr<Abilities> item);
 };
 

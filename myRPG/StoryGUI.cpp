@@ -19,6 +19,8 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	std::uniform_int_distribution<> random_enemies(1, 3);
 	std::uniform_int_distribution<> random_init(1, 100);
 
+	game.setGameState(GameState::STATE_STORY);
+
 	switch (input)
 	{
 	case 1:	//turn right

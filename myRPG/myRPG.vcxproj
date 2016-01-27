@@ -91,6 +91,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EquipmentGUI.cpp" />
     <ClCompile Include="Filesystem.cpp" />
+    <ClCompile Include="FireBolt.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="LoadGameGUI.cpp" />
@@ -135,7 +136,9 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EquipmentGUI.h" />
     <ClInclude Include="Filesystem.h" />
+    <ClInclude Include="FireBolt.h" />
     <ClInclude Include="GameOverGUI.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="ItemSlot.h" />
     <ClInclude Include="LoadGameGUI.h" />

@@ -1,6 +1,5 @@
 #include "Warrior.h"
 
-
 Warrior::Warrior() : Player(){
 	classType = "Warrior";
 	maxHitPoints = 20;

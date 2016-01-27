@@ -45,7 +45,27 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 	case 1:
 		enter(game);
 		std::cout << std::endl;
+		std::cout << "\t" << item->getName() << std::endl;
 		item->showDescription();
+		if (item->isUsable()){
+			if (std::static_pointer_cast<UsableItem>(item)->getArmorValue() != 0)
+				std::cout << "Armor: \t" << std::static_pointer_cast<UsableItem>(item)->getArmorValue() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getAttackValue() != 0)
+				std::cout << "Damage: \t" << std::static_pointer_cast<UsableItem>(item)->getAttackValue() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() != 0)
+				std::cout << "Cold resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getElectricityImmunity() != 0)
+				std::cout << "Electricity resistnce: \t" 
+				<< std::static_pointer_cast<UsableItem>(item)->getResistance()->getElectricityImmunity() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() != 0)
+				std::cout << "Fire resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() != 0)
+				std::cout << "Water resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() << std::endl;
+			std::cout << "Required level: " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->level;
+			if (std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType.size() != 2){
+				std::cout << "(Only for " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType[0] << ")";
+			}
+		}
 		break;
 	case 2:
 		game.getPlayer()->getBackpack()->removeFromBackpack(item);

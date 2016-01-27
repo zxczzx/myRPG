@@ -3,10 +3,6 @@
 
 class Armor : public UsableItem
 {
-protected:
-	int armorValue;
-	int durability;
-
 public:
 	Armor();
 	~Armor();

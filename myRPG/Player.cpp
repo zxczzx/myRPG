@@ -20,10 +20,9 @@ Player::Player() : Character() {
 	resistance->setWaterImmunity(0);
 
 	//temporary starting pack
-	std::shared_ptr<UsableItem> item = std::make_shared<UsableItem>();
-	backpack->appendToBackpack(item->createItem<Axe>());
-	backpack->appendToBackpack(item->createItem<Shirt>());
-	backpack->appendToBackpack(item->createItem<HealthPotion>(2));
+	backpack->appendToBackpack(UsableItem::createItem<Axe>());
+	backpack->appendToBackpack(UsableItem::createItem<Shirt>());
+	backpack->appendToBackpack(UsableItem::createItem<HealthPotion>(2));
 	//end temp
 
 	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots = {

@@ -11,6 +11,7 @@ GameOverGUI::~GameOverGUI()
 }
 
 std::shared_ptr<GUI> GameOverGUI::handleInput(Game& game, int input){
+	game.setGameState(GameState::STATE_MENU);
 	switch (input)
 	{
 	case 1:

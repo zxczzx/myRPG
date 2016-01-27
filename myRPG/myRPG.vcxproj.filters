@@ -237,6 +237,9 @@
     <ClCompile Include="Requirements.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FireBolt.cpp">
+      <Filter>Source Files\Character\Abilities\Spells</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries.h">
@@ -363,6 +366,12 @@
       <Filter>Header Files\Character</Filter>
     </ClInclude>
     <ClInclude Include="Requirements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBolt.h">
+      <Filter>Header Files\Character\Abilities\Spells</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

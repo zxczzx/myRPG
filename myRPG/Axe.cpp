@@ -8,7 +8,8 @@ Axe::Axe(){
 	maxDurability = 10;
 	durability = 10;
 	itemSlot = ItemSlot::MAIN_HAND;
-	requirements = std::make_shared<Requirements>(1);
+	requirements = std::make_shared<Requirements>();
+	requirements->level = 1;
 }
 
 Axe::~Axe(){

@@ -6,6 +6,8 @@ Game::Game(){
 	state_ = std::make_shared<MenuGUI>();
 	state_->setPrev(nullptr);
 	state_->setHead(state_);
+
+	gameState = GameState::STATE_MENU;
 }
 
 Game::~Game(){
@@ -28,6 +30,10 @@ std::vector<std::string> Game::getSavedGames(){
 	return savedGames_;
 }
 
+GameState Game::getGameState(){
+	return gameState;
+}
+
 //SETTERS
 void Game::setPlayer(std::shared_ptr<Player> player){
 	player_ = player;
@@ -43,6 +49,10 @@ void Game::setCharacters(std::vector<std::shared_ptr<Character> > enemiesList){
 
 void Game::setSavedGames(std::vector<std::string> games){
 	savedGames_ = games;
+}
+
+void Game::setGameState(GameState state){
+	gameState = state;
 }
 
 //METHODS
@@ -99,7 +109,7 @@ void Game::setGraphic(Graphic graphic){
 		break;
 	case Graphic::MENU_STORY_GUI:
 		std::cout << "You are in a dark room. Torches are burning in a distant corridors." << std::endl;
-		std::cout << "The feeling that someone is looking at you makes you tremble, but still... \nYou came here to find the ancient tresure there is no way you turn and go back to your boring life. \nProve yourself in battle and live glorious life as a hero or die." << std::endl << std::endl;
+		std::cout << "The feeling of someone looking at you makes you tremble, but still... \nYou came here to find the ancient tresure! There is no way to turn and go back to your boring life. \n\"Prove yourself in battle and live glorious life as a hero or die\" - That's what your father always used to say." << std::endl << std::endl;
 		std::cout << "Where do you want to go?" << std::endl << std::endl;
 		std::cout << "1. Turn right" << std::endl;
 		std::cout << "2. Turn left" << std::endl;
@@ -154,7 +164,7 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << std::endl;
 		std::cout << "Encountered enemies: ";
 		for (auto character : characters_){
-			if (!character->getFriendly()){
+			if (!character->getFriendly() && !character->isDead()){
 				std::cout << character->getName() << ", ";
 			}
 		}
@@ -229,6 +239,14 @@ void Game::setGraphic(Graphic graphic){
 	case Graphic::INVENTORY_SPELLS:
 		std::cout << "Spells" << std::endl << std::endl;
 		std::cout << "1. Back" << std::endl;
+		if (player_->getAbilitiesBackpack()->getItems().size() == 0){
+			std::cout << "You have no spells" << std::endl;
+		}
+		else{
+			for (unsigned i = 0; i < player_->getAbilitiesBackpack()->getItems().size(); i++){
+				std::cout << i + 2 << ". " << player_->getAbilitiesBackpack()->getItems()[i]->getName() << std::endl;
+			}
+		}
 		break;
 	case Graphic::INVENTORY_SPECIAL_ABILITIES:
 		std::cout << "Special abilities" << std::endl << std::endl;

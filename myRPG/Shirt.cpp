@@ -8,7 +8,8 @@ Shirt::Shirt(){
 	maxDurability = 10;
 	durability = 10;
 	itemSlot = ItemSlot::BODY;
-	requirements = std::make_shared<Requirements>(1);
+	requirements = std::make_shared<Requirements>();
+	requirements->level = 1;
 }
 
 Shirt::~Shirt(){

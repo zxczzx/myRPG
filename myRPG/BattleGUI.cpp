@@ -3,17 +3,22 @@
 #include "VictoryGUI.h"
 #include "GameOverGUI.h"
 #include "StoryGUI.h"
-#include "InventoryGUI.h"
+#include "BackpackGUI.h"
+#include "SpellsGUI.h"
 
 BattleGUI::BattleGUI(){
+	usedPrev = false;
+	chosenSpell = std::make_shared<Abilities>();
 }
 
 BattleGUI::~BattleGUI(){
 }
 
-//executeBattle powinno uruchamiaæ siê w metodzie enter po wyœwietleniu grafiki
+//executeBattle powinno uruchamiaæ siê po wyœwietleniu grafiki
 
 std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
+	game.setGameState(GameState::STATE_BATTLE);
+
 	//create enemy list
 	std::vector<std::shared_ptr<Enemy> > enemiesList;
 	for (auto& character : game.getCharacters()){
@@ -21,7 +26,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			enemiesList.push_back(std::static_pointer_cast<Enemy>(character));
 		}
 	}
-	
+
 	//no enemies player won the battle
 	if (enemiesList.size() == 0){
 		//add loot
@@ -31,10 +36,10 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				loot->expReward += std::static_pointer_cast<Enemy>(character)->getLoot()->expReward;
 
 				//append vector to vector
-				loot->items.insert(std::end(loot->items), 
-					std::begin(std::static_pointer_cast<Enemy>(character)->getLoot()->items), 
+				loot->items.insert(std::end(loot->items),
+					std::begin(std::static_pointer_cast<Enemy>(character)->getLoot()->items),
 					std::end(std::static_pointer_cast<Enemy>(character)->getLoot()->items)
-				);
+					);
 			}
 		}
 		game.setLoot(std::move(loot));
@@ -48,13 +53,38 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	}
 
 	for (auto& character : game.getCharacters()){
+		if (character->getFriendly() == false && usedPrev == true){
+			continue;
+		}
+		//players turn
 		if (character->getFriendly() == true){
-			//players turn
+			//spell chosen
+			if (chosenSpell->getName() != "default"){
+				//actions
+				std::cout << std::endl << "Choose enemy to attack " << std::endl;
+				for (unsigned i = 0; i < enemiesList.size(); i++){
+					std::cout << i + 1 << ". " << enemiesList[i]->getName() << "\t" << enemiesList[i]->getHitPoints() << " hp" << std::endl;
+				}
+				std::cout << "> ";
+				unsigned enemyNumber;
+
+				//to prevent ArrayOutOfBandsException
+				do{
+					enemyNumber = game.getInput<int>();
+				} while (enemyNumber > enemiesList.size());
+
+				// make dmg to enemy
+				bool success = chosenSpell->execute(game.getPlayer(), enemiesList[enemyNumber - 1]);
+				if (success){
+					usedPrev = false;
+					continue;
+				}
+			}
+			//normal turn
 			std::cout << "Your turn. " << std::endl;
 			std::cout << "> ";
 			input = game.getInput<int>();
-			switch (input)
-			{
+			switch (input){
 			case 1: //attack
 			{
 				//actions
@@ -72,14 +102,18 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 
 				// make dmg to enemy
 				game.getPlayer()->attack(enemiesList[enemyNumber - 1]);
+				usedPrev = false;
 				continue;
 			}
 			case 2: //special ability
+				usedPrev = true;
 				return returnProperGUI<BattleGUI>();
 			case 3: //spell
-				return returnProperGUI<BattleGUI>();
-			case 4: //inventory access
-				return returnProperGUI<InventoryGUI>();
+				usedPrev = true;
+				return returnProperGUI<SpellsGUI>();
+			case 4: //backpack access
+				usedPrev = true;
+				return returnProperGUI<BackpackGUI>();
 			case 5: //pass turn
 				std::cout << "You passed this turn" << std::endl;
 				continue;
@@ -103,6 +137,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			default:
 				break;
 			}
+			usedPrev = false;
 		}
 		else{
 			//enemy turn

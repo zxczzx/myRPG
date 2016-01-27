@@ -12,6 +12,8 @@ class UsableItem : public Inventory
 protected:
 	int maxDurability;
 	int durability;
+	int attackValue;
+	int armorValue;
 	ItemSlot itemSlot;
 	std::shared_ptr<Requirements> requirements;
 	std::shared_ptr<UsableItem> thisObj;
@@ -24,14 +26,17 @@ public:
 	~UsableItem();
 	
 	template<class T>
-	std::shared_ptr<UsableItem> createItem();
+	static std::shared_ptr<UsableItem> createItem();
 	template<class T>
-	std::shared_ptr<UsableItem> createItem(int count);
+	static std::shared_ptr<UsableItem> createItem(int count);
 
 	virtual void use(Player& player);
 	virtual void unuse(Player& player);
 
+	int getAttackValue();
+	int getArmorValue();
 	ItemSlot getItemSlot();
+	std::shared_ptr<Requirements> getRequirements();
 	std::shared_ptr<Resistance> getResistance();
 	std::shared_ptr<Abilities> getAbilities();
 };

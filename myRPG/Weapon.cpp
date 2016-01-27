@@ -7,10 +7,6 @@ Weapon::Weapon(){
 Weapon::~Weapon(){
 }
 
-int Weapon::getAttackValue(){
-	return attackValue;
-}
-
 void Weapon::use(Player& player){
 	if (itemSlot == ItemSlot::BOTH_HANDS){
 		player.BodySlots[ItemSlot::MAIN_HAND] = thisObj;

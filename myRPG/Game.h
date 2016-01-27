@@ -1,10 +1,11 @@
 #pragma once
-#include "Player.h"
-#include "Graphic.h"
-#include "Loot.h"
 #include <mutex>
 #include <atomic>
 #include <string>
+#include "Player.h"
+#include "Graphic.h"
+#include "Loot.h"
+#include "GameState.h"
 
 class GUI;
 
@@ -16,6 +17,8 @@ private:
 	std::shared_ptr<Loot> loot_;
 	std::vector<std::shared_ptr<Character> > characters_;
 	std::vector<std::string> savedGames_;
+	GameState gameState;
+	
 	
 public:
 	Game();
@@ -31,6 +34,7 @@ public:
 	std::shared_ptr<Loot> getLoot();
 	std::vector<std::shared_ptr<Character> > getCharacters();
 	std::vector<std::string> getSavedGames();
+	GameState getGameState();
 
 	//setter
 	void setPlayer(std::shared_ptr<Player> player);
@@ -38,6 +42,7 @@ public:
 	void setCharacters(std::vector<std::shared_ptr<Character> > enemiesList);
 	void setGraphicUpdate(std::string inputGraphic);
 	void setSavedGames(std::vector<std::string> games);
+	void setGameState(GameState state);
 
 	//method
 	virtual void handleInput(int input);
