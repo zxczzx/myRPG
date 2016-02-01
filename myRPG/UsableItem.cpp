@@ -50,3 +50,11 @@ int UsableItem::getArmorValue(){
 std::shared_ptr<Requirements> UsableItem::getRequirements(){
 	return requirements;
 }
+
+int UsableItem::getDurability(){
+	return durability;
+}
+
+int UsableItem::getMaxDurability(){
+	return maxDurability;
+}

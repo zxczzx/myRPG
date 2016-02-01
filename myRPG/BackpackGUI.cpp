@@ -52,6 +52,9 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 				std::cout << "Armor: \t" << std::static_pointer_cast<UsableItem>(item)->getArmorValue() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getAttackValue() != 0)
 				std::cout << "Damage: \t" << std::static_pointer_cast<UsableItem>(item)->getAttackValue() << std::endl;
+			if (std::static_pointer_cast<UsableItem>(item)->getMaxDurability() != 0)
+				std::cout << "Durability: \t" << std::static_pointer_cast<UsableItem>(item)->getDurability() << "/"
+				<< std::static_pointer_cast<UsableItem>(item)->getMaxDurability() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() != 0)
 				std::cout << "Cold resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getElectricityImmunity() != 0)

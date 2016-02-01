@@ -36,6 +36,8 @@ public:
 	int getAttackValue();
 	int getArmorValue();
 	ItemSlot getItemSlot();
+	int getDurability();
+	int getMaxDurability();
 	std::shared_ptr<Requirements> getRequirements();
 	std::shared_ptr<Resistance> getResistance();
 	std::shared_ptr<Abilities> getAbilities();
