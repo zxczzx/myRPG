@@ -3,6 +3,14 @@
 #include "Filesystem.h"
 #include "dirent.h"
 
+#include <LuaBridge.h>
+extern "C" {
+# include "lua.h"
+# include "lauxlib.h"
+# include "lualib.h"
+}
+using namespace luabridge;
+
 Filesystem::Filesystem(){
 }
 
@@ -26,31 +34,23 @@ std::map<std::string, std::string> Filesystem::readFromFile(std::string filename
 }
 
 std::vector<std::string> Filesystem::listDirectory(){
+	lua_State* L = luaL_newstate();
+	luaL_openlibs(L);
+	lua_pcall(L, 0, 0, 0);
+	luaL_dofile(L, "scandir.lua");
+
+	LuaRef myTable = getGlobal(L, "result");
+
 	std::vector<std::string> result;
-	//find files and push them to vector
-	const std::string& path = std::string();
-	dirent* de;
-	DIR* dp;
-	errno = 0;
-	dp = opendir(path.empty() ? "./SavedGames/" : path.c_str());
-	if (dp)
+	myTable.push(L);
+	push(L, Nil());
+	while (lua_next(L, -2))
 	{
-		while (true)
-		{
-			errno = 0;
-			de = readdir(dp);
-			if (de == NULL) 
-				break;
-			result.push_back(std::string(de->d_name));
-		}
-		closedir(dp);
-		//std::sort(result.begin(), result.end());
+		LuaRef val = LuaRef::fromStack(L, -1);
+		result.push_back(val);
+		lua_pop(L, 1);
 	}
-	std::vector<std::string> resultParsed;
-	for (unsigned i = 2; i < result.size(); i++){
-		resultParsed.push_back(result[i]);
-	}
-	return resultParsed;
+	return result;
 }
 
 void Filesystem::deleteFile(std::string filename){
