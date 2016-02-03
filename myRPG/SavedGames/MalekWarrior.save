@@ -1,0 +1,25 @@
+--lua script
+save = {
+	name = "Malek",
+	class = "Warrior",
+	level = 2,
+	exp = 20,
+	hp = 28,
+	mp = 9,
+	equipment = {
+		using = {
+			Head = 0,
+			Body = 0,
+			Legs = 0,
+			Feet = 0,
+			Shoulders = 0,
+			Gloves = 0,
+			Mainhand = "Axe",
+			Offhand = 0,
+		},
+		backpack = {
+			"Shirt",
+		},
+	},
+}
+

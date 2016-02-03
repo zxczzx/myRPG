@@ -1,6 +1,26 @@
-name MalekMage
-class Mage
-level 1
-exp 0
-hp 20
-mp 20
+--lua script
+save = {
+	name = "MalekMage",
+	class = "Mage",
+	level = 2,
+	exp = 15,
+	hp = 24,
+	mp = 28,
+	equipment = {
+		using = {
+			Head = 0,
+			Body = 0,
+			Legs = 0,
+			Feet = 0,
+			Shoulders = 0,
+			Gloves = 0,
+			Mainhand = 0,
+			Offhand = 0,
+		},
+		backpack = {
+			"Axe",
+			"Shirt",
+			"Health potion",
+		},
+	},
+}

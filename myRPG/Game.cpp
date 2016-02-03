@@ -81,12 +81,13 @@ void Game::setGraphic(Graphic graphic){
 		<< player_->getHitPoints() << "/" << player_->getRealHitPoints() << " hp, " 
 		<< player_->getMana() << "/" << player_->getRealMana() << " mp" << std::endl << std::endl;
 
-
-	std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
-	savedGames_ = file->listDirectory();
-	while (savedGames_.size() < 5){
-		savedGames_.push_back("");
-	}  
+	else if (graphic == Graphic::MENU_LOAD_GAME_GUI){
+		std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
+		savedGames_ = file->listDirectory();
+		while (savedGames_.size() < 5){
+			savedGames_.push_back("");
+		}
+	}
 	
 	switch (graphic)
 	{
