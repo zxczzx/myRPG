@@ -91,14 +91,8 @@
     <Filter Include="Source Files\GUI\Create">
       <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Inventory\Usable\Weapon">
-      <UniqueIdentifier>{d0882651-5acc-4c3e-a28c-8b508e100736}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Inventory\Usable\Consumable">
       <UniqueIdentifier>{59929622-da86-4e18-9b81-411bb074fc21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Inventory\Usable\Armor">
-      <UniqueIdentifier>{e9e34cac-30a2-401c-b01c-6910216d0bd5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Inventory\Usable\Armor">
       <UniqueIdentifier>{ea791fd4-f504-46ee-a613-1492a895bb35}</UniqueIdentifier>
@@ -204,18 +198,6 @@
     <ClCompile Include="StoryGUI.cpp">
       <Filter>Source Files\GUI\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Armor.cpp">
-      <Filter>Source Files\Inventory\Usable\Armor</Filter>
-    </ClCompile>
-    <ClCompile Include="Shirt.cpp">
-      <Filter>Source Files\Inventory\Usable\Armor</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="Axe.cpp">
-      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
-    </ClCompile>
     <ClCompile Include="HealthPotion.cpp">
       <Filter>Source Files\Inventory\Usable\Consumable</Filter>
     </ClCompile>
@@ -239,6 +221,9 @@
     </ClCompile>
     <ClCompile Include="FireBolt.cpp">
       <Filter>Source Files\Character\Abilities\Spells</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSpawn.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -326,20 +311,8 @@
     <ClInclude Include="StoryGUI.h">
       <Filter>Header Files\GUI\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Shirt.h">
-      <Filter>Header Files\Inventory\Usable\Armor</Filter>
-    </ClInclude>
     <ClInclude Include="HealthPotion.h">
       <Filter>Header Files\Inventory\Usable\Consumable</Filter>
-    </ClInclude>
-    <ClInclude Include="Axe.h">
-      <Filter>Header Files\Inventory\Usable\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="Armor.h">
-      <Filter>Header Files\Inventory\Usable\Armor</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Header Files\Inventory\Usable\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="ItemSlot.h">
       <Filter>Header Files\Inventory\Usable</Filter>
@@ -374,8 +347,23 @@
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectSpawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Paths.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="scandir.lua" />
+    <None Include="Money.lua">
+      <Filter>Source Files\Inventory</Filter>
+    </None>
+    <None Include="Axe.lua">
+      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
+    </None>
+    <None Include="Shirt.lua">
+      <Filter>Source Files\Inventory\Usable\Armor</Filter>
+    </None>
   </ItemGroup>
 </Project>

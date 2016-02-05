@@ -1,5 +1,6 @@
 #pragma once
 #include "libraries.h"
+//#include "UsableItem.h"
 
 class Inventory
 {
@@ -13,10 +14,17 @@ public:
 	Inventory();
 	~Inventory();
 
+	//std::shared_ptr<UsableItem> usableItem;
+
+	//getters
 	void showDescription();
 	std::string getName();
 	int getQuantity();
-	void setQuantity(int count);
 	bool isUsable();
+	//setters
+	void setQuantity(int count);
+	void setName(std::string value);
+	void setDescription(std::string value);
+	void setUsable(bool flag);
 };
 

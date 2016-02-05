@@ -3,7 +3,7 @@
 #include "StoryGUI.h"
 #include "Warrior.h"
 #include "Mage.h"
-#include "dirent.h"
+#include "Paths.h"
 
 LoadGameGUI::LoadGameGUI(){
 }
@@ -43,7 +43,7 @@ void LoadGameGUI::loadGame(Game& game, std::string filename){
 	//load info from file
 	std::map<std::string, std::vector<std::string> > fileMap;
 	std::shared_ptr<Filesystem> filesystem = std::make_shared<Filesystem>();
-	fileMap = filesystem->readSaveGameData("./SavedGames/" + filename);
+	fileMap = filesystem->readSaveGameData(Paths::saveGames + filename);
 	//set proper class
 	std::string classType = fileMap.find("class")->second[0];
 	if (classType == "Warrior"){

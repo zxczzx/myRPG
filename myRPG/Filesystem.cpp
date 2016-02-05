@@ -1,15 +1,10 @@
 #include <fstream>
 #include <cstdio>
 #include "Filesystem.h"
-#include "dirent.h"
 
 using namespace luabridge;
 
 Filesystem::Filesystem(){
-	//initiate lua state
-	L = luaL_newstate();
-	luaL_openlibs(L);
-	lua_pcall(L, 0, 0, 0);
 }
 
 Filesystem::~Filesystem(){
@@ -50,6 +45,7 @@ void Filesystem::writeToFile(statsMap stats, statsMap equipment, std::vector<std
 
 std::map<std::string, std::vector<std::string> > Filesystem::readSaveGameData(std::string filename){
 	//start lua script
+	lua_State* L = luaState();
 	luaL_dofile(L, filename.c_str());
 	LuaRef save = getGlobal(L, "save");
 	//normal values
@@ -83,7 +79,48 @@ std::map<std::string, std::vector<std::string> > Filesystem::readSaveGameData(st
 }
 
 std::map<std::string, std::vector<std::string> > Filesystem::readItemData(std::string filename){
-	std::map<std::string, std::vector<std::string> > map;
+	//start lua script
+	lua_State* L = luaState();
+	//luaL_dofile(L, filename.c_str());
+	luaL_dofile(L, filename.c_str());
+	LuaRef item = getGlobal(L, "item");
+	//normal values
+	LuaRef name = item["name"];
+	LuaRef description = item["description"];
+	LuaRef quantity = item["quantity"];
+	LuaRef attackValue = item["attackValue"];
+	LuaRef armorValue = item["armorValue"];
+	LuaRef usable = item["usable"];
+	LuaRef maxDurability = item["maxDurability"];
+	LuaRef durability = item["durability"];
+	LuaRef itemSlot = item["itemSlot"];
+
+	//Abilities handler
+
+	//Resistance handler
+
+	//Requirements handler
+	LuaRef Requirements = item["Requirements"];
+	LuaRef pclass = Requirements["class"];
+	LuaRef level = Requirements["level"];
+
+	//map values
+	auto mapValues = [](LuaRef ref){
+		return std::vector<std::string>(1, ref.cast<std::string>());
+	};
+
+	std::map<std::string, std::vector<std::string> > map = {
+		{ "name", mapValues(name) },
+		{ "description", mapValues(description) },
+		{ "quantity", mapValues(quantity) },
+		{ "attackValue", mapValues(attackValue) },
+		{ "armorValue", mapValues(armorValue) },
+		{ "usable", mapValues(usable) },
+		{ "maxDurability", mapValues(maxDurability) },
+		{ "durability", mapValues(durability) },
+		{ "itemSlot", mapValues(itemSlot) },
+	};
+	//TODO get using and Abilities, Resistance, Requirements values
 	return map;
 }
 
@@ -92,8 +129,14 @@ std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(s
 	return map;
 }
 
+std::map<std::string, std::vector<std::string> > Filesystem::readAbilityData(std::string filename){
+	std::map<std::string, std::vector<std::string> > map;
+	return map;
+}
+
 std::vector<std::string> Filesystem::listDirectory(){
 	//open file
+	lua_State* L = luaState();
 	luaL_dofile(L, "scandir.lua");
 	//get variable
 	LuaRef myTable = getGlobal(L, "result");
@@ -110,7 +153,9 @@ std::vector<std::string> Filesystem::listDirectory(){
 	return result;
 }
 
-void Filesystem::deleteFile(std::string filename){
-	std::string file("./SavedGames/" + filename);
-	std::remove(file.c_str());
+lua_State* Filesystem::luaState(){
+	lua_State* L = luaL_newstate();
+	luaL_openlibs(L);
+	lua_pcall(L, 0, 0, 0);
+	return L;
 }

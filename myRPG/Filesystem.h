@@ -11,7 +11,7 @@ extern "C" {
 class Filesystem
 {
 private:
-	luabridge::lua_State* L;
+	luabridge::lua_State* luaState();
 
 public:
 	Filesystem();
@@ -19,11 +19,11 @@ public:
 
 	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
-	void deleteFile(std::string filename);
 	void writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items, std::string filename);
-	std::map<std::string, std::vector<std::string> > readSaveGameData(std::string filename);
-	std::map<std::string, std::vector<std::string> > readItemData(std::string filename);
-	std::map<std::string, std::vector<std::string> > readCharacterData(std::string filename);
+	statsMap readSaveGameData(std::string filename);
+	statsMap readItemData(std::string filename);
+	statsMap readCharacterData(std::string filename);
+	statsMap readAbilityData(std::string filename);
 	std::vector<std::string> listDirectory();
 };
 

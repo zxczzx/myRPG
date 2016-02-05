@@ -1,7 +1,7 @@
 #pragma once
 #include "GUI.h"
-class LoadGameGUI :
-	public GUI
+
+class LoadGameGUI : public GUI
 {
 private:
 	void loadGame(Game& game, std::string filename);

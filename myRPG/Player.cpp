@@ -1,7 +1,6 @@
 #include "Player.h"
-#include "Axe.h"
-#include "Shirt.h"
 #include "HealthPotion.h"
+#include "ObjectSpawn.h"
 
 Player::Player() : Character() {
 	maxHitPoints = 14;
@@ -20,8 +19,9 @@ Player::Player() : Character() {
 	resistance->setWaterImmunity(0);
 
 	//temporary starting pack
-	backpack->appendToBackpack(UsableItem::createItem<Axe>());
-	backpack->appendToBackpack(UsableItem::createItem<Shirt>());
+	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
+	backpack->appendToBackpack(spawner->spawnItem("Axe"));
+	backpack->appendToBackpack(spawner->spawnItem("Shirt"));
 	backpack->appendToBackpack(UsableItem::createItem<HealthPotion>(2));
 	//end temp
 

@@ -64,9 +64,9 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 				std::cout << "Fire resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() != 0)
 				std::cout << "Water resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() << std::endl;
-			std::cout << "Required level: " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->level;
+			std::cout << "Required level: " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->level << std::endl;;
 			if (std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType.size() != 2){
-				std::cout << "(Only for " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType[0] << ")";
+				std::cout << "(Only for " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType[0] << ")" << std::endl;
 			}
 		}
 		break;

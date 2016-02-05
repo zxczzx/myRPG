@@ -30,9 +30,10 @@ public:
 	template<class T>
 	static std::shared_ptr<UsableItem> createItem(int count);
 
-	virtual void use(Player& player);
-	virtual void unuse(Player& player);
+	void use(Player& player);
+	void unuse(Player& player);
 
+	//getters
 	int getAttackValue();
 	int getArmorValue();
 	ItemSlot getItemSlot();
@@ -41,6 +42,16 @@ public:
 	std::shared_ptr<Requirements> getRequirements();
 	std::shared_ptr<Resistance> getResistance();
 	std::shared_ptr<Abilities> getAbilities();
+	//setters
+	void setAttackValue(int value);
+	void setArmorValue(int value);
+	void setItemSlot(ItemSlot slot);
+	void setDurability(int value);
+	void setMaxDurability(int value);
+	void setRequirements(std::shared_ptr<Requirements> obj);
+	void setResistance(std::shared_ptr<Resistance> obj);
+	void setAbilities(std::shared_ptr<Abilities> obj);
+	void setThisObj(std::shared_ptr<UsableItem> me);
 };
 
 template<class T>

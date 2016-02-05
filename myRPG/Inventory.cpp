@@ -1,6 +1,7 @@
 #include "Inventory.h"
 
 Inventory::Inventory(){
+	//usableItem = std::make_shared<UsableItem>();
 	name = "default";
 	description = "Some item";
 	quantity = 1;
@@ -28,4 +29,16 @@ int Inventory::getQuantity(){
 
 void Inventory::setQuantity(int count){
 	quantity = count;
+}
+
+void Inventory::setName(std::string value){
+	name = value;
+}
+
+void Inventory::setDescription(std::string value){
+	description = value;
+}
+
+void Inventory::setUsable(bool flag){
+	usable = flag;
 }
