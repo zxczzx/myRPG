@@ -30,8 +30,8 @@ public:
 	template<class T>
 	static std::shared_ptr<UsableItem> createItem(int count);
 
-	void use(Player& player);
-	void unuse(Player& player);
+	void use(std::shared_ptr<Player> player);
+	void unuse(std::shared_ptr<Player> player);
 
 	//getters
 	int getAttackValue();

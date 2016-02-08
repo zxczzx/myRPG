@@ -117,7 +117,6 @@
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
-    <ClCompile Include="TrashItem.cpp" />
     <ClCompile Include="UsableItem.cpp" />
     <ClCompile Include="VictoryGUI.cpp" />
     <ClCompile Include="Warrior.cpp" />
@@ -161,13 +160,15 @@
     <ClInclude Include="SpellsGUI.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
-    <ClInclude Include="TrashItem.h" />
     <ClInclude Include="UsableItem.h" />
     <ClInclude Include="VictoryGUI.h" />
     <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Axe.lua" />
+    <None Include="Fire bolt.lua" />
+    <None Include="Heal.lua" />
+    <None Include="Health potion.lua" />
     <None Include="Money.lua" />
     <None Include="scandir.lua" />
     <None Include="Shirt.lua" />

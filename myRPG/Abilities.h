@@ -26,6 +26,7 @@ public:
 	template<class T>
 	static std::shared_ptr<Abilities> createAbility();
 
+	//getters
 	std::string getName();
 	int getQuantity();
 	bool isUsable();
@@ -33,8 +34,15 @@ public:
 	int getDamage();
 	int getManaConsumption();
 	std::shared_ptr<Requirements> getRequireents();
-
+	//setters
 	void setQuantity(int count);
+	void setDescription(std::string value);
+	void setName(std::string value);
+	void setUseString(std::string value);
+	void setDamage(int value);
+	void setManaConsumption(int value);
+	void setRequirements(std::shared_ptr<Requirements> obj);
+	void setThisObj(std::shared_ptr<Abilities> me);
 };
 
 

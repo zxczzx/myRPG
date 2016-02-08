@@ -55,16 +55,10 @@ std::map<std::string, std::vector<std::string> > Filesystem::readSaveGameData(st
 	LuaRef exp = save["exp"];
 	LuaRef hp = save["hp"];
 	LuaRef mp = save["mp"];
-
 	//equipment handler
 	LuaRef equipment = save["equipment"];
 	LuaRef use = equipment["using"];
 	LuaRef backpack = equipment["backpack"];
-
-	//map values
-	auto mapValues = [](LuaRef ref){
-		return std::vector<std::string>(1, ref.cast<std::string>());
-	};
 
 	std::map<std::string, std::vector<std::string> > map = { 
 		{ "name", mapValues(name) },
@@ -94,20 +88,18 @@ std::map<std::string, std::vector<std::string> > Filesystem::readItemData(std::s
 	LuaRef maxDurability = item["maxDurability"];
 	LuaRef durability = item["durability"];
 	LuaRef itemSlot = item["itemSlot"];
-
 	//Abilities handler
-
+	LuaRef Abilities = item["Abilities"];
 	//Resistance handler
-
+	LuaRef Resistance = item["Resistance"];
+	LuaRef cold = Resistance["cold"];
+	LuaRef fire = Resistance["fire"];
+	LuaRef electricity = Resistance["electricity"];
+	LuaRef water = Resistance["water"];
 	//Requirements handler
 	LuaRef Requirements = item["Requirements"];
 	LuaRef pclass = Requirements["class"];
 	LuaRef level = Requirements["level"];
-
-	//map values
-	auto mapValues = [](LuaRef ref){
-		return std::vector<std::string>(1, ref.cast<std::string>());
-	};
 
 	std::map<std::string, std::vector<std::string> > map = {
 		{ "name", mapValues(name) },
@@ -120,7 +112,25 @@ std::map<std::string, std::vector<std::string> > Filesystem::readItemData(std::s
 		{ "durability", mapValues(durability) },
 		{ "itemSlot", mapValues(itemSlot) },
 	};
-	//TODO get using and Abilities, Resistance, Requirements values
+	//Abilities
+	std::vector<std::string> abil;
+	for (auto i = 1; i < Abilities.length() + 1; i++){
+		abil.push_back(Abilities[i].cast<std::string>());
+	}
+	map.insert(std::pair<std::string, std::vector<std::string> >("Abilities", abil));
+	//Resistance
+	map.insert(makePair("cold", cold));
+	map.insert(makePair("fire", fire));
+	map.insert(makePair("electricity", electricity));
+	map.insert(makePair("water", water));
+	//Requirements
+	std::vector<std::string> classes;
+	for (auto i = 1; i < pclass.length()+1 ; i++){
+		classes.push_back(pclass[i].cast<std::string>());
+	}
+	map.insert(std::pair<std::string, std::vector<std::string> >("class", classes));
+	map.insert(makePair("level", level));
+
 	return map;
 }
 
@@ -130,7 +140,41 @@ std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(s
 }
 
 std::map<std::string, std::vector<std::string> > Filesystem::readAbilityData(std::string filename){
-	std::map<std::string, std::vector<std::string> > map;
+	//start lua script
+	lua_State* L = luaState();
+	//luaL_dofile(L, filename.c_str());
+	luaL_dofile(L, filename.c_str());
+	LuaRef item = getGlobal(L, "ability");
+	//normal values
+	LuaRef name = item["name"];
+	LuaRef description = item["description"];
+	LuaRef quantity = item["quantity"];
+	LuaRef useString = item["useString"];
+	LuaRef damage = item["damage"];
+	LuaRef manaConsumprion = item["manaConsumprion"];
+	LuaRef usable = item["usable"];
+	//Requirements handler
+	LuaRef Requirements = item["Requirements"];
+	LuaRef pclass = Requirements["class"];
+	LuaRef level = Requirements["level"];
+
+	std::map<std::string, std::vector<std::string> > map = {
+		{ "name", mapValues(name) },
+		{ "description", mapValues(description) },
+		{ "quantity", mapValues(quantity) },
+		{ "useString", mapValues(useString) },
+		{ "damage", mapValues(damage) },
+		{ "usable", mapValues(usable) },
+		{ "manaConsumprion", mapValues(manaConsumprion) },
+	};
+	//Requirements
+	std::vector<std::string> classes;
+	for (auto i = 1; i < pclass.length() + 1; i++){
+		classes.push_back(pclass[i].cast<std::string>());
+	}
+	map.insert(std::pair<std::string, std::vector<std::string> >("class", classes));
+	map.insert(makePair("level", level));
+
 	return map;
 }
 
@@ -158,4 +202,12 @@ lua_State* Filesystem::luaState(){
 	luaL_openlibs(L);
 	lua_pcall(L, 0, 0, 0);
 	return L;
+}
+
+std::vector<std::string> Filesystem::mapValues(LuaRef ref){
+	return std::vector<std::string>(1, ref.cast<std::string>());
+}
+
+std::pair<std::string, std::vector<std::string> > Filesystem::makePair(std::string str, LuaRef ref){
+	return std::pair<std::string, std::vector<std::string> >(str, mapValues(ref));
 }

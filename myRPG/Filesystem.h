@@ -25,5 +25,8 @@ public:
 	statsMap readCharacterData(std::string filename);
 	statsMap readAbilityData(std::string filename);
 	std::vector<std::string> listDirectory();
+
+	std::vector<std::string> mapValues(luabridge::LuaRef ref);
+	std::pair<std::string, std::vector<std::string> > makePair(std::string str, luabridge::LuaRef ref);
 };
 

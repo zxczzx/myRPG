@@ -162,9 +162,6 @@
     <ClCompile Include="UsableItem.cpp">
       <Filter>Source Files\Inventory\Usable</Filter>
     </ClCompile>
-    <ClCompile Include="TrashItem.cpp">
-      <Filter>Source Files\Inventory\Trash</Filter>
-    </ClCompile>
     <ClCompile Include="BattleGUI.cpp">
       <Filter>Source Files\GUI\Battle</Filter>
     </ClCompile>
@@ -275,9 +272,6 @@
     <ClInclude Include="UsableItem.h">
       <Filter>Header Files\Inventory\Usable</Filter>
     </ClInclude>
-    <ClInclude Include="TrashItem.h">
-      <Filter>Header Files\Inventory\Trash</Filter>
-    </ClInclude>
     <ClInclude Include="InventoryGUI.h">
       <Filter>Header Files\GUI\Inventory</Filter>
     </ClInclude>
@@ -364,6 +358,15 @@
     </None>
     <None Include="Shirt.lua">
       <Filter>Source Files\Inventory\Usable\Armor</Filter>
+    </None>
+    <None Include="Fire bolt.lua">
+      <Filter>Source Files\Character\Abilities\Spells</Filter>
+    </None>
+    <None Include="Heal.lua">
+      <Filter>Source Files\Character\Abilities\Spells</Filter>
+    </None>
+    <None Include="Health potion.lua">
+      <Filter>Source Files\Inventory\Usable\Consumable</Filter>
     </None>
   </ItemGroup>
 </Project>

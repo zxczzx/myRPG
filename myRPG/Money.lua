@@ -1,3 +1,4 @@
+--lua script
 item = {
 	name = "Coin",
 	description = "Golden coins shining in the sun",

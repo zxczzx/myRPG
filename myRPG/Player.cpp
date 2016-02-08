@@ -17,12 +17,13 @@ Player::Player() : Character() {
 	resistance->setFireImmunity(0);
 	resistance->setElectricityImmunity(0);
 	resistance->setWaterImmunity(0);
+	thisObj = nullptr;
 
 	//temporary starting pack
 	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
-	backpack->appendToBackpack(spawner->spawnItem("Axe"));
-	backpack->appendToBackpack(spawner->spawnItem("Shirt"));
-	backpack->appendToBackpack(UsableItem::createItem<HealthPotion>(2));
+	backpack->appendToBackpack(spawner->spawnItem("Axe", 1));
+	backpack->appendToBackpack(spawner->spawnItem("Shirt", 1));
+	backpack->appendToBackpack(spawner->spawnItem("Health potion", 2));
 	//end temp
 
 	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots = {
@@ -76,6 +77,10 @@ void Player::setClassType(std::string myClassType){
 	classType = myClassType;
 }
 
+void Player::setThisObj(std::shared_ptr<Player> me){
+	thisObj = me;
+}
+
 //METHODS
 
 void Player::useAbility(std::shared_ptr<Abilities> ability){
@@ -88,16 +93,16 @@ void Player::useItem(std::shared_ptr<UsableItem> item){
 	};
 	if (item->getItemSlot() == ItemSlot::POTIONS ||
 		getSlot(item->getItemSlot()) == "empty"){
-		item->use(*this);
+		item->use(thisObj);
 	}
 	else{
-		item->unuse(*this);
-		item->use(*this);
+		item->unuse(thisObj);
+		item->use(thisObj);
 	}
 }
 
 void Player::takeOffItem(std::shared_ptr<UsableItem> item){
-	item->unuse(*this);
+	item->unuse(thisObj);
 	backpack->appendToBackpack(item);
 }
 

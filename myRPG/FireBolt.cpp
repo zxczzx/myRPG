@@ -1,5 +1,4 @@
 #include "FireBolt.h"
-#include "Character.h"
 
 FireBolt::FireBolt(){
 	name = "Fire bolt";

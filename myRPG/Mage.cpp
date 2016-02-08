@@ -1,5 +1,6 @@
 #include "Mage.h"
 #include "FireBolt.h"
+#include "ObjectSpawn.h"
 
 Mage::Mage(){
 	classType = "Mage";
@@ -9,7 +10,8 @@ Mage::Mage(){
 	maxMana = 20;
 	mana = maxMana;
 
-	abilities->appendToBackpack(Abilities::createAbility<FireBolt>());
+	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
+	abilities->appendToBackpack(spawner->spawnAbility("Fire bolt", 1));
 
 	setRealValues();
 }

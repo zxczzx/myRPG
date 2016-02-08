@@ -16,7 +16,7 @@ std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
 	{
 	case 1:	//create new player
 	{
-		std::shared_ptr<Player> player = std::make_shared<Player>();
+		std::shared_ptr<Player> player = Player::createPlayer<Player>();
 		game.setPlayer(player);
 		return returnProperGUI<CreatePlayerGUI>();
 	}

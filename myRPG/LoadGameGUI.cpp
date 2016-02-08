@@ -47,11 +47,11 @@ void LoadGameGUI::loadGame(Game& game, std::string filename){
 	//set proper class
 	std::string classType = fileMap.find("class")->second[0];
 	if (classType == "Warrior"){
-		std::shared_ptr<Player> player = std::make_shared<Warrior>();
+		std::shared_ptr<Player> player = Player::createPlayer<Warrior>();//std::make_shared<Warrior>();
 		game.setPlayer(player);
 	}
 	else if (classType == "Mage"){
-		std::shared_ptr<Player> player = std::make_shared<Mage>();
+		std::shared_ptr<Player> player = Player::createPlayer<Mage>();//std::make_shared<Mage>();
 		game.setPlayer(player);
 	}
 	//set loaded values to a player

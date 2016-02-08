@@ -56,17 +56,21 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 				std::cout << "Durability: \t" << std::static_pointer_cast<UsableItem>(item)->getDurability() << "/"
 				<< std::static_pointer_cast<UsableItem>(item)->getMaxDurability() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() != 0)
-				std::cout << "Cold resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() << std::endl;
+				std::cout << "Cold resistnce: " << std::static_pointer_cast<UsableItem>(item)->getResistance()->getColdImmunity() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getElectricityImmunity() != 0)
-				std::cout << "Electricity resistnce: \t" 
+				std::cout << "Electricity resistnce: " 
 				<< std::static_pointer_cast<UsableItem>(item)->getResistance()->getElectricityImmunity() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() != 0)
-				std::cout << "Fire resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() << std::endl;
+				std::cout << "Fire resistnce: " << std::static_pointer_cast<UsableItem>(item)->getResistance()->getFireImmunity() << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() != 0)
-				std::cout << "Water resistnce: \t" << std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() << std::endl;
-			std::cout << "Required level: " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->level << std::endl;;
+				std::cout << "Water resistnce: " << std::static_pointer_cast<UsableItem>(item)->getResistance()->getWaterImmunity() << std::endl;
+			std::cout << "Required level: " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->level << std::endl;
 			if (std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType.size() != 2){
-				std::cout << "(Only for " << std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType[0] << ")" << std::endl;
+				std::cout << "(Only for ";
+				for (auto& i : std::static_pointer_cast<UsableItem>(item)->getRequirements()->classType){
+					std::cout << i;
+				}
+				std::cout << ")" << std::endl;
 			}
 		}
 		break;

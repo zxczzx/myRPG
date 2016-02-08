@@ -19,8 +19,8 @@ item = {
 	},
 	Requirements = {
 		class = { 
-			Mage,
-			Warrior,
+			"Mage",
+			"Warrior",
 		},
 		level = 1,
 	},

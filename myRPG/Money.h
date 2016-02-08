@@ -1,7 +1,7 @@
 #pragma once
-#include "TrashItem.h"
+#include "Inventory.h"
 
-class Money : public TrashItem
+class Money : public Inventory
 {
 public:
 	Money(int count);
