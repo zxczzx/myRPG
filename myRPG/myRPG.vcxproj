@@ -91,9 +91,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EquipmentGUI.cpp" />
     <ClCompile Include="Filesystem.cpp" />
-    <ClCompile Include="FireBolt.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
-    <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Mage.cpp" />

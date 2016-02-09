@@ -195,9 +195,6 @@
     <ClCompile Include="StoryGUI.cpp">
       <Filter>Source Files\GUI\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="HealthPotion.cpp">
-      <Filter>Source Files\Inventory\Usable\Consumable</Filter>
-    </ClCompile>
     <ClCompile Include="SpellsGUI.cpp">
       <Filter>Source Files\GUI\Inventory</Filter>
     </ClCompile>
@@ -215,9 +212,6 @@
     </ClCompile>
     <ClCompile Include="Requirements.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FireBolt.cpp">
-      <Filter>Source Files\Character\Abilities\Spells</Filter>
     </ClCompile>
     <ClCompile Include="ObjectSpawn.cpp">
       <Filter>Source Files</Filter>
@@ -350,9 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="scandir.lua" />
-    <None Include="Money.lua">
-      <Filter>Source Files\Inventory</Filter>
-    </None>
     <None Include="Axe.lua">
       <Filter>Source Files\Inventory\Usable\Weapon</Filter>
     </None>
@@ -367,6 +358,9 @@
     </None>
     <None Include="Health potion.lua">
       <Filter>Source Files\Inventory\Usable\Consumable</Filter>
+    </None>
+    <None Include="Money.lua">
+      <Filter>Source Files\Inventory\Trash</Filter>
     </None>
   </ItemGroup>
 </Project>
