@@ -1,5 +1,6 @@
 #include "Orc.h"
-#include "Money.h"
+#include "Inventory.h"
+#include "ObjectSpawn.h"
 
 Orc::Orc()
 {
@@ -11,8 +12,9 @@ Orc::Orc()
 
 	//set up loot
 	loot = std::make_shared<Loot>();
+	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
 	loot->expReward = 5;
-	std::shared_ptr<Inventory> gold = std::make_shared<Money>(2);
+	std::shared_ptr<Inventory> gold = spawner->spawnItem("Money", 2);
 	loot->items.push_back(gold);
 
 	setRealValues();

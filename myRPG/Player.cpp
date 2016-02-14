@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "HealthPotion.h"
 #include "ObjectSpawn.h"
 
 Player::Player() : Character() {
@@ -26,7 +25,7 @@ Player::Player() : Character() {
 	backpack->appendToBackpack(spawner->spawnItem("Health potion", 2));
 	//end temp
 
-	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots = {
+	std::map<ItemSlot, std::shared_ptr<Inventory> > BodySlots = {
 		{ ItemSlot::HEAD, nullptr }, { ItemSlot::BODY, nullptr }, { ItemSlot::LEGS, nullptr }, { ItemSlot::FEET, nullptr }, { ItemSlot::SHOULDERS, nullptr }, { ItemSlot::GLOVES, nullptr }, { ItemSlot::POTIONS, nullptr }, { ItemSlot::MAIN_HAND, nullptr }, { ItemSlot::OFFHAND, nullptr }
 	};
 
@@ -87,7 +86,7 @@ void Player::useAbility(std::shared_ptr<Abilities> ability){
 	std::cout << "Player used ability " << ability << std::endl;
 }
 
-void Player::useItem(std::shared_ptr<UsableItem> item){
+void Player::useItem(std::shared_ptr<Inventory> item){
 	auto getSlot = [=](ItemSlot slot) {
 		return BodySlots[slot] == nullptr ? "empty" : BodySlots[slot]->getName();
 	};
@@ -101,7 +100,7 @@ void Player::useItem(std::shared_ptr<UsableItem> item){
 	}
 }
 
-void Player::takeOffItem(std::shared_ptr<UsableItem> item){
+void Player::takeOffItem(std::shared_ptr<Inventory> item){
 	item->unuse(thisObj);
 	backpack->appendToBackpack(item);
 }

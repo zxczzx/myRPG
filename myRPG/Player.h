@@ -18,11 +18,11 @@ protected:
 public:
 	Player();
 	~Player();
-	std::map<ItemSlot, std::shared_ptr<UsableItem> > BodySlots;
+	std::map<ItemSlot, std::shared_ptr<Inventory> > BodySlots;
 
 	//methods
-	void useItem(std::shared_ptr<UsableItem> item);
-	void takeOffItem(std::shared_ptr<UsableItem> item);
+	void useItem(std::shared_ptr<Inventory> item);
+	void takeOffItem(std::shared_ptr<Inventory> item);
 	void useAbility(std::shared_ptr<Abilities> ability);
 
 	//getter

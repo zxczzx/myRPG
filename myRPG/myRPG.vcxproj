@@ -52,7 +52,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>C:\Users\krzysztof.ozarek\Desktop\prywatne\GitRepo\myRPG\myRPG\LuaBridge;C:\lua-5.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\myRPG\LuaBridge;C:\lua-5.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4800;4065;4018;4715</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -95,7 +95,6 @@
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Mage.cpp" />
-    <ClCompile Include="Money.cpp" />
     <ClCompile Include="ObjectSpawn.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
@@ -115,7 +114,6 @@
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
-    <ClCompile Include="UsableItem.cpp" />
     <ClCompile Include="VictoryGUI.cpp" />
     <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
@@ -133,12 +131,10 @@
     <ClInclude Include="FireBolt.h" />
     <ClInclude Include="GameOverGUI.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="ItemSlot.h" />
     <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="Loot.h" />
     <ClInclude Include="Mage.h" />
-    <ClInclude Include="Money.h" />
     <ClInclude Include="ObjectSpawn.h" />
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Paths.h" />
@@ -158,7 +154,6 @@
     <ClInclude Include="SpellsGUI.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
-    <ClInclude Include="UsableItem.h" />
     <ClInclude Include="VictoryGUI.h" />
     <ClInclude Include="Warrior.h" />
   </ItemGroup>

@@ -159,9 +159,6 @@
     <ClCompile Include="Filesystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UsableItem.cpp">
-      <Filter>Source Files\Inventory\Usable</Filter>
-    </ClCompile>
     <ClCompile Include="BattleGUI.cpp">
       <Filter>Source Files\GUI\Battle</Filter>
     </ClCompile>
@@ -206,9 +203,6 @@
     </ClCompile>
     <ClCompile Include="BackpackGUI.cpp">
       <Filter>Source Files\GUI\Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="Money.cpp">
-      <Filter>Source Files\Inventory\Trash</Filter>
     </ClCompile>
     <ClCompile Include="Requirements.cpp">
       <Filter>Source Files</Filter>
@@ -263,9 +257,6 @@
     <ClInclude Include="dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UsableItem.h">
-      <Filter>Header Files\Inventory\Usable</Filter>
-    </ClInclude>
     <ClInclude Include="InventoryGUI.h">
       <Filter>Header Files\GUI\Inventory</Filter>
     </ClInclude>
@@ -299,9 +290,6 @@
     <ClInclude Include="StoryGUI.h">
       <Filter>Header Files\GUI\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="HealthPotion.h">
-      <Filter>Header Files\Inventory\Usable\Consumable</Filter>
-    </ClInclude>
     <ClInclude Include="ItemSlot.h">
       <Filter>Header Files\Inventory\Usable</Filter>
     </ClInclude>
@@ -319,9 +307,6 @@
     </ClInclude>
     <ClInclude Include="SpellsGUI.h">
       <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Money.h">
-      <Filter>Header Files\Inventory\Trash</Filter>
     </ClInclude>
     <ClInclude Include="Backpack.h">
       <Filter>Header Files\Character</Filter>

@@ -101,6 +101,16 @@ std::map<std::string, std::vector<std::string> > Filesystem::readItemData(std::s
 	LuaRef pclass = Requirements["class"];
 	LuaRef level = Requirements["level"];
 
+	if (mapValues(usable)[0] == "0") {
+		std::map<std::string, std::vector<std::string> > map = {
+			{ "name", mapValues(name) },
+			{ "description", mapValues(description) },
+			{ "quantity", mapValues(quantity) },
+			{ "usable", mapValues(usable) },
+		};
+		return map;
+	}
+
 	std::map<std::string, std::vector<std::string> > map = {
 		{ "name", mapValues(name) },
 		{ "description", mapValues(description) },

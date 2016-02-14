@@ -3,7 +3,7 @@
 #include "Filesystem.h"
 #include "ItemSlot.h"
 
-class UsableItem;
+class Inventory;
 class Character;
 class Abilities;
 class Requirements;
@@ -19,7 +19,7 @@ public:
 
 	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
-	std::shared_ptr<UsableItem> spawnItem(std::string filename, int count);
+	std::shared_ptr<Inventory> spawnItem(std::string filename, int count);
 	std::shared_ptr<Character> spawnCharacter(std::string filename);
 	std::shared_ptr<Abilities> spawnAbility(std::string filename, int count);
 
@@ -30,4 +30,3 @@ public:
 	std::shared_ptr<Requirements> createRequirements(statsMap map);
 	std::shared_ptr<Resistance> createResistance(statsMap map);
 };
-

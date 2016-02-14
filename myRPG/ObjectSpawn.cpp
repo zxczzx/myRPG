@@ -1,7 +1,7 @@
 #include "ObjectSpawn.h"
 #include "Player.h"
 #include "Abilities.h"
-#include "UsableItem.h"
+#include "Inventory.h"
 #include "Requirements.h"
 #include "Resistance.h"
 
@@ -24,6 +24,39 @@ std::shared_ptr<Character> ObjectSpawn::spawnCharacter(std::string filename){
 	return character;
 }
 
+std::shared_ptr<Inventory> ObjectSpawn::spawnItem(std::string filename, int count) {
+	filename = filename + ".lua";
+	std::shared_ptr<Inventory> item = std::make_shared<Inventory>();
+	statsMap map = filesystem->readItemData(filename);
+
+	//change attributes
+	if (getIntegerValue(map, "usable") == 1) {
+		item->setAttackValue(getIntegerValue(map, "attackValue"));
+		item->setArmorValue(getIntegerValue(map, "armorValue"));
+		item->setMaxDurability(getIntegerValue(map, "maxDurability"));
+		item->setDurability(getIntegerValue(map, "durability"));
+		//ItemSlot
+		item->setItemSlot(getSlotFromString(getStringValue(map, "itemSlot")));
+		//Abilities
+		for (auto& ability : map.find("Abilities")->second) {
+			item->setAbilities(spawnAbility(ability, 1));
+		}
+		//Resistance
+		item->setResistance(createResistance(map));
+		//Requirements
+		item->setRequirements(createRequirements(map));
+
+		item->setThisObj(item);
+	}
+	item->setName(getStringValue(map, "name"));
+	item->setDescription(getStringValue(map, "description"));
+	item->setUsable(getIntegerValue(map, "usable"));
+
+	item->setQuantity(count);
+
+	return item;
+}
+
 std::shared_ptr<Abilities> ObjectSpawn::spawnAbility(std::string filename, int count){
 	filename = filename + ".lua";
 	std::shared_ptr<Abilities> ability = std::make_shared<Abilities>();
@@ -41,36 +74,6 @@ std::shared_ptr<Abilities> ObjectSpawn::spawnAbility(std::string filename, int c
 	ability->setQuantity(count);
 	ability->setThisObj(ability);
 	return ability;
-}
-
-std::shared_ptr<UsableItem> ObjectSpawn::spawnItem(std::string filename, int count){
-	filename = filename + ".lua";
-	std::shared_ptr<UsableItem> item = std::make_shared<UsableItem>();
-	statsMap map = filesystem->readItemData(filename);
-
-	//change attributes
-	item->setName(getStringValue(map, "name"));
-	item->setDescription(getStringValue(map, "description"));
-	item->setQuantity(getIntegerValue(map, "quantity"));
-	item->setAttackValue(getIntegerValue(map, "attackValue"));
-	item->setArmorValue(getIntegerValue(map, "armorValue"));
-	item->setUsable(getIntegerValue(map, "usable"));
-	item->setMaxDurability(getIntegerValue(map, "maxDurability"));
-	item->setDurability(getIntegerValue(map, "durability"));
-	//ItemSlot
-	item->setItemSlot(getSlotFromString(getStringValue(map, "itemSlot")));
-	//Abilities
-	for (auto& ability : map.find("Abilities")->second){
-		item->setAbilities(spawnAbility(ability, 1));
-	}
-	//Resistance
-	item->setResistance(createResistance(map));
-	//Requirements
-	item->setRequirements(createRequirements(map));
-
-	item->setQuantity(count);
-	item->setThisObj(item);
-	return item;
 }
 
 ItemSlot ObjectSpawn::getSlotFromString(std::string slot){

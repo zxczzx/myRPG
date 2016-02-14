@@ -1,6 +1,6 @@
 #pragma once
 #include "libraries.h"
-#include "UsableItem.h"
+#include "Inventory.h"
 #include "Abilities.h"
 #include "Resistance.h"
 #include "Backpack.h"
