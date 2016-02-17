@@ -1,7 +1,7 @@
 #include "StartGameGUI.h"
 #include "MenuGUI.h"
 #include "CreatePlayerGUI.h"
-#include "Player.h"
+#include "Actor.h"
 
 
 StartGameGUI::StartGameGUI(){
@@ -16,8 +16,8 @@ std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
 	{
 	case 1:	//create new player
 	{
-		std::shared_ptr<Player> player = Player::createPlayer<Player>();
-		game.setPlayer(player);
+		std::shared_ptr<Actor> actor = Actor::createActor<Actor>();
+		game.setActor(actor);
 		return returnProperGUI<CreatePlayerGUI>();
 	}
 	case 2:	//load game

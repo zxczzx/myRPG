@@ -2,7 +2,7 @@
 #include <mutex>
 #include <atomic>
 #include <string>
-#include "Player.h"
+#include "Actor.h"
 #include "Graphic.h"
 #include "Loot.h"
 #include "GameState.h"
@@ -13,7 +13,7 @@ class Game
 {
 private:
 	std::shared_ptr<GUI> state_;
-	std::shared_ptr<Player> player_;
+	std::shared_ptr<Actor> actor_;
 	std::shared_ptr<Loot> loot_;
 	std::vector<std::shared_ptr<Character> > characters_;
 	std::vector<std::string> savedGames_;
@@ -30,14 +30,14 @@ public:
 	std::atomic_int atomicAction;
 
 	//getter
-	std::shared_ptr<Player> getPlayer();
+	std::shared_ptr<Actor> getActor();
 	std::shared_ptr<Loot> getLoot();
 	std::vector<std::shared_ptr<Character> > getCharacters();
 	std::vector<std::string> getSavedGames();
 	GameState getGameState();
 
 	//setter
-	void setPlayer(std::shared_ptr<Player> player);
+	void setActor(std::shared_ptr<Actor> actor);
 	void setLoot(std::shared_ptr<Loot> myLoot);
 	void setCharacters(std::vector<std::shared_ptr<Character> > enemiesList);
 	void setGraphicUpdate(std::string inputGraphic);

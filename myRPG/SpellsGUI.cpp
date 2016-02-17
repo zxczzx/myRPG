@@ -11,8 +11,8 @@ std::shared_ptr<GUI> SpellsGUI::handleInput(Game& game, int input){
 	if (input == 1){	//back
 		return prev;
 	}
-	else if (input < game.getPlayer()->getAbilitiesBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
-		auto chosenSpell = game.getPlayer()->getAbilitiesBackpack()->getItems()[input - 2];
+	else if (input < game.getActor()->getAbilitiesBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
+		auto chosenSpell = game.getActor()->getAbilitiesBackpack()->getItems()[input - 2];
 		if (game.getGameState() == GameState::STATE_BATTLE){
 			std::static_pointer_cast<BattleGUI>(prev)->chosenSpell = chosenSpell;
 			return prev;

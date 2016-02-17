@@ -2,8 +2,9 @@
 #include "BattleGUI.h"
 #include "MenuGUI.h"
 #include "InventoryGUI.h"
-#include "Enemy.h"
-#include "Orc.h"
+//#include "Enemy.h"
+//#include "Orc.h"
+#include "ObjectSpawn.h"
 
 StoryGUI::StoryGUI(){
 }
@@ -33,13 +34,13 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 		else{
 			//create enemies
 			int enemy_number = random_enemies(gen);
+			std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
 			std::vector<std::shared_ptr<Character> > characters;
 			for (int i = 0; i < enemy_number; i++){
-				std::shared_ptr<Enemy> enemy = std::make_shared<Orc>();
-				characters.push_back(enemy);
+				characters.push_back(spawner->spawnActor("Orc"));
 			}
 			//add characters
-			characters.push_back(game.getPlayer());
+			characters.push_back(game.getActor());
 			game.setCharacters(characters);
 			characters.clear();
 			characters.shrink_to_fit();

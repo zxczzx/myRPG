@@ -11,6 +11,6 @@ public:
 	void setName(Game& game);
 	void chooseClass(Game& game);
 	template<class T>
-	void changePlayerClass(Game& game);
+	void changeActorClass(Game& game);
 };
 

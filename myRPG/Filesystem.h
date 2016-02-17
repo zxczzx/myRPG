@@ -1,6 +1,9 @@
 #pragma once
 #include "libraries.h"
 #include "Inventory.h"
+#include "Abilities.h"
+#include "Resistance.h"
+#include "Backpack.h"
 #include <LuaBridge.h>
 extern "C" {
 # include "lua.h"
@@ -19,8 +22,8 @@ public:
 
 	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
-	void writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items, std::string filename);
-	statsMap readSaveGameData(std::string filename);
+	void writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items, 
+		std::vector<std::shared_ptr<Abilities> > abilities, std::shared_ptr<Resistance> resistance, std::string filename);
 	statsMap readItemData(std::string filename);
 	statsMap readCharacterData(std::string filename);
 	statsMap readAbilityData(std::string filename);

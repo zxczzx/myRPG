@@ -1,26 +1,53 @@
 --lua script
-save = {
-	name = "MalekMage",
+actor = {
+	name = "default",
 	class = "Mage",
 	level = 2,
 	exp = 15,
+	init = 2,
 	hp = 24,
+	maxHP = 24,
 	mp = 28,
+	maxMP = 28,
+	damage = 5,
+	armor = 0,
+	friendly = 1,
+	hpGrowth = 2,
+	mpGrowth = 4,
+	dmgGrowth = 1,
 	equipment = {
 		using = {
-			Head = 0,
-			Body = 0,
-			Legs = 0,
-			Feet = 0,
-			Shoulders = 0,
-			Gloves = 0,
-			Mainhand = 0,
-			Offhand = 0,
+			head = 0,
+			body = 0,
+			legs = 0,
+			feet = 0,
+			shoulders = 0,
+			gloves = 0,
+			mainhand = "Axe",
+			offhand = 0,
 		},
 		backpack = {
-			"Axe",
-			"Shirt",
-			"Health potion",
+			{
+				item = "Shirt",
+				count = 1,
+			},
+			{
+				item = "Health potion",
+				count = 2,
+			},
+			{
+				item = "Coin",
+				count = 6,
+			},
 		},
+	},
+	Abilities = {
+		"Fire bolt",
+	},
+	Resistance = {
+		cold = 0,
+		fire = 0,
+		electricity = 0,
+		water = 0,
 	},
 }

@@ -43,9 +43,6 @@
     <Filter Include="Header Files\Character\Attributes">
       <UniqueIdentifier>{c7bfff20-4917-4ba7-86ec-c43234cf1f8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Character\Enemies">
-      <UniqueIdentifier>{df77fa47-398a-44f1-9cac-2f4c981de200}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Character\Player classes">
       <UniqueIdentifier>{3a85e667-2650-4d32-9b1f-ff1c1ca66aa9}</UniqueIdentifier>
     </Filter>
@@ -129,29 +126,14 @@
     <ClCompile Include="Abilities.cpp">
       <Filter>Source Files\Character\Abilities</Filter>
     </ClCompile>
-    <ClCompile Include="Mage.cpp">
-      <Filter>Source Files\Character\Player classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Warrior.cpp">
-      <Filter>Source Files\Character\Player classes</Filter>
-    </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>Source Files\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Character\Player classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Character\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="Resistance.cpp">
       <Filter>Source Files\Character\Attributes</Filter>
-    </ClCompile>
-    <ClCompile Include="Orc.cpp">
-      <Filter>Source Files\Character\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Loot.cpp">
       <Filter>Source Files\Inventory</Filter>
@@ -210,6 +192,9 @@
     <ClCompile Include="ObjectSpawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries.h">
@@ -232,21 +217,6 @@
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Character\Player classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Warrior.h">
-      <Filter>Header Files\Character\Player classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Mage.h">
-      <Filter>Header Files\Character\Player classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Character\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Orc.h">
-      <Filter>Header Files\Character\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Loot.h">
       <Filter>Header Files\Inventory</Filter>
@@ -326,6 +296,9 @@
     <ClInclude Include="Paths.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files\Character\Player classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="scandir.lua" />
@@ -344,7 +317,16 @@
     <None Include="Health potion.lua">
       <Filter>Source Files\Inventory\Usable\Consumable</Filter>
     </None>
-    <None Include="Money.lua">
+    <None Include="Orc.lua">
+      <Filter>Source Files\Character\Enemies</Filter>
+    </None>
+    <None Include="Mage.lua">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </None>
+    <None Include="Warrior.lua">
+      <Filter>Source Files\Character\Player classes</Filter>
+    </None>
+    <None Include="Coin.lua">
       <Filter>Source Files\Inventory\Trash</Filter>
     </None>
   </ItemGroup>

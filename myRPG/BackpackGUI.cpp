@@ -11,8 +11,8 @@ std::shared_ptr<GUI> BackpackGUI::handleInput(Game& game, int input){
 	if (input == 1){	//back
 		return prev;
 	}
-	else if (input < game.getPlayer()->getBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
-		auto chosenItem = game.getPlayer()->getBackpack()->getItems()[input - 2];
+	else if (input < game.getActor()->getBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
+		auto chosenItem = game.getActor()->getBackpack()->getItems()[input - 2];
 		if (chosenItem->isUsable() == true){
 			enter(game);
 			std::cout << std::endl << "1. Description" << std::endl;
@@ -75,12 +75,12 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 		}
 		break;
 	case 2:
-		game.getPlayer()->getBackpack()->removeFromBackpack(item);
+		game.getActor()->getBackpack()->removeFromBackpack(item);
 		enter(game);
 		std::cout << std::endl << "Item " << item->getName() << " has been removed" << std::endl;
 		break;
 	case 3:
-		game.getPlayer()->useItem(std::static_pointer_cast<Inventory>(item));
+		game.getActor()->useItem(item);
 		enter(game);
 		std::cout << std::endl << "You have used " << item->getName() << std::endl;
 		break;

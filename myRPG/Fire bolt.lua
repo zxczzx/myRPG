@@ -1,6 +1,6 @@
 --lua script
 ability = {
-	name = "File bolt",
+	name = "Fire bolt",
 	description = "Small but deadly fire missle",
 	useString = "burned",
 	damage = 4,

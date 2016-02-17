@@ -4,10 +4,10 @@
 #include "ItemSlot.h"
 
 class Inventory;
-class Character;
 class Abilities;
 class Requirements;
 class Resistance;
+class Actor;
 
 class ObjectSpawn
 {
@@ -20,10 +20,11 @@ public:
 	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
 	std::shared_ptr<Inventory> spawnItem(std::string filename, int count);
-	std::shared_ptr<Character> spawnCharacter(std::string filename);
+	std::shared_ptr<Actor> spawnActor(std::string filename);
 	std::shared_ptr<Abilities> spawnAbility(std::string filename, int count);
 
 	ItemSlot getSlotFromString(std::string slot);
+
 	int getIntegerValue(statsMap map, std::string key);
 	std::string getStringValue(statsMap map, std::string key);
 

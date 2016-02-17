@@ -1,5 +1,5 @@
 #include "ObjectSpawn.h"
-#include "Player.h"
+#include "Actor.h"
 #include "Abilities.h"
 #include "Inventory.h"
 #include "Requirements.h"
@@ -11,16 +11,75 @@ ObjectSpawn::ObjectSpawn(){
 ObjectSpawn::~ObjectSpawn(){
 }
 
-std::shared_ptr<Character> ObjectSpawn::spawnCharacter(std::string filename){
-	std::shared_ptr<Character> character = Player::createPlayer<Player>();
+std::shared_ptr<Actor> ObjectSpawn::spawnActor(std::string filename){
+	if (filename.find(".save") == std::string::npos) {
+		filename = filename + ".lua";
+	}
+
+	std::shared_ptr<Actor> character = Actor::createActor<Actor>();
 	statsMap map = filesystem->readCharacterData(filename);
 	//change attributes
-	character->setName(map.find("name")->second[0]);
-	character->setLevel(std::stoi(map.find("level")->second[0]));
-	character->setHitPoints(std::stoi(map.find("hp")->second[0]));
-	character->setMana(std::stoi(map.find("mp")->second[0]));
-	//character->setExperience(std::stoi(map.find("exp")->second[0]));
+	character->setName(getStringValue(map, "name"));
+	character->setClassType(getStringValue(map, "class"));
+	character->setLevel(getIntegerValue(map, "level"));
+	character->setExperience(getIntegerValue(map, "exp"));
+	character->setInitiative(getIntegerValue(map, "init"));
+	character->setHitPoints(getIntegerValue(map, "hp"));
+	character->setMaxHitPoints(getIntegerValue(map, "maxHP"));
+	character->setMana(getIntegerValue(map, "mp"));
+	character->setMaxMana(getIntegerValue(map, "maxMP"));
+	character->setDamage(getIntegerValue(map, "damage"));
+	character->setArmor(getIntegerValue(map, "armor"));
+	character->setFriedly(getIntegerValue(map, "friendly"));
+	character->setHpGrowth(getIntegerValue(map, "hpGrowth"));
+	character->setMpGrowth(getIntegerValue(map, "mpGrowth"));
+	character->setDmgGrowth(getIntegerValue(map, "dmgGrowth"));
+	//Resistance
+	character->setResistance(createResistance(map));
+	//Abilities
+	for (auto& ability : map.find("Abilities")->second) {
+		character->setAbilities(spawnAbility(ability, 1));
+	}
+	//Backpack
+	for (int i = 0; i < map.find("backpack")->second.size(); i += 2) {
+		auto item = spawnItem(map.find("backpack")->second[i], std::stoi(map.find("backpack")->second[i + 1]));
+		character->getBackpack()->appendToBackpack(item);
+	}
+	//using items
+	if (getStringValue(map, "head") != "0") {
+		auto item = spawnItem(getStringValue(map, "head"), 1);
+		character->BodySlots[ItemSlot::HEAD] = item;
+	}
+	else if (getStringValue(map, "body") != "0") {
+		auto item = spawnItem(getStringValue(map, "body"), 1);
+		character->BodySlots[ItemSlot::BODY] = item;
+	}
+	else if (getStringValue(map, "legs") != "0") {
+		auto item = spawnItem(getStringValue(map, "legs"), 1);
+		character->BodySlots[ItemSlot::LEGS] = item;
+	}
+	else if (getStringValue(map, "feet") != "0") {
+		auto item = spawnItem(getStringValue(map, "feet"), 1);
+		character->BodySlots[ItemSlot::FEET] = item;
+	}
+	else if (getStringValue(map, "shoulders") != "0") {
+		auto item = spawnItem(getStringValue(map, "shoulders"), 1);
+		character->BodySlots[ItemSlot::SHOULDERS] = item;
+	}
+	else if (getStringValue(map, "gloves") != "0") {
+		auto item = spawnItem(getStringValue(map, "gloves"), 1);
+		character->BodySlots[ItemSlot::GLOVES] = item;
+	}
+	else if (getStringValue(map, "mainhand") != "0") {
+		auto item = spawnItem(getStringValue(map, "mainhand"), 1);
+		character->BodySlots[ItemSlot::MAIN_HAND] = item;
+	}
+	else if (getStringValue(map, "offhand") != "0") {
+		auto item = spawnItem(getStringValue(map, "offhand"), 1);
+		character->BodySlots[ItemSlot::OFFHAND] = item;
+	}
 
+	character->setRealValues();
 	return character;
 }
 

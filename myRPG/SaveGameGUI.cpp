@@ -49,7 +49,7 @@ void SaveGameGUI::enter(Game& game){
 void SaveGameGUI::saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, std::string filename){
 	//helper lambdas
 	auto getSlot = [&](ItemSlot slot) {
-		return game.getPlayer()->BodySlots[slot] == nullptr ? "0" : "\"" + game.getPlayer()->BodySlots[slot]->getName() + "\"";
+		return game.getActor()->BodySlots[slot] == nullptr ? "0" : "\"" + game.getActor()->BodySlots[slot]->getName() + "\"";
 	};
 
 	auto makeVector = [](std::string str){
@@ -57,28 +57,39 @@ void SaveGameGUI::saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, s
 	};
 	//maps
 	std::map<std::string, std::vector<std::string> > stats{
-		{ "name", makeVector(game.getPlayer()->getName()) },
-		{ "class", makeVector(game.getPlayer()->getClassType()) },
-		{ "level", makeVector(std::to_string(game.getPlayer()->getLevel())) },
-		{ "exp", makeVector(std::to_string(game.getPlayer()->getExperience())) },
-		{ "hp", makeVector(std::to_string(game.getPlayer()->getHitPoints())) },
-		{ "mp", makeVector(std::to_string(game.getPlayer()->getMana())) },
+		{ "name", makeVector(game.getActor()->getName()) },
+		{ "class", makeVector(game.getActor()->getClassType()) },
+		{ "level", makeVector(std::to_string(game.getActor()->getLevel())) },
+		{ "exp", makeVector(std::to_string(game.getActor()->getExperience())) },
+		{ "init", makeVector(std::to_string(game.getActor()->getRealInitiative())) },
+		{ "hp", makeVector(std::to_string(game.getActor()->getHitPoints())) },
+		{ "maxHP", makeVector(std::to_string(game.getActor()->getRealHitPoints())) },
+		{ "mp", makeVector(std::to_string(game.getActor()->getMana())) },
+		{ "maxMP", makeVector(std::to_string(game.getActor()->getRealMana())) },
+		{ "damage", makeVector(std::to_string(game.getActor()->getRealDamage())) },
+		{ "armor", makeVector(std::to_string(game.getActor()->getRealArmor())) },
+		{ "friendly", makeVector(std::to_string(game.getActor()->getFriendly())) },
+		{ "hpGrowth", makeVector(std::to_string(game.getActor()->getHpGrowth())) },
+		{ "mpGrowth", makeVector(std::to_string(game.getActor()->getMpGrowth())) },
+		{ "dmgGrowth", makeVector(std::to_string(game.getActor()->getDmgGrowth())) },
+
 	};
 
 	std::map<std::string, std::vector<std::string> > equipment{
-		{ "Head", makeVector(getSlot(ItemSlot::HEAD)) },
-		{ "Body", makeVector(getSlot(ItemSlot::BODY)) },
-		{ "Legs", makeVector(getSlot(ItemSlot::LEGS)) },
-		{ "Feet", makeVector(getSlot(ItemSlot::FEET)) },
-		{ "Shoulders", makeVector(getSlot(ItemSlot::SHOULDERS)) },
-		{ "Gloves", makeVector(getSlot(ItemSlot::GLOVES)) },
-		{ "Mainhand", makeVector(getSlot(ItemSlot::MAIN_HAND)) },
-		{ "Offhand", makeVector(getSlot(ItemSlot::OFFHAND)) },
+		{ "head", makeVector(getSlot(ItemSlot::HEAD)) },
+		{ "body", makeVector(getSlot(ItemSlot::BODY)) },
+		{ "legs", makeVector(getSlot(ItemSlot::LEGS)) },
+		{ "feet", makeVector(getSlot(ItemSlot::FEET)) },
+		{ "shoulders", makeVector(getSlot(ItemSlot::SHOULDERS)) },
+		{ "gloves", makeVector(getSlot(ItemSlot::GLOVES)) },
+		{ "mainhand", makeVector(getSlot(ItemSlot::MAIN_HAND)) },
+		{ "offhand", makeVector(getSlot(ItemSlot::OFFHAND)) },
 	};
 	//change name
 	if (filename.find(".save") == std::string::npos){
 		filename = filename + ".save";
 	}
 	//execute
-	filesystem->writeToFile(stats, equipment, game.getPlayer()->getBackpack()->getItems(), filename);
+	filesystem->writeToFile(stats, equipment, game.getActor()->getBackpack()->getItems(), 
+		game.getActor()->getAbilitiesBackpack()->getItems(), game.getActor()->getResistance(), filename);
 }

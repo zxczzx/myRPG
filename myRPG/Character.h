@@ -21,6 +21,10 @@ protected:
 	std::shared_ptr<Backpack<Abilities> > abilities;
 	std::shared_ptr<Resistance> resistance;
 
+	int hpGrowth;
+	int mpGrowth;
+	int dmgGrowth;
+
 	int realArmor;
 	int realDamage;
 	int realMana;
@@ -50,6 +54,10 @@ public:
 	std::shared_ptr<Resistance> getResistance();
 	std::shared_ptr<Backpack<Abilities> > getAbilitiesBackpack();
 
+	int getHpGrowth();
+	int getMpGrowth();
+	int getDmgGrowth();
+
 	int getRealArmor();
 	int getRealDamage();
 	int getRealMana();
@@ -67,7 +75,12 @@ public:
 	void setName(std::string myName);
 	void setFriedly(bool ff);
 	void setResistance(std::shared_ptr<Resistance> res);
-	void setAbilities(std::vector<std::shared_ptr<Abilities> > myAbilities);
+	void setAbilities(std::shared_ptr<Abilities> myAbilities);
+	void setArmor(int value);
+
+	void setHpGrowth(int value);
+	void setMpGrowth(int value);
+	void setDmgGrowth(int value);
 
 	void setRealArmor(int realarmor);
 	void setRealDamage(int realdamage);

@@ -1,5 +1,4 @@
 #include "BattleGUI.h"
-#include "Enemy.h"
 #include "VictoryGUI.h"
 #include "GameOverGUI.h"
 #include "StoryGUI.h"
@@ -20,10 +19,10 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	game.setGameState(GameState::STATE_BATTLE);
 
 	//create enemy list
-	std::vector<std::shared_ptr<Enemy> > enemiesList;
+	std::vector<std::shared_ptr<Actor> > enemiesList;
 	for (auto& character : game.getCharacters()){
 		if (character->getFriendly() == false && !character->isDead()){
-			enemiesList.push_back(std::static_pointer_cast<Enemy>(character));
+			enemiesList.push_back(std::static_pointer_cast<Actor>(character));
 		}
 	}
 
@@ -33,13 +32,12 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		std::unique_ptr<Loot> loot = std::make_unique<Loot>();
 		for (auto& character : game.getCharacters()){
 			if (character->isDead()){
-				loot->expReward += std::static_pointer_cast<Enemy>(character)->getLoot()->expReward;
+				loot->expReward += std::static_pointer_cast<Actor>(character)->getExperience();
 
 				//append vector to vector
-				loot->items.insert(std::end(loot->items),
-					std::begin(std::static_pointer_cast<Enemy>(character)->getLoot()->items),
-					std::end(std::static_pointer_cast<Enemy>(character)->getLoot()->items)
-					);
+				for (auto& i : std::static_pointer_cast<Actor>(character)->getBackpack()->getItems()) {
+					loot->items.push_back(i);
+				}
 			}
 		}
 		game.setLoot(std::move(loot));
@@ -56,7 +54,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		if (character->getFriendly() == false && usedPrev == true){
 			continue;
 		}
-		//players turn
+		//Actors turn
 		if (character->getFriendly() == true){
 			//spell chosen
 			if (chosenSpell->getName() != "default"){
@@ -74,7 +72,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				} while (enemyNumber > enemiesList.size());
 
 				// make dmg to enemy
-				bool success = chosenSpell->execute(game.getPlayer(), enemiesList[enemyNumber - 1]);
+				bool success = chosenSpell->execute(game.getActor(), enemiesList[enemyNumber - 1]);
 				if (success){
 					usedPrev = false;
 					continue;
@@ -101,7 +99,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				} while (enemyNumber > enemiesList.size());
 
 				// make dmg to enemy
-				game.getPlayer()->attack(enemiesList[enemyNumber - 1]);
+				game.getActor()->attack(enemiesList[enemyNumber - 1]);
 				usedPrev = false;
 				continue;
 			}
@@ -122,12 +120,12 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				std::random_device rd;
 				std::mt19937 gen(rd());
 				std::uniform_int_distribution<> randInit(1, 100);
-				int playerRandInit = randInit(gen);
-				int playerInit = game.getPlayer()->getInitiative() + playerRandInit;
+				int ActorRandInit = randInit(gen);
+				int ActorInit = game.getActor()->getInitiative() + ActorRandInit;
 				for (auto& enemy : enemiesList){
 					if (!enemy->isDead()){
 						int rand_initiative = randInit(gen);
-						if (playerInit < enemy->getInitiative() + rand_initiative){
+						if (ActorInit < enemy->getInitiative() + rand_initiative){
 							return std::make_shared<GameOverGUI>();
 						}
 					}
@@ -142,11 +140,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		else{
 			//enemy turn
 			if (!character->isDead()){
-				character->attack(game.getPlayer());
+				character->attack(game.getActor());
 			}
 			
 			//enemy gave the killing blow. Game over
-			if (game.getPlayer()->getHitPoints() <= 0){
+			if (game.getActor()->getHitPoints() <= 0){
 				return returnProperGUI<GameOverGUI>(); 
 			}
 		}

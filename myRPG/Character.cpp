@@ -88,6 +88,18 @@ std::shared_ptr<Backpack<Abilities> > Character::getAbilitiesBackpack(){
 	return abilities;
 }
 
+int Character::getHpGrowth(){
+	return hpGrowth;
+}
+
+int Character::getMpGrowth(){
+	return mpGrowth;
+}
+
+int Character::getDmgGrowth(){
+	return dmgGrowth;
+}
+
 int Character::getRealArmor(){
 	return realArmor;
 }
@@ -148,6 +160,26 @@ void Character::setName(std::string myName){
 
 void Character::setResistance(std::shared_ptr<Resistance> res){
 	resistance = res;
+}
+
+void Character::setAbilities(std::shared_ptr<Abilities> myAbilities){
+	abilities->appendToBackpack(myAbilities);
+}
+
+void Character::setArmor(int value){
+	armor = value;
+}
+
+void Character::setHpGrowth(int value){
+	hpGrowth = value;
+}
+
+void Character::setMpGrowth(int value){
+	mpGrowth = value;
+}
+
+void Character::setDmgGrowth(int value){
+	dmgGrowth = value;
 }
 
 void Character::setRealArmor(int realarmor){

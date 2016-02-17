@@ -88,15 +88,12 @@
     </ClCompile>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CreatePlayerGUI.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EquipmentGUI.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
-    <ClCompile Include="Mage.cpp" />
     <ClCompile Include="ObjectSpawn.cpp" />
-    <ClCompile Include="Orc.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -104,7 +101,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="MenuGUI.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Requirements.cpp" />
     <ClCompile Include="Resistance.cpp" />
     <ClCompile Include="SaveGameGUI.cpp" />
@@ -115,7 +112,6 @@
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
     <ClCompile Include="VictoryGUI.cpp" />
-    <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abilities.h" />
@@ -125,7 +121,6 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="dirent.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EquipmentGUI.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="FireBolt.h" />
@@ -134,9 +129,7 @@
     <ClInclude Include="ItemSlot.h" />
     <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="Loot.h" />
-    <ClInclude Include="Mage.h" />
     <ClInclude Include="ObjectSpawn.h" />
-    <ClInclude Include="Orc.h" />
     <ClInclude Include="Paths.h" />
     <ClInclude Include="QuitGUI.h" />
     <ClInclude Include="Graphic.h" />
@@ -146,7 +139,7 @@
     <ClInclude Include="libraries.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MenuGUI.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Resistance.h" />
     <ClInclude Include="SaveGameGUI.h" />
@@ -155,16 +148,18 @@
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
     <ClInclude Include="VictoryGUI.h" />
-    <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Axe.lua" />
     <None Include="Fire bolt.lua" />
     <None Include="Heal.lua" />
     <None Include="Health potion.lua" />
-    <None Include="Money.lua" />
+    <None Include="Mage.lua" />
+    <None Include="Coin.lua" />
+    <None Include="Orc.lua" />
     <None Include="scandir.lua" />
     <None Include="Shirt.lua" />
+    <None Include="Warrior.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

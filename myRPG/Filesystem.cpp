@@ -10,65 +10,158 @@ Filesystem::Filesystem(){
 Filesystem::~Filesystem(){
 }
 
-void Filesystem::writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items, std::string filename){
+void Filesystem::writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items,
+	std::vector<std::shared_ptr<Abilities> > abilities, std::shared_ptr<Resistance> resistance, std::string filename) {
 	//create loadable lua script
 	auto getValue = [](statsMap map, std::string name){
 		return map.find(name)->second[0];
 	};
-
+	//TODO rework needed
 	std::ofstream fout("./SavedGames/" + filename);
-	fout << "--lua script\nsave = {" << std::endl;
+	fout << "--lua script\nactor = {" << std::endl;
 	fout << "\tname = \"" << getValue(stats, "name") << "\"," << std::endl;
 	fout << "\tclass = \"" << getValue(stats, "class") << "\"," << std::endl;
 	fout << "\tlevel = " << getValue(stats, "level") << "," << std::endl;
 	fout << "\texp = " << getValue(stats, "exp") << "," << std::endl;
+	fout << "\tinit = " << getValue(stats, "init") << "," << std::endl;
 	fout << "\thp = " << getValue(stats, "hp") << "," << std::endl;
+	fout << "\tmaxHP = " << getValue(stats, "maxHP") << "," << std::endl;
 	fout << "\tmp = " << getValue(stats, "mp") << "," << std::endl;
+	fout << "\tmaxMP = " << getValue(stats, "maxMP") << "," << std::endl;
+
+	fout << "\tdamage = " << getValue(stats, "damage") << "," << std::endl;
+	fout << "\tarmor = " << getValue(stats, "armor") << "," << std::endl;
+	fout << "\tfriendly = " << getValue(stats, "friendly") << "," << std::endl;
+	fout << "\thpGrowth = " << getValue(stats, "hpGrowth") << "," << std::endl;
+	fout << "\tmpGrowth = " << getValue(stats, "mpGrowth") << "," << std::endl;
+	fout << "\tdmgGrowth = " << getValue(stats, "dmgGrowth") << "," << std::endl;
+
 	fout << "\tequipment = {\n\t\tusing = {" << std::endl;
-	fout << "\t\t\tHead = " << getValue(equipment, "Head") << "," << std::endl;
-	fout << "\t\t\tBody = " << getValue(equipment, "Body") << "," << std::endl;
-	fout << "\t\t\tLegs = " << getValue(equipment, "Legs") << "," << std::endl;
-	fout << "\t\t\tFeet = " << getValue(equipment, "Feet") << "," << std::endl;
-	fout << "\t\t\tShoulders = " << getValue(equipment, "Shoulders") << "," << std::endl;
-	fout << "\t\t\tGloves = " << getValue(equipment, "Gloves") << "," << std::endl;
-	fout << "\t\t\tMainhand = " << getValue(equipment, "Mainhand") << "," << std::endl;
-	fout << "\t\t\tOffhand = " << getValue(equipment, "Offhand") << "," << std::endl;
+	fout << "\t\t\thead = " << getValue(equipment, "head") << "," << std::endl;
+	fout << "\t\t\tbody = " << getValue(equipment, "body") << "," << std::endl;
+	fout << "\t\t\tlegs = " << getValue(equipment, "legs") << "," << std::endl;
+	fout << "\t\t\tfeet = " << getValue(equipment, "feet") << "," << std::endl;
+	fout << "\t\t\tshoulders = " << getValue(equipment, "shoulders") << "," << std::endl;
+	fout << "\t\t\tgloves = " << getValue(equipment, "gloves") << "," << std::endl;
+	fout << "\t\t\tmainhand = " << getValue(equipment, "mainhand") << "," << std::endl;
+	fout << "\t\t\toffhand = " << getValue(equipment, "offhand") << "," << std::endl;
 	fout << "\t\t}," << std::endl;
 	fout << "\t\tbackpack = {" << std::endl;
 	for (auto& i : items){
-		fout << "\t\t\t\"" << i->getName() << "\"," << std::endl;
+		fout << "\t\t\t{" << std::endl;
+		fout << "\t\t\t\titem = \"" << i->getName() << "\"," << std::endl;
+		fout << "\t\t\t\tcount = " << i->getQuantity() << "," << std::endl;
+		fout << "\t\t\t}," << std::endl;
 	}
 	fout << "\t\t}," << std::endl;
+	fout << "\t}," << std::endl;
+	fout << "\tAbilities = {" << std::endl;
+	for (auto& i : abilities) {
+		fout << "\t\t\"" << i->getName() << "\"," << std::endl;
+	}
+	fout << "\t}," << std::endl;
+	fout << "\tResistance = {" << std::endl;
+	fout << "\t\tcold = " << resistance->getColdImmunity() << "," << std::endl;
+	fout << "\t\tfire = " << resistance->getFireImmunity() << "," << std::endl;
+	fout << "\t\telectricity = " << resistance->getElectricityImmunity() << "," << std::endl;
+	fout << "\t\twater = " << resistance->getWaterImmunity() << "," << std::endl;
 	fout << "\t}," << std::endl;
 	fout << "}" << std::endl;
 }
 
-std::map<std::string, std::vector<std::string> > Filesystem::readSaveGameData(std::string filename){
+std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(std::string filename){
+	//TODO rework needed
 	//start lua script
 	lua_State* L = luaState();
 	luaL_dofile(L, filename.c_str());
-	LuaRef save = getGlobal(L, "save");
+	LuaRef actor = getGlobal(L, "actor");
 	//normal values
-	LuaRef name = save["name"];
-	LuaRef pclass = save["class"];
-	LuaRef level = save["level"];
-	LuaRef exp = save["exp"];
-	LuaRef hp = save["hp"];
-	LuaRef mp = save["mp"];
+	LuaRef name = actor["name"];
+	LuaRef pclass = actor["class"];
+	LuaRef level = actor["level"];
+	LuaRef exp = actor["exp"];
+	LuaRef initiative = actor["init"];
+	LuaRef hp = actor["hp"];
+	LuaRef maxHP = actor["maxHP"];
+	LuaRef mp = actor["mp"];
+	LuaRef maxMP = actor["maxMP"];
+	LuaRef damage = actor["damage"];
+	LuaRef armor = actor["armor"];
+	LuaRef friendly = actor["friendly"];
+	LuaRef hpGrowth = actor["hpGrowth"];
+	LuaRef mpGrowth = actor["mpGrowth"];
+	LuaRef dmgGrowth = actor["dmgGrowth"];
 	//equipment handler
-	LuaRef equipment = save["equipment"];
+	LuaRef equipment = actor["equipment"];
+	//using items handler
 	LuaRef use = equipment["using"];
+	LuaRef head = use["head"];
+	LuaRef body = use["body"];
+	LuaRef legs = use["legs"];
+	LuaRef feet = use["feet"];
+	LuaRef shoulders = use["shoulders"];
+	LuaRef gloves = use["gloves"];
+	LuaRef mainhand = use["mainhand"];
+	LuaRef offhand = use["offhand"];
+	//backpack handler
 	LuaRef backpack = equipment["backpack"];
+	//Abilities handler
+	LuaRef Abilities = actor["Abilities"];
+	//Resistance handler
+	LuaRef Resistance = actor["Resistance"];
+	LuaRef cold = Resistance["cold"];
+	LuaRef fire = Resistance["fire"];
+	LuaRef electricity = Resistance["electricity"];
+	LuaRef water = Resistance["water"];
 
 	std::map<std::string, std::vector<std::string> > map = { 
 		{ "name", mapValues(name) },
 		{ "class", mapValues(pclass) },
 		{ "level", mapValues(level) },
-		{ "exp", mapValues(exp) },
-		{ "hp", mapValues(hp) },
+		{ "exp" , mapValues(exp) },
+		{ "init", mapValues(initiative) },
 		{ "mp", mapValues(mp) },
+		{ "maxMP", mapValues(maxMP) },
+		{ "hp", mapValues(hp) },
+		{ "maxHP", mapValues(maxHP) },
+		{ "damage", mapValues(damage) },
+		{ "armor", mapValues(armor) },
+		{ "friendly", mapValues(friendly) },
+		{ "hpGrowth", mapValues(hpGrowth) },
+		{ "mpGrowth", mapValues(mpGrowth) },
+		{ "dmgGrowth", mapValues(dmgGrowth) },
 	};
-	//TODO get using and backpack values
+
+	//Abilities
+	std::vector<std::string> abil;
+	for (auto i = 1; i < Abilities.length() + 1; i++) {
+		abil.push_back(Abilities[i].cast<std::string>());
+	}
+	map.insert(std::pair<std::string, std::vector<std::string> >("Abilities", abil));
+	//Resistance
+	map.insert(makePair("cold", cold));
+	map.insert(makePair("fire", fire));
+	map.insert(makePair("electricity", electricity));
+	map.insert(makePair("water", water));
+	//Equipment
+	//using
+	map.insert(makePair("head", head));
+	map.insert(makePair("body", body));
+	map.insert(makePair("legs", legs));
+	map.insert(makePair("feet", feet));
+	map.insert(makePair("shoulders", shoulders));
+	map.insert(makePair("gloves", gloves));
+	map.insert(makePair("mainhand", mainhand));
+	map.insert(makePair("offhand", offhand));
+	//backpack
+	std::vector<std::string> items;
+	for (auto i = 1; i < backpack.length() + 1; i++) {
+		LuaRef item = backpack[i];
+		items.push_back(item["item"].cast<std::string>());
+		items.push_back(item["count"].cast<std::string>());
+	}
+	map.insert(std::pair<std::string, std::vector<std::string> >("backpack", items));
+
 	return map;
 }
 
@@ -141,11 +234,6 @@ std::map<std::string, std::vector<std::string> > Filesystem::readItemData(std::s
 	map.insert(std::pair<std::string, std::vector<std::string> >("class", classes));
 	map.insert(makePair("level", level));
 
-	return map;
-}
-
-std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(std::string filename){
-	std::map<std::string, std::vector<std::string> > map;
 	return map;
 }
 

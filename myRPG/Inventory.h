@@ -5,7 +5,7 @@
 class Requirements;
 class Abilities;
 class Resistance;
-class Player;
+class Actor;
 
 class Inventory
 {
@@ -60,7 +60,7 @@ public:
 	void setAbilities(std::shared_ptr<Abilities> obj);
 	void setThisObj(std::shared_ptr<Inventory> me);
 
-	void use(std::shared_ptr<Player> player);
-	void unuse(std::shared_ptr<Player> player);
+	void use(std::shared_ptr<Actor> actor);
+	void unuse(std::shared_ptr<Actor> actor);
 
 };
