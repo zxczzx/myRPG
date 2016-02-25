@@ -7,7 +7,7 @@ class Inventory;
 class Abilities;
 class Requirements;
 class Resistance;
-class Actor;
+class Player;
 
 class ObjectSpawn
 {
@@ -20,7 +20,7 @@ public:
 	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
 	std::shared_ptr<Inventory> spawnItem(std::string filename, int count);
-	std::shared_ptr<Actor> spawnActor(std::string filename);
+	std::shared_ptr<Player> spawnActor(std::string filename);
 	std::shared_ptr<Abilities> spawnAbility(std::string filename, int count);
 
 	ItemSlot getSlotFromString(std::string slot);

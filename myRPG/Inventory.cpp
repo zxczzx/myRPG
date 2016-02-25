@@ -3,7 +3,7 @@
 #include "ItemSlot.h"
 #include "Abilities.h"
 #include "Resistance.h"
-#include "Actor.h"
+#include "Player.h"
 
 
 Inventory::Inventory(){
@@ -135,94 +135,94 @@ void Inventory::setThisObj(std::shared_ptr<Inventory> me) {
 
 //METHODS
 
-void Inventory::use(std::shared_ptr<Actor> actor) {
+void Inventory::use(std::shared_ptr<Player> player) {
 	//TODO this is temporary healing potion -> it should be triggered as ability which is not implemented here yet
 	if (itemSlot == ItemSlot::POTIONS) {
-		thisObj->getAbilities()->execute(actor, actor);
+		thisObj->getAbilities()->execute(player, player);
 		quantity--;
 		if (quantity < 1) {
-			actor->getBackpack()->removeFromBackpack(thisObj);
+			player->getBackpack()->removeFromBackpack(thisObj);
 		}
 		return;
 	}
 
 	if (itemSlot == ItemSlot::HEAD) {
-		actor->BodySlots[ItemSlot::HEAD] = thisObj;
+		player->BodySlots[ItemSlot::HEAD] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::BODY) {
-		actor->BodySlots[ItemSlot::BODY] = thisObj;
+		player->BodySlots[ItemSlot::BODY] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::LEGS) {
-		actor->BodySlots[ItemSlot::LEGS] = thisObj;
+		player->BodySlots[ItemSlot::LEGS] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::FEET) {
-		actor->BodySlots[ItemSlot::FEET] = thisObj;
+		player->BodySlots[ItemSlot::FEET] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::SHOULDERS) {
-		actor->BodySlots[ItemSlot::SHOULDERS] = thisObj;
+		player->BodySlots[ItemSlot::SHOULDERS] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::GLOVES) {
-		actor->BodySlots[ItemSlot::GLOVES] = thisObj;
+		player->BodySlots[ItemSlot::GLOVES] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::BOTH_HANDS) {
-		actor->BodySlots[ItemSlot::MAIN_HAND] = thisObj;
-		actor->BodySlots[ItemSlot::OFFHAND] = thisObj;
+		player->BodySlots[ItemSlot::MAIN_HAND] = thisObj;
+		player->BodySlots[ItemSlot::OFFHAND] = thisObj;
 	}
 	else if (itemSlot == ItemSlot::OFFHAND) {
-		actor->BodySlots[ItemSlot::OFFHAND] = thisObj;
+		player->BodySlots[ItemSlot::OFFHAND] = thisObj;
 	}
 	else {
-		actor->BodySlots[ItemSlot::MAIN_HAND] = thisObj;
+		player->BodySlots[ItemSlot::MAIN_HAND] = thisObj;
 	}
-	//Actor->getAbilities().push_back(thisObj->getAbilities());	// add vector of abilities to vector if two abilities are the same, make it BetterAbility
+	//Player->getAbilities().push_back(thisObj->getAbilities());	// add vector of abilities to vector if two abilities are the same, make it BetterAbility
 
-	actor->getResistance()->setColdImmunity(actor->getResistance()->getColdImmunity() + thisObj->getResistance()->getColdImmunity());
-	actor->getResistance()->setFireImmunity(actor->getResistance()->getFireImmunity() + thisObj->getResistance()->getFireImmunity());
-	actor->getResistance()->setElectricityImmunity(actor->getResistance()->getElectricityImmunity() + thisObj->getResistance()->getElectricityImmunity());
-	actor->getResistance()->setWaterImmunity(actor->getResistance()->getWaterImmunity() + thisObj->getResistance()->getWaterImmunity());
+	player->getResistance()->setColdImmunity(player->getResistance()->getColdImmunity() + thisObj->getResistance()->getColdImmunity());
+	player->getResistance()->setFireImmunity(player->getResistance()->getFireImmunity() + thisObj->getResistance()->getFireImmunity());
+	player->getResistance()->setElectricityImmunity(player->getResistance()->getElectricityImmunity() + thisObj->getResistance()->getElectricityImmunity());
+	player->getResistance()->setWaterImmunity(player->getResistance()->getWaterImmunity() + thisObj->getResistance()->getWaterImmunity());
 
-	actor->setRealArmor(actor->getRealArmor() + armorValue);
-	actor->setRealDamage(actor->getRealDamage() + attackValue);
-	actor->getBackpack()->removeFromBackpack(thisObj);
+	player->setRealArmor(player->getRealArmor() + armorValue);
+	player->setRealDamage(player->getRealDamage() + attackValue);
+	player->getBackpack()->removeFromBackpack(thisObj);
 }
 
-void Inventory::unuse(std::shared_ptr<Actor> actor) {
+void Inventory::unuse(std::shared_ptr<Player> player) {
 	if (itemSlot == ItemSlot::HEAD) {
-		actor->BodySlots[ItemSlot::HEAD] = nullptr;
+		player->BodySlots[ItemSlot::HEAD] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::BODY) {
-		actor->BodySlots[ItemSlot::BODY] = nullptr;
+		player->BodySlots[ItemSlot::BODY] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::LEGS) {
-		actor->BodySlots[ItemSlot::LEGS] = nullptr;
+		player->BodySlots[ItemSlot::LEGS] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::FEET) {
-		actor->BodySlots[ItemSlot::FEET] = nullptr;
+		player->BodySlots[ItemSlot::FEET] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::SHOULDERS) {
-		actor->BodySlots[ItemSlot::SHOULDERS] = nullptr;
+		player->BodySlots[ItemSlot::SHOULDERS] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::GLOVES) {
-		actor->BodySlots[ItemSlot::GLOVES] = nullptr;
+		player->BodySlots[ItemSlot::GLOVES] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::BOTH_HANDS) {
-		actor->BodySlots[ItemSlot::MAIN_HAND] = nullptr;
-		actor->BodySlots[ItemSlot::OFFHAND] = nullptr;
+		player->BodySlots[ItemSlot::MAIN_HAND] = nullptr;
+		player->BodySlots[ItemSlot::OFFHAND] = nullptr;
 	}
 	else if (itemSlot == ItemSlot::OFFHAND) {
-		actor->BodySlots[ItemSlot::OFFHAND] = nullptr;
+		player->BodySlots[ItemSlot::OFFHAND] = nullptr;
 	}
 	else {
-		actor->BodySlots[ItemSlot::MAIN_HAND] = nullptr;
+		player->BodySlots[ItemSlot::MAIN_HAND] = nullptr;
 	}
-	//Actor->getAbilities().push_back(thisObj->getAbilities());	//remove abilities from vector -> if ability is BetterAbility, make it normal
+	//Player->getAbilities().push_back(thisObj->getAbilities());	//remove abilities from vector -> if ability is BetterAbility, make it normal
 
-	actor->getResistance()->setColdImmunity(actor->getResistance()->getColdImmunity() - thisObj->getResistance()->getColdImmunity());
-	actor->getResistance()->setFireImmunity(actor->getResistance()->getFireImmunity() - thisObj->getResistance()->getFireImmunity());
-	actor->getResistance()->setElectricityImmunity(actor->getResistance()->getElectricityImmunity() - thisObj->getResistance()->getElectricityImmunity());
-	actor->getResistance()->setWaterImmunity(actor->getResistance()->getWaterImmunity() - thisObj->getResistance()->getWaterImmunity());
+	player->getResistance()->setColdImmunity(player->getResistance()->getColdImmunity() - thisObj->getResistance()->getColdImmunity());
+	player->getResistance()->setFireImmunity(player->getResistance()->getFireImmunity() - thisObj->getResistance()->getFireImmunity());
+	player->getResistance()->setElectricityImmunity(player->getResistance()->getElectricityImmunity() - thisObj->getResistance()->getElectricityImmunity());
+	player->getResistance()->setWaterImmunity(player->getResistance()->getWaterImmunity() - thisObj->getResistance()->getWaterImmunity());
 
-	actor->setRealArmor(actor->getRealArmor() - armorValue);
+	player->setRealArmor(player->getRealArmor() - armorValue);
 
-	actor->setRealDamage(actor->getRealDamage() - attackValue);
+	player->setRealDamage(player->getRealDamage() - attackValue);
 }

@@ -1,5 +1,5 @@
 #include "ObjectSpawn.h"
-#include "Actor.h"
+#include "Player.h"
 #include "Abilities.h"
 #include "Inventory.h"
 #include "Requirements.h"
@@ -11,12 +11,12 @@ ObjectSpawn::ObjectSpawn(){
 ObjectSpawn::~ObjectSpawn(){
 }
 
-std::shared_ptr<Actor> ObjectSpawn::spawnActor(std::string filename){
+std::shared_ptr<Player> ObjectSpawn::spawnActor(std::string filename){
 	if (filename.find(".save") == std::string::npos) {
 		filename = filename + ".lua";
 	}
 
-	std::shared_ptr<Actor> character = Actor::createActor<Actor>();
+	std::shared_ptr<Player> character = Player::createActor<Player>();
 	statsMap map = filesystem->readCharacterData(filename);
 	//change attributes
 	character->setName(getStringValue(map, "name"));

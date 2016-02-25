@@ -1,5 +1,5 @@
 --lua script
-actor = {
+player = {
 	name = "Orc",
 	class = "Warrior",
 	level = 1,

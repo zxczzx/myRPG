@@ -67,10 +67,10 @@ void CreatePlayerGUI::chooseClass(Game& game){
 
 template<class T>
 void CreatePlayerGUI::changeActorClass(Game& game){
-	std::shared_ptr<Actor> actor = std::make_shared<T>();
-	if (actor->getName() == "default"){
+	std::shared_ptr<Player> player = std::make_shared<T>();
+	if (player->getName() == "default"){
 		std::string name = game.getActor()->getName();
-		actor->setName(name);
+		player->setName(name);
 	}
-	game.setActor(actor);
+	game.setActor(player);
 }

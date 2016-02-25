@@ -46,10 +46,10 @@ void EquipmentGUI::enter(Game& game){
 }
 
 void EquipmentGUI::takeOffItem(Game& game, ItemSlot slot){
-	auto actor = game.getActor();
-	if (actor->BodySlots.find(slot)->second != nullptr){
-		std::string itemName = actor->BodySlots.find(slot)->second->getName();
-		actor->takeOffItem(actor->BodySlots.find(slot)->second);
+	auto player = game.getActor();
+	if (player->BodySlots.find(slot)->second != nullptr){
+		std::string itemName = player->BodySlots.find(slot)->second->getName();
+		player->takeOffItem(player->BodySlots.find(slot)->second);
 		enter(game);
 		std::cout << "You have taken off " << itemName << std::endl;
 	}

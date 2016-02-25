@@ -37,7 +37,7 @@ void LoadGameGUI::enter(Game& game){
 }
 
 void LoadGameGUI::loadGame(Game& game, std::string filename){
-	//spawn player actor
+	//spawn player player
 	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
 	game.setActor(spawner->spawnActor(Paths::saveGames + filename));
 }

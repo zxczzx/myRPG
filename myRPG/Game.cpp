@@ -14,8 +14,8 @@ Game::~Game(){
 }
 
 //GETTERS
-std::shared_ptr<Actor> Game::getActor(){
-	return actor_;
+std::shared_ptr<Player> Game::getActor(){
+	return player_;
 }
 
 std::shared_ptr<Loot> Game::getLoot(){
@@ -35,8 +35,8 @@ GameState Game::getGameState(){
 }
 
 //SETTERS
-void Game::setActor(std::shared_ptr<Actor> actor){
-	actor_ = actor;
+void Game::setActor(std::shared_ptr<Player> player){
+	player_ = player;
 }
 
 void Game::setLoot(std::shared_ptr<Loot> myLoot){
@@ -76,10 +76,10 @@ void Game::initiaviveSort(){
 void Game::setGraphic(Graphic graphic){
 	system("CLS");
 	if (graphic == Graphic::BATTLE_GUI || graphic == Graphic::MENU_STORY_GUI)
-	std::cout << actor_->getName() << ", " << actor_->getLevel()
-		<< " lvl, " << actor_->getExperience() << "/" << actor_->getLvLMap().find(actor_->getLevel())->second  << " exp, "
-		<< actor_->getHitPoints() << "/" << actor_->getRealHitPoints() << " hp, " 
-		<< actor_->getMana() << "/" << actor_->getRealMana() << " mp" << std::endl << std::endl;
+	std::cout << player_->getName() << ", " << player_->getLevel()
+		<< " lvl, " << player_->getExperience() << "/" << player_->getLvLMap().find(player_->getLevel())->second  << " exp, "
+		<< player_->getHitPoints() << "/" << player_->getRealHitPoints() << " hp, " 
+		<< player_->getMana() << "/" << player_->getRealMana() << " mp" << std::endl << std::endl;
 
 	else if (graphic == Graphic::MENU_LOAD_GAME_GUI){
 		std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
@@ -139,8 +139,8 @@ void Game::setGraphic(Graphic graphic){
 	}
 	case Graphic::CREATE_Actor:
 		std::cout << "Create your character" << std::endl << std::endl;
-		std::cout << "1. Change name \t\t" << "Your name: " << actor_->getName() << std::endl;
-		std::cout << "2. Change class \t" << "Your class: " << actor_->getClassType() << std::endl;
+		std::cout << "1. Change name \t\t" << "Your name: " << player_->getName() << std::endl;
+		std::cout << "2. Change class \t" << "Your class: " << player_->getClassType() << std::endl;
 		std::cout << "3. Start game" << std::endl;
 		std::cout << "4. Back" << std::endl;
 		break;
@@ -183,33 +183,33 @@ void Game::setGraphic(Graphic graphic){
 		std::cout << "\t\t" << loot_->expReward << " experience" << std::endl;
 		for (auto& item : loot_->items){
 			std::cout << "\t\t" << item->getQuantity() << "x " << item->getName() << std::endl;
-			actor_->getBackpack()->appendToBackpack(item);
+			player_->getBackpack()->appendToBackpack(item);
 		}
-		actor_->setExperience(actor_->getExperience() + loot_->expReward);
+		player_->setExperience(player_->getExperience() + loot_->expReward);
 
 		std::cout << std::endl << "Input any key to continue..." << std::endl;
 		break;
 	case Graphic::INVENTORY_GUI:
 		std::cout << "Inventory" << "\t\t\t\t Stats \t\t" << std::endl << std::endl;
-		std::cout << "1. Equipment" << "\t\t\t Level: \t\t" << actor_->getLevel() << std::endl;
-		std::cout << "2. Backpack" << "\t\t\t Experience: \t\t" << actor_->getExperience() << "/" 
-			<< actor_->getLvLMap().find(actor_->getLevel())->second << std::endl;
-		std::cout << "3. Spells" << "\t\t\t Hit points: \t\t" << actor_->getHitPoints() 
-			<< "/" << actor_->getRealHitPoints() << std::endl;
-		std::cout << "4. Special abilities" << "\t\t Mana: \t\t\t" << actor_->getMana() 
-			<< "/" << actor_->getRealMana() << std::endl;
-		std::cout << "5. Back" << "\t\t\t\t Damage: \t\t" << actor_->getRealDamage() << std::endl;
-		std::cout << "       " << "\t\t\t\t Armor: \t\t" << actor_->getRealArmor() << std::endl << std::endl;
+		std::cout << "1. Equipment" << "\t\t\t Level: \t\t" << player_->getLevel() << std::endl;
+		std::cout << "2. Backpack" << "\t\t\t Experience: \t\t" << player_->getExperience() << "/" 
+			<< player_->getLvLMap().find(player_->getLevel())->second << std::endl;
+		std::cout << "3. Spells" << "\t\t\t Hit points: \t\t" << player_->getHitPoints() 
+			<< "/" << player_->getRealHitPoints() << std::endl;
+		std::cout << "4. Special abilities" << "\t\t Mana: \t\t\t" << player_->getMana() 
+			<< "/" << player_->getRealMana() << std::endl;
+		std::cout << "5. Back" << "\t\t\t\t Damage: \t\t" << player_->getRealDamage() << std::endl;
+		std::cout << "       " << "\t\t\t\t Armor: \t\t" << player_->getRealArmor() << std::endl << std::endl;
 
-		std::cout << "       " << "\t\t\t\t Fire immunity: \t" << actor_->getResistance()->getFireImmunity() << std::endl;
-		std::cout << "       " << "\t\t\t\t Electricity immunity: \t" << actor_->getResistance()->getElectricityImmunity() << std::endl;
-		std::cout << "       " << "\t\t\t\t Water immunity: \t" << actor_->getResistance()->getWaterImmunity() << std::endl;
-		std::cout << "       " << "\t\t\t\t Cold immunity: \t" << actor_->getResistance()->getColdImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Fire immunity: \t" << player_->getResistance()->getFireImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Electricity immunity: \t" << player_->getResistance()->getElectricityImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Water immunity: \t" << player_->getResistance()->getWaterImmunity() << std::endl;
+		std::cout << "       " << "\t\t\t\t Cold immunity: \t" << player_->getResistance()->getColdImmunity() << std::endl;
 		break;
 	case Graphic::INVENTORY_EQUIPMENT:
 	{
 		auto getSlot = [=](ItemSlot slot) {
-			return actor_->BodySlots[slot] == nullptr ? "Empty slot" : actor_->BodySlots[slot]->getName(); 
+			return player_->BodySlots[slot] == nullptr ? "Empty slot" : player_->BodySlots[slot]->getName(); 
 		};
 
 		std::cout << "Equipment" << std::endl << std::endl;
@@ -227,25 +227,25 @@ void Game::setGraphic(Graphic graphic){
 	case Graphic::INVENTORY_BACKPACK:
 		std::cout << "Backpack" << std::endl << std::endl;
 		std::cout << "1. Back" << std::endl << std::endl;
-		if (actor_->getBackpack()->getItems().size() == 0){
+		if (player_->getBackpack()->getItems().size() == 0){
 			std::cout << "You have no items in your backpack" << std::endl;
 		}
 		else{
-			for (unsigned i = 0; i < actor_->getBackpack()->getItems().size(); i++){
-				std::cout << i + 2 << ". " << actor_->getBackpack()->getItems()[i]->getQuantity() << "x "
-					<< actor_->getBackpack()->getItems()[i]->getName() << std::endl;
+			for (unsigned i = 0; i < player_->getBackpack()->getItems().size(); i++){
+				std::cout << i + 2 << ". " << player_->getBackpack()->getItems()[i]->getQuantity() << "x "
+					<< player_->getBackpack()->getItems()[i]->getName() << std::endl;
 			}
 		}
 		break;
 	case Graphic::INVENTORY_SPELLS:
 		std::cout << "Spells" << std::endl << std::endl;
 		std::cout << "1. Back" << std::endl;
-		if (actor_->getAbilitiesBackpack()->getItems().size() == 0){
+		if (player_->getAbilitiesBackpack()->getItems().size() == 0){
 			std::cout << "You have no spells" << std::endl;
 		}
 		else{
-			for (unsigned i = 0; i < actor_->getAbilitiesBackpack()->getItems().size(); i++){
-				std::cout << i + 2 << ". " << actor_->getAbilitiesBackpack()->getItems()[i]->getName() << std::endl;
+			for (unsigned i = 0; i < player_->getAbilitiesBackpack()->getItems().size(); i++){
+				std::cout << i + 2 << ". " << player_->getAbilitiesBackpack()->getItems()[i]->getName() << std::endl;
 			}
 		}
 		break;

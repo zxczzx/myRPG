@@ -52,14 +52,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\myRPG\LuaBridge;C:\lua-5.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\myRPG\LuaBridge;C:\SFML-2.3.2\include;C:\lua-5.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4800;4065;4018;4715</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\lua-5.2.4;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua52.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\SFML-2.3.2\lib;C:\lua-5.2.4;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua52.a;sfml-window-d.lib;sfml-system-d.lib;sfml-graphics-d.lib;sfml-main-d.lib;openal32.lib;freetype.lib;jpeg.lib;ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,12 +72,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\lua-5.2.4\include;C:\SFML-2.3.2\include;C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\myRPG\LuaBridge;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\SFML-2.3.2\lib;C:\lua-5.2.4;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s.lib;sfml-system-s.lib;sfml-graphics-s.lib;sfml-main.lib;openal32.lib;freetype.lib;jpeg.lib;ogg.lib;liblua52.a;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -101,7 +104,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="MenuGUI.cpp" />
-    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Requirements.cpp" />
     <ClCompile Include="Resistance.cpp" />
     <ClCompile Include="SaveGameGUI.cpp" />
@@ -120,7 +123,6 @@
     <ClInclude Include="BattleGUI.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
-    <ClInclude Include="dirent.h" />
     <ClInclude Include="EquipmentGUI.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="FireBolt.h" />
@@ -139,7 +141,7 @@
     <ClInclude Include="libraries.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MenuGUI.h" />
-    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Resistance.h" />
     <ClInclude Include="SaveGameGUI.h" />

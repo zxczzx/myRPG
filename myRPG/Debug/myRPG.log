@@ -1,6 +1,31 @@
-﻿  Skipping... (no relevant changes detected)
+﻿  VictoryGUI.cpp
   StoryGUI.cpp
+  StartGameGUI.cpp
+  SpellsGUI.cpp
+  SpecialAbilitiesGUI.cpp
+  SaveGameGUI.cpp
+  Resistance.cpp
+  Requirements.cpp
+  Player.cpp
+  MenuGUI.cpp
+  Game.cpp
+  main.cpp
+  InventoryGUI.cpp
+  Inventory.cpp
+  GUI.cpp
+  QuitGUI.cpp
+  ObjectSpawn.cpp
+  Loot.cpp
   LoadGameGUI.cpp
+  GameOverGUI.cpp
+  Generating Code...
+  Compiling...
+  Filesystem.cpp
+  EquipmentGUI.cpp
   CreatePlayerGUI.cpp
+  Character.cpp
   BattleGUI.cpp
+  BackpackGUI.cpp
+  Abilities.cpp
+  Generating Code...
   myRPG.vcxproj -> C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\Debug\myRPG.exe

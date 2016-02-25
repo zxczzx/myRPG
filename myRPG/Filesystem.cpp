@@ -18,7 +18,7 @@ void Filesystem::writeToFile(statsMap stats, statsMap equipment, std::vector<std
 	};
 	//TODO rework needed
 	std::ofstream fout("./SavedGames/" + filename);
-	fout << "--lua script\nactor = {" << std::endl;
+	fout << "--lua script\nplayer = {" << std::endl;
 	fout << "\tname = \"" << getValue(stats, "name") << "\"," << std::endl;
 	fout << "\tclass = \"" << getValue(stats, "class") << "\"," << std::endl;
 	fout << "\tlevel = " << getValue(stats, "level") << "," << std::endl;
@@ -74,25 +74,25 @@ std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(s
 	//start lua script
 	lua_State* L = luaState();
 	luaL_dofile(L, filename.c_str());
-	LuaRef actor = getGlobal(L, "actor");
+	LuaRef player = getGlobal(L, "player");
 	//normal values
-	LuaRef name = actor["name"];
-	LuaRef pclass = actor["class"];
-	LuaRef level = actor["level"];
-	LuaRef exp = actor["exp"];
-	LuaRef initiative = actor["init"];
-	LuaRef hp = actor["hp"];
-	LuaRef maxHP = actor["maxHP"];
-	LuaRef mp = actor["mp"];
-	LuaRef maxMP = actor["maxMP"];
-	LuaRef damage = actor["damage"];
-	LuaRef armor = actor["armor"];
-	LuaRef friendly = actor["friendly"];
-	LuaRef hpGrowth = actor["hpGrowth"];
-	LuaRef mpGrowth = actor["mpGrowth"];
-	LuaRef dmgGrowth = actor["dmgGrowth"];
+	LuaRef name = player["name"];
+	LuaRef pclass = player["class"];
+	LuaRef level = player["level"];
+	LuaRef exp = player["exp"];
+	LuaRef initiative = player["init"];
+	LuaRef hp = player["hp"];
+	LuaRef maxHP = player["maxHP"];
+	LuaRef mp = player["mp"];
+	LuaRef maxMP = player["maxMP"];
+	LuaRef damage = player["damage"];
+	LuaRef armor = player["armor"];
+	LuaRef friendly = player["friendly"];
+	LuaRef hpGrowth = player["hpGrowth"];
+	LuaRef mpGrowth = player["mpGrowth"];
+	LuaRef dmgGrowth = player["dmgGrowth"];
 	//equipment handler
-	LuaRef equipment = actor["equipment"];
+	LuaRef equipment = player["equipment"];
 	//using items handler
 	LuaRef use = equipment["using"];
 	LuaRef head = use["head"];
@@ -106,9 +106,9 @@ std::map<std::string, std::vector<std::string> > Filesystem::readCharacterData(s
 	//backpack handler
 	LuaRef backpack = equipment["backpack"];
 	//Abilities handler
-	LuaRef Abilities = actor["Abilities"];
+	LuaRef Abilities = player["Abilities"];
 	//Resistance handler
-	LuaRef Resistance = actor["Resistance"];
+	LuaRef Resistance = player["Resistance"];
 	LuaRef cold = Resistance["cold"];
 	LuaRef fire = Resistance["fire"];
 	LuaRef electricity = Resistance["electricity"];

@@ -9,7 +9,7 @@ enum class Graphic {
 	MENU_QUIT_GUI,
 	MENU_LOAD_GAME_GUI,
 
-	//Actor creation
+	//Player creation
 	CREATE_Actor,
 	CREATE_WRITE_OPTION,
 	CREATE_CLASS_OPTION,

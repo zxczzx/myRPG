@@ -192,7 +192,7 @@
     <ClCompile Include="ObjectSpawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files\Character\Player classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,9 +222,6 @@
       <Filter>Header Files\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="Filesystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InventoryGUI.h">
@@ -296,7 +293,7 @@
     <ClInclude Include="Paths.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files\Character\Player classes</Filter>
     </ClInclude>
   </ItemGroup>

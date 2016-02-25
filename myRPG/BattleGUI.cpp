@@ -19,10 +19,10 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	game.setGameState(GameState::STATE_BATTLE);
 
 	//create enemy list
-	std::vector<std::shared_ptr<Actor> > enemiesList;
+	std::vector<std::shared_ptr<Player> > enemiesList;
 	for (auto& character : game.getCharacters()){
 		if (character->getFriendly() == false && !character->isDead()){
-			enemiesList.push_back(std::static_pointer_cast<Actor>(character));
+			enemiesList.push_back(std::static_pointer_cast<Player>(character));
 		}
 	}
 
@@ -32,10 +32,10 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		std::unique_ptr<Loot> loot = std::make_unique<Loot>();
 		for (auto& character : game.getCharacters()){
 			if (character->isDead()){
-				loot->expReward += std::static_pointer_cast<Actor>(character)->getExperience();
+				loot->expReward += std::static_pointer_cast<Player>(character)->getExperience();
 
 				//append vector to vector
-				for (auto& i : std::static_pointer_cast<Actor>(character)->getBackpack()->getItems()) {
+				for (auto& i : std::static_pointer_cast<Player>(character)->getBackpack()->getItems()) {
 					loot->items.push_back(i);
 				}
 			}
