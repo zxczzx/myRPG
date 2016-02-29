@@ -11,6 +11,8 @@ extern "C" {
 # include "lualib.h"
 }
 
+using statsMap = std::map<std::string, std::vector<std::string>>;
+
 class Filesystem
 {
 private:
@@ -19,8 +21,6 @@ private:
 public:
 	Filesystem();
 	~Filesystem();
-
-	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
 	void writeToFile(statsMap stats, statsMap equipment, std::vector<std::shared_ptr<Inventory> > items, 
 		std::vector<std::shared_ptr<Abilities> > abilities, std::shared_ptr<Resistance> resistance, std::string filename);

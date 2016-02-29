@@ -1,330 +1,258 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Character">
-      <UniqueIdentifier>{7a0fe1dc-9be0-4d17-a327-68189d88f9aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Character">
+    <Filter Include="Character">
       <UniqueIdentifier>{495819b2-7071-4827-927e-e86b359e5520}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{32307c9b-5238-4cac-a41c-8161e2c67fc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI">
-      <UniqueIdentifier>{1e26c9f2-63cc-40e7-ba09-83e4eb8153a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Character\Abilities">
+    <Filter Include="Character\Abilities">
       <UniqueIdentifier>{4e6a0ecf-22cb-486c-898a-c9f5a260f529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Character\Player classes">
-      <UniqueIdentifier>{22fa9c7a-07cb-4c94-a4b3-267f243eb0dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Character\Enemies">
-      <UniqueIdentifier>{0eb13cf4-ae1c-42f0-a0b2-b0e6c26e1fc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Character\Abilities">
-      <UniqueIdentifier>{217bf720-2eda-4e24-88f7-693f6e661972}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Character\Attributes">
-      <UniqueIdentifier>{05d885bd-d601-46a8-8948-48efad0da31c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Character\Attributes">
-      <UniqueIdentifier>{c7bfff20-4917-4ba7-86ec-c43234cf1f8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Character\Player classes">
-      <UniqueIdentifier>{3a85e667-2650-4d32-9b1f-ff1c1ca66aa9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Inventory">
-      <UniqueIdentifier>{06c6a7b5-ce1b-4f15-bd10-2430004464f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory">
-      <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Inventory\Usable">
-      <UniqueIdentifier>{e169b61e-3dee-44e0-b789-86da4a4f87ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Inventory\Trash">
-      <UniqueIdentifier>{e924819b-99a9-4f9b-9f40-4e8a3762ac31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory\Usable">
-      <UniqueIdentifier>{f9f01718-44c7-4260-ae07-7b1c5e2ebd84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory\Trash">
-      <UniqueIdentifier>{c493a624-453f-4892-86b2-3e2f57db71a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI\Menu">
-      <UniqueIdentifier>{f242b5ea-83b1-4393-95bf-8ef9e4ce68fb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI\Create">
-      <UniqueIdentifier>{a8a11226-ee02-4d2b-b73e-118a875a21e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI\Battle">
-      <UniqueIdentifier>{9b0369d3-12d6-407f-a9aa-c788ecd5ff8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI\Inventory">
-      <UniqueIdentifier>{b8050ac9-09e0-47aa-8621-9c369482ff9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI\Menu">
-      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI\Battle">
-      <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI\Inventory">
-      <UniqueIdentifier>{26b579fc-5a1a-42b6-b604-4f5cc048129f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI\Create">
-      <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Inventory\Usable\Consumable">
-      <UniqueIdentifier>{59929622-da86-4e18-9b81-411bb074fc21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory\Usable\Armor">
-      <UniqueIdentifier>{ea791fd4-f504-46ee-a613-1492a895bb35}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory\Usable\Weapon">
-      <UniqueIdentifier>{865eea7d-896d-4354-8768-5a56a55da82b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Inventory\Usable\Consumable">
-      <UniqueIdentifier>{b1c3546d-917b-447d-a419-e749bbb53580}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Character\Abilities\Special abilities">
-      <UniqueIdentifier>{b1d673c0-81e3-461f-b358-659bd88df578}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Character\Abilities\Spells">
-      <UniqueIdentifier>{2836339f-b41f-4935-b671-7dc22387ff2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Character\Abilities\Special Abilities">
+    <Filter Include="Character\Abilities\Special Abilities">
       <UniqueIdentifier>{9b49b74b-a66b-4274-80d7-3594ac126719}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Character\Abilities\Spells">
+    <Filter Include="Character\Abilities\Spells">
       <UniqueIdentifier>{afc82e41-ac7e-4c4b-89d5-c4a4c4caf401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player classes">
+      <UniqueIdentifier>{22fa9c7a-07cb-4c94-a4b3-267f243eb0dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemies">
+      <UniqueIdentifier>{0eb13cf4-ae1c-42f0-a0b2-b0e6c26e1fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Attributes">
+      <UniqueIdentifier>{05d885bd-d601-46a8-8948-48efad0da31c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{32307c9b-5238-4cac-a41c-8161e2c67fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Menu">
+      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Battle">
+      <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Inventory">
+      <UniqueIdentifier>{26b579fc-5a1a-42b6-b604-4f5cc048129f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Create">
+      <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory">
+      <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory\Usable">
+      <UniqueIdentifier>{f9f01718-44c7-4260-ae07-7b1c5e2ebd84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory\Usable\Armor">
+      <UniqueIdentifier>{ea791fd4-f504-46ee-a613-1492a895bb35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory\Usable\Weapon">
+      <UniqueIdentifier>{865eea7d-896d-4354-8768-5a56a55da82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory\Usable\Consumable">
+      <UniqueIdentifier>{b1c3546d-917b-447d-a419-e749bbb53580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory\Trash">
+      <UniqueIdentifier>{c493a624-453f-4892-86b2-3e2f57db71a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GUI.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="Abilities.cpp">
-      <Filter>Source Files\Character\Abilities</Filter>
+      <Filter>Character\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>Source Files\Character</Filter>
+      <Filter>Character</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files\Inventory</Filter>
+      <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Resistance.cpp">
-      <Filter>Source Files\Character\Attributes</Filter>
+      <Filter>Character\Attributes</Filter>
     </ClCompile>
     <ClCompile Include="Loot.cpp">
-      <Filter>Source Files\Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="Filesystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="BattleGUI.cpp">
-      <Filter>Source Files\GUI\Battle</Filter>
+      <Filter>GUI\Battle</Filter>
     </ClCompile>
     <ClCompile Include="VictoryGUI.cpp">
-      <Filter>Source Files\GUI\Battle</Filter>
+      <Filter>GUI\Battle</Filter>
     </ClCompile>
     <ClCompile Include="GameOverGUI.cpp">
-      <Filter>Source Files\GUI\Battle</Filter>
+      <Filter>GUI\Battle</Filter>
     </ClCompile>
     <ClCompile Include="CreatePlayerGUI.cpp">
-      <Filter>Source Files\GUI\Create</Filter>
+      <Filter>GUI\Create</Filter>
     </ClCompile>
     <ClCompile Include="InventoryGUI.cpp">
-      <Filter>Source Files\GUI\Inventory</Filter>
+      <Filter>GUI\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="LoadGameGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="MenuGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="QuitGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SaveGameGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="StartGameGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="StoryGUI.cpp">
-      <Filter>Source Files\GUI\Menu</Filter>
+      <Filter>GUI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SpellsGUI.cpp">
-      <Filter>Source Files\GUI\Inventory</Filter>
+      <Filter>GUI\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="SpecialAbilitiesGUI.cpp">
-      <Filter>Source Files\GUI\Inventory</Filter>
+      <Filter>GUI\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="EquipmentGUI.cpp">
-      <Filter>Source Files\GUI\Inventory</Filter>
+      <Filter>GUI\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="BackpackGUI.cpp">
-      <Filter>Source Files\GUI\Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="Requirements.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectSpawn.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GUI\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Character\Player classes</Filter>
+      <Filter>Character\Player classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Filesystem.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjectSpawn.cpp" />
+    <ClCompile Include="Requirements.cpp" />
+    <ClCompile Include="Menu.cpp">
+      <Filter>GUI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libraries.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Abilities.h">
-      <Filter>Header Files\Character\Abilities</Filter>
+      <Filter>Character\Abilities</Filter>
     </ClInclude>
     <ClInclude Include="Resistance.h">
-      <Filter>Header Files\Character\Attributes</Filter>
-    </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Loot.h">
-      <Filter>Header Files\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Filesystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InventoryGUI.h">
-      <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="VictoryGUI.h">
-      <Filter>Header Files\GUI\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="BattleGUI.h">
-      <Filter>Header Files\GUI\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOverGUI.h">
-      <Filter>Header Files\GUI\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="CreatePlayerGUI.h">
-      <Filter>Header Files\GUI\Create</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadGameGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveGameGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="QuitGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="StartGameGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="StoryGUI.h">
-      <Filter>Header Files\GUI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemSlot.h">
-      <Filter>Header Files\Inventory\Usable</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="BackpackGUI.h">
-      <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="EquipmentGUI.h">
-      <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="SpecialAbilitiesGUI.h">
-      <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="SpellsGUI.h">
-      <Filter>Header Files\GUI\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Backpack.h">
-      <Filter>Header Files\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Requirements.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FireBolt.h">
-      <Filter>Header Files\Character\Abilities\Spells</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectSpawn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Paths.h">
-      <Filter>Header Files</Filter>
+      <Filter>Character\Attributes</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\Character\Player classes</Filter>
+      <Filter>Character\Player classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Backpack.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleGUI.h">
+      <Filter>GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverGUI.h">
+      <Filter>GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryGUI.h">
+      <Filter>GUI\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePlayerGUI.h">
+      <Filter>GUI\Create</Filter>
+    </ClInclude>
+    <ClInclude Include="BackpackGUI.h">
+      <Filter>GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentGUI.h">
+      <Filter>GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryGUI.h">
+      <Filter>GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialAbilitiesGUI.h">
+      <Filter>GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellsGUI.h">
+      <Filter>GUI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGameGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="QuitGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGameGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="StartGameGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="StoryGUI.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSlot.h">
+      <Filter>Inventory\Usable</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Loot.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Filesystem.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="libraries.h" />
+    <ClInclude Include="ObjectSpawn.h" />
+    <ClInclude Include="Paths.h" />
+    <ClInclude Include="Requirements.h" />
+    <ClInclude Include="Menu.h">
+      <Filter>GUI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows.h">
+      <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="scandir.lua" />
     <None Include="Axe.lua">
-      <Filter>Source Files\Inventory\Usable\Weapon</Filter>
+      <Filter>Inventory\Usable\Weapon</Filter>
     </None>
     <None Include="Shirt.lua">
-      <Filter>Source Files\Inventory\Usable\Armor</Filter>
+      <Filter>Inventory\Usable\Armor</Filter>
     </None>
     <None Include="Fire bolt.lua">
-      <Filter>Source Files\Character\Abilities\Spells</Filter>
+      <Filter>Character\Abilities\Spells</Filter>
     </None>
     <None Include="Heal.lua">
-      <Filter>Source Files\Character\Abilities\Spells</Filter>
+      <Filter>Character\Abilities\Spells</Filter>
     </None>
     <None Include="Health potion.lua">
-      <Filter>Source Files\Inventory\Usable\Consumable</Filter>
+      <Filter>Inventory\Usable\Consumable</Filter>
     </None>
     <None Include="Orc.lua">
-      <Filter>Source Files\Character\Enemies</Filter>
+      <Filter>Character\Enemies</Filter>
     </None>
     <None Include="Mage.lua">
-      <Filter>Source Files\Character\Player classes</Filter>
+      <Filter>Character\Player classes</Filter>
     </None>
     <None Include="Warrior.lua">
-      <Filter>Source Files\Character\Player classes</Filter>
+      <Filter>Character\Player classes</Filter>
     </None>
     <None Include="Coin.lua">
-      <Filter>Source Files\Inventory\Trash</Filter>
+      <Filter>Inventory\Trash</Filter>
     </None>
+    <None Include="scandir.lua" />
   </ItemGroup>
 </Project>

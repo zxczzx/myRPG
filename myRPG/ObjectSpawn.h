@@ -9,6 +9,8 @@ class Requirements;
 class Resistance;
 class Player;
 
+using statsMap = std::map<std::string, std::vector<std::string>>;
+
 class ObjectSpawn
 {
 public:
@@ -16,8 +18,6 @@ public:
 	~ObjectSpawn();
 
 	std::shared_ptr<Filesystem> filesystem;
-
-	typedef std::map<std::string, std::vector<std::string> > statsMap;
 
 	std::shared_ptr<Inventory> spawnItem(std::string filename, int count);
 	std::shared_ptr<Player> spawnActor(std::string filename);

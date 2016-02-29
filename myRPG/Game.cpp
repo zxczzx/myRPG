@@ -2,12 +2,15 @@
 #include "MenuGUI.h"
 #include "Filesystem.h"
 
-Game::Game(){
+Game::Game() : window("myRPG", sf::Vector2u(800, 600)), menu(sf::Vector2u(800, 600)) {
 	state_ = std::make_shared<MenuGUI>();
 	state_->setPrev(nullptr);
 	state_->setHead(state_);
 
 	gameState = GameState::STATE_MENU;
+
+	clock.restart();
+	elapsed = 0.0f;
 }
 
 Game::~Game(){
@@ -256,4 +259,43 @@ void Game::setGraphic(Graphic graphic){
 	default:
 		break;
 	}
+} 
+
+//SFML
+void Game::handleInput()
+{
+}
+
+void Game::update()
+{
+	window.update();
+	float timestep = 1.0f / 8;
+	if (elapsed >= timestep) {
+		menu.update();
+		elapsed -= timestep;
+	}
+}
+
+void Game::render()
+{
+	window.beginDraw();
+	//what to draw
+	menu.render(*window.getRenderWindow());
+	window.endDraw();
+}
+
+sf::Time Game::getElapsed()
+{
+	return clock.getElapsedTime();
+}
+
+void Game::restartClock()
+{
+	elapsed += clock.restart().asSeconds();
+}
+
+
+Windows* Game::getWindow()
+{
+	return &window;
 }

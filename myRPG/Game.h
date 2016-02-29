@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <mutex>
 #include <atomic>
 #include <string>
@@ -6,6 +7,8 @@
 #include "Graphic.h"
 #include "Loot.h"
 #include "GameState.h"
+#include "Windows.h"
+#include "Menu.h"
 
 class GUI;
 
@@ -18,11 +21,27 @@ private:
 	std::vector<std::shared_ptr<Character> > characters_;
 	std::vector<std::string> savedGames_;
 	GameState gameState;
+
+	Menu menu;
+	Windows window;
+
+	sf::Clock clock;
+	float elapsed;
 	
 	
 public:
 	Game();
 	~Game();
+
+	//SFML
+	void handleInput();
+	void update();
+	void render();
+
+	sf::Time getElapsed();
+	void restartClock();
+
+	Windows* getWindow();
 
 	//thread variables
 	bool gotInput;

@@ -14,18 +14,19 @@
     <ProjectGuid>{B3210BA7-5147-480E-ADBF-C777DCFEE5AF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>myRPG</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -96,6 +97,7 @@
     <ClCompile Include="GameOverGUI.cpp" />
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="Loot.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="ObjectSpawn.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
@@ -115,6 +117,7 @@
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
     <ClCompile Include="VictoryGUI.cpp" />
+    <ClCompile Include="Windows.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abilities.h" />
@@ -125,12 +128,12 @@
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="EquipmentGUI.h" />
     <ClInclude Include="Filesystem.h" />
-    <ClInclude Include="FireBolt.h" />
     <ClInclude Include="GameOverGUI.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="ItemSlot.h" />
     <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="Loot.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="ObjectSpawn.h" />
     <ClInclude Include="Paths.h" />
     <ClInclude Include="QuitGUI.h" />
@@ -150,6 +153,7 @@
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="StoryGUI.h" />
     <ClInclude Include="VictoryGUI.h" />
+    <ClInclude Include="Windows.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Axe.lua" />
