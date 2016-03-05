@@ -9,18 +9,18 @@ CreatePlayerGUI::CreatePlayerGUI(){
 CreatePlayerGUI::~CreatePlayerGUI(){
 }
 
-std::shared_ptr<GUI> CreatePlayerGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> CreatePlayerGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	//change name
-		game.accum_mutex.lock();
-		setName(game);
-		game.accum_mutex.unlock();
+		world.accum_mutex.lock();
+		setName(world);
+		world.accum_mutex.unlock();
 		return returnProperGUI<CreatePlayerGUI>();
 	case 2:	//change class
-		chooseClass(game);
+		chooseClass(world);
 		return returnProperGUI<CreatePlayerGUI>();
-	case 3:	//start game
+	case 3:	//start world
 		return returnProperGUI<StoryGUI>();
 	case 4:	//back
 		return prev;
@@ -29,48 +29,48 @@ std::shared_ptr<GUI> CreatePlayerGUI::handleInput(Game& game, int input){
 	}
 }
 
-void CreatePlayerGUI::enter(Game& game){
+void CreatePlayerGUI::enter(World& world){
 	Graphic graphic = Graphic::CREATE_Actor;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void CreatePlayerGUI::setName(Game& game){
+void CreatePlayerGUI::setName(World& world){
 	//set new graphic
 	Graphic graphic = Graphic::CREATE_WRITE_OPTION;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 
 	//set new name	
 	std::string name;
 	std::cin >> name;
 
-	game.getActor()->setName(name);
+	world.getActor()->setName(name);
 }
 
-void CreatePlayerGUI::chooseClass(Game& game){
+void CreatePlayerGUI::chooseClass(World& world){
 	Graphic graphic = Graphic::CREATE_CLASS_OPTION;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
 	//set new name
-	int myClass = game.getInput<int>();
+	int myClass = world.getInput<int>();
 
-	auto name = game.getActor()->getName();
+	auto name = world.getActor()->getName();
 	if (myClass == 1){
-		game.setActor(spawner->spawnActor("Warrior"));
+		world.setActor(spawner->spawnActor("Warrior"));
 	}
 	else if (myClass == 2){
-		game.setActor(spawner->spawnActor("Mage"));
+		world.setActor(spawner->spawnActor("Mage"));
 	}
 	if (name != "default") {
-		game.getActor()->setName(name);
+		world.getActor()->setName(name);
 	}
 }
 
 template<class T>
-void CreatePlayerGUI::changeActorClass(Game& game){
+void CreatePlayerGUI::changeActorClass(World& world){
 	std::shared_ptr<Player> player = std::make_shared<T>();
 	if (player->getName() == "default"){
-		std::string name = game.getActor()->getName();
+		std::string name = world.getActor()->getName();
 		player->setName(name);
 	}
-	game.setActor(player);
+	world.setActor(player);
 }

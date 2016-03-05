@@ -22,21 +22,6 @@
     <Filter Include="Character\Attributes">
       <UniqueIdentifier>{05d885bd-d601-46a8-8948-48efad0da31c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GUI">
-      <UniqueIdentifier>{32307c9b-5238-4cac-a41c-8161e2c67fc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\Menu">
-      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\Battle">
-      <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\Inventory">
-      <UniqueIdentifier>{26b579fc-5a1a-42b6-b604-4f5cc048129f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\Create">
-      <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{c9c496d3-c4a1-4c36-a1b1-dc2425a6d107}</UniqueIdentifier>
     </Filter>
@@ -55,10 +40,25 @@
     <Filter Include="Inventory\Trash">
       <UniqueIdentifier>{c493a624-453f-4892-86b2-3e2f57db71a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="State">
+      <UniqueIdentifier>{32307c9b-5238-4cac-a41c-8161e2c67fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State\Menu">
+      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State\Battle">
+      <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State\Inventory">
+      <UniqueIdentifier>{26b579fc-5a1a-42b6-b604-4f5cc048129f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State\Create">
+      <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GUI.cpp">
-      <Filter>GUI</Filter>
+      <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="Abilities.cpp">
       <Filter>Character\Abilities</Filter>
@@ -76,49 +76,49 @@
       <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="BattleGUI.cpp">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClCompile>
     <ClCompile Include="VictoryGUI.cpp">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClCompile>
     <ClCompile Include="GameOverGUI.cpp">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClCompile>
     <ClCompile Include="CreatePlayerGUI.cpp">
-      <Filter>GUI\Create</Filter>
+      <Filter>State\Create</Filter>
     </ClCompile>
     <ClCompile Include="InventoryGUI.cpp">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="LoadGameGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="MenuGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="QuitGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SaveGameGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="StartGameGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="StoryGUI.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SpellsGUI.cpp">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="SpecialAbilitiesGUI.cpp">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="EquipmentGUI.cpp">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="BackpackGUI.cpp">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Character\Player classes</Filter>
@@ -129,10 +129,20 @@
     <ClCompile Include="ObjectSpawn.cpp" />
     <ClCompile Include="Requirements.cpp" />
     <ClCompile Include="Menu.cpp">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Windows.cpp">
-      <Filter>GUI</Filter>
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="LoadGameState.cpp">
+      <Filter>State\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,55 +162,55 @@
       <Filter>Character</Filter>
     </ClInclude>
     <ClInclude Include="BattleGUI.h">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClInclude>
     <ClInclude Include="GameOverGUI.h">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClInclude>
     <ClInclude Include="VictoryGUI.h">
-      <Filter>GUI\Battle</Filter>
+      <Filter>State\Battle</Filter>
     </ClInclude>
     <ClInclude Include="CreatePlayerGUI.h">
-      <Filter>GUI\Create</Filter>
+      <Filter>State\Create</Filter>
     </ClInclude>
     <ClInclude Include="BackpackGUI.h">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="EquipmentGUI.h">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="InventoryGUI.h">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="SpecialAbilitiesGUI.h">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="SpellsGUI.h">
-      <Filter>GUI\Inventory</Filter>
+      <Filter>State\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="LoadGameGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="MenuGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="QuitGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="SaveGameGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="StartGameGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="StoryGUI.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Graphic.h">
-      <Filter>GUI</Filter>
+      <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="GUI.h">
-      <Filter>GUI</Filter>
+      <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="ItemSlot.h">
       <Filter>Inventory\Usable</Filter>
@@ -219,10 +229,20 @@
     <ClInclude Include="Paths.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Menu.h">
-      <Filter>GUI\Menu</Filter>
+      <Filter>State\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Windows.h">
-      <Filter>GUI</Filter>
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h" />
+    <ClInclude Include="LoadGameState.h">
+      <Filter>State\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

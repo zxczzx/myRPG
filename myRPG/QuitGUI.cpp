@@ -7,7 +7,7 @@ QuitGUI::QuitGUI(){
 QuitGUI::~QuitGUI(){
 }
 
-std::shared_ptr<GUI> QuitGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> QuitGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	//yes
@@ -19,7 +19,7 @@ std::shared_ptr<GUI> QuitGUI::handleInput(Game& game, int input){
 	}
 }
 
-void QuitGUI::enter(Game& game){
+void QuitGUI::enter(World& world){
 	Graphic graphic = Graphic::MENU_QUIT_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

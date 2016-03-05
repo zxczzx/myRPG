@@ -9,7 +9,7 @@ LoadGameGUI::LoadGameGUI(){
 LoadGameGUI::~LoadGameGUI(){
 }
 
-std::shared_ptr<GUI> LoadGameGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> LoadGameGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1: //load file 1
@@ -17,8 +17,8 @@ std::shared_ptr<GUI> LoadGameGUI::handleInput(Game& game, int input){
 	case 3: //load file 3
 	case 4: //load file 4
 	case 5: //load file 5
-		if (game.getSavedGames()[input - 1] != ""){
-			loadGame(game, game.getSavedGames()[input - 1]);
+		if (world.getSavedGames()[input - 1] != ""){
+			loadGame(world, world.getSavedGames()[input - 1]);
 			return returnProperGUI<StoryGUI>();
 		}
 		else{
@@ -31,13 +31,13 @@ std::shared_ptr<GUI> LoadGameGUI::handleInput(Game& game, int input){
 	}
 }
 
-void LoadGameGUI::enter(Game& game){
+void LoadGameGUI::enter(World& world){
 	Graphic graphic = Graphic::MENU_LOAD_GAME_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void LoadGameGUI::loadGame(Game& game, std::string filename){
+void LoadGameGUI::loadGame(World& world, std::string filename){
 	//spawn player player
 	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
-	game.setActor(spawner->spawnActor(Paths::saveGames + filename));
+	world.setActor(spawner->spawnActor(Paths::saveGames + filename));
 }

@@ -27,18 +27,16 @@ void Windows::endDraw()
 
 void Windows::update()
 {
-	sf::Event event;
-	while (window.pollEvent(event)) {
-		if (event.type == sf::Event::Closed) {
-			isdone = true;
-		}
-		else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-			isdone = true;
-		}
-		else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F5) {
-			toggleFullscreen();
-		}
+	if (event.type == sf::Event::Closed) {
+		isdone = true;
 	}
+	else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+		isdone = true;
+	}
+	else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F5) {
+		toggleFullscreen();
+	}
+	
 }
 
 bool Windows::isDone()

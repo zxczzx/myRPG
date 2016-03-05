@@ -6,44 +6,44 @@ BackpackGUI::BackpackGUI(){
 BackpackGUI::~BackpackGUI(){
 }
 
-std::shared_ptr<GUI> BackpackGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> BackpackGUI::handleInput(World& world, int input){
 	int choice;
 	if (input == 1){	//back
 		return prev;
 	}
-	else if (input < game.getActor()->getBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
-		auto chosenItem = game.getActor()->getBackpack()->getItems()[input - 2];
+	else if (input < world.getActor()->getBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
+		auto chosenItem = world.getActor()->getBackpack()->getItems()[input - 2];
 		if (chosenItem->isUsable() == true){
-			enter(game);
+			enter(world);
 			std::cout << std::endl << "1. Description" << std::endl;
 			std::cout << "2. Remove" << std::endl;
 			std::cout << "3. Use" << std::endl;
-			choice = game.getInput<int>();
+			choice = world.getInput<int>();
 			if (choice >= 1 && choice <= 3){
-				itemAction(game, chosenItem, choice);
+				itemAction(world, chosenItem, choice);
 			}
 		}
 		else{
-			enter(game);
+			enter(world);
 			std::cout << std::endl << "1. Description" << std::endl;
 			std::cout << "2. Remove" << std::endl;
-			choice = game.getInput<int>();
+			choice = world.getInput<int>();
 			if (choice == 1 || choice == 2){
-				itemAction(game, chosenItem, choice);
+				itemAction(world, chosenItem, choice);
 			}
 		}
 	}
 }
 
-void BackpackGUI::enter(Game& game){
+void BackpackGUI::enter(World& world){
 	Graphic graphic = Graphic::INVENTORY_BACKPACK;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int input){
+void BackpackGUI::itemAction(World& world, std::shared_ptr<Inventory> item, int input){
 	switch (input){
 	case 1:
-		enter(game);
+		enter(world);
 		std::cout << std::endl;
 		std::cout << "\t" << item->getName() << std::endl;
 		item->showDescription();
@@ -75,13 +75,13 @@ void BackpackGUI::itemAction(Game& game, std::shared_ptr<Inventory> item, int in
 		}
 		break;
 	case 2:
-		game.getActor()->getBackpack()->removeFromBackpack(item);
-		enter(game);
+		world.getActor()->getBackpack()->removeFromBackpack(item);
+		enter(world);
 		std::cout << std::endl << "Item " << item->getName() << " has been removed" << std::endl;
 		break;
 	case 3:
-		game.getActor()->useItem(item);
-		enter(game);
+		world.getActor()->useItem(item);
+		enter(world);
 		std::cout << std::endl << "You have used " << item->getName() << std::endl;
 		break;
 	default:

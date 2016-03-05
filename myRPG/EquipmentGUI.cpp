@@ -6,51 +6,51 @@ EquipmentGUI::EquipmentGUI(){
 EquipmentGUI::~EquipmentGUI(){
 }
 
-std::shared_ptr<GUI> EquipmentGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> EquipmentGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	//back
 		return prev;
 	case 2:	//head
-		takeOffItem(game, ItemSlot::HEAD);
+		takeOffItem(world, ItemSlot::HEAD);
 		break;
 	case 3:	//body
-		takeOffItem(game, ItemSlot::BODY);
+		takeOffItem(world, ItemSlot::BODY);
 		break;
 	case 4:	//legs
-		takeOffItem(game, ItemSlot::LEGS);
+		takeOffItem(world, ItemSlot::LEGS);
 		break;
 	case 5:	//feet
-		takeOffItem(game, ItemSlot::FEET);
+		takeOffItem(world, ItemSlot::FEET);
 		break;
 	case 6:	//shoulders
-		takeOffItem(game, ItemSlot::SHOULDERS);
+		takeOffItem(world, ItemSlot::SHOULDERS);
 		break;
 	case 7:	//gloves
-		takeOffItem(game, ItemSlot::GLOVES);
+		takeOffItem(world, ItemSlot::GLOVES);
 		break;
 	case 8:	//main-hand
-		takeOffItem(game, ItemSlot::MAIN_HAND);
+		takeOffItem(world, ItemSlot::MAIN_HAND);
 		break;
 	case 9:	//off-hand
-		takeOffItem(game, ItemSlot::OFFHAND);
+		takeOffItem(world, ItemSlot::OFFHAND);
 		break;
 	default:
 		break;
 	}
 }
 
-void EquipmentGUI::enter(Game& game){
+void EquipmentGUI::enter(World& world){
 	Graphic graphic = Graphic::INVENTORY_EQUIPMENT;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void EquipmentGUI::takeOffItem(Game& game, ItemSlot slot){
-	auto player = game.getActor();
+void EquipmentGUI::takeOffItem(World& world, ItemSlot slot){
+	auto player = world.getActor();
 	if (player->BodySlots.find(slot)->second != nullptr){
 		std::string itemName = player->BodySlots.find(slot)->second->getName();
 		player->takeOffItem(player->BodySlots.find(slot)->second);
-		enter(game);
+		enter(world);
 		std::cout << "You have taken off " << itemName << std::endl;
 	}
 	else{

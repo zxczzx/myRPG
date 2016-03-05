@@ -7,8 +7,8 @@ public:
 	SpellsGUI();
 	~SpellsGUI();
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
-	void spellAction(Game& game, std::shared_ptr<Abilities> item);
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
+	void spellAction(World& world, std::shared_ptr<Abilities> item);
 };
 

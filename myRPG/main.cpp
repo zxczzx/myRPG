@@ -3,12 +3,12 @@
 //#include <chrono>
 //#include <limits>
 //#include <regex>
-//#include "Game.h"
+//#include "World.h"
 //
 //class MainThread {
 //private:
 //	int action;
-//	std::unique_ptr<Game> game;
+//	std::unique_ptr<World> world;
 //
 //	void handleMainInput();
 //	void MainInput();
@@ -33,14 +33,14 @@
 //
 ////----------------------------
 //
-//MainThread::MainThread() : game(std::make_unique<Game>()), action(0){
-//	game->setGraphic(Graphic::MENU_GUI);
+//MainThread::MainThread() : world(std::make_unique<World>()), action(0){
+//	world->setGraphic(Graphic::MENU_GUI);
 //}
 //
 //void MainThread::handleMainInput(){
 //	while (true){
-//		game->handleInput(game->atomicAction.load());
-//		game->atomicAction.store(0);
+//		world->handleInput(world->atomicAction.load());
+//		world->atomicAction.store(0);
 //		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 //	}
 //}
@@ -49,17 +49,17 @@
 //	std::regex r("[[:digit:]]+");
 //	std::string input;
 //	while (true){
-//		game->accum_mutex.lock();
+//		world->accum_mutex.lock();
 //		std::cin >> input;
 //
 //		if (std::regex_match(input, r)){
 //			action = std::stoi(input);
-//			game->atomicAction.store(action);
-//			game->gotInput = true;
+//			world->atomicAction.store(action);
+//			world->gotInput = true;
 //		}
 //
 //		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-//		game->accum_mutex.unlock();
+//		world->accum_mutex.unlock();
 //	}
 //}
 //
@@ -74,11 +74,11 @@
 #include "Game.h"
 
 void main() {
-	Game game;
-	while (!game.getWindow()->isDone()) {
-		game.handleInput();
-		game.update();
-		game.render();
-		game.restartClock();
+	Game world;
+	while (!world.getWindow()->isDone()) {
+		world.handleInput();
+		world.update();
+		world.render();
+		world.restartClock();
 	}
 }

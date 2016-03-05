@@ -7,29 +7,29 @@ SpellsGUI::SpellsGUI(){
 SpellsGUI::~SpellsGUI(){
 }
 
-std::shared_ptr<GUI> SpellsGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> SpellsGUI::handleInput(World& world, int input){
 	if (input == 1){	//back
 		return prev;
 	}
-	else if (input < game.getActor()->getAbilitiesBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
-		auto chosenSpell = game.getActor()->getAbilitiesBackpack()->getItems()[input - 2];
-		if (game.getGameState() == GameState::STATE_BATTLE){
+	else if (input < world.getActor()->getAbilitiesBackpack()->getItems().size() + 2 && input > 1) {	//item id choice
+		auto chosenSpell = world.getActor()->getAbilitiesBackpack()->getItems()[input - 2];
+		if (world.getGameState() == GameState::STATE_BATTLE){
 			std::static_pointer_cast<BattleGUI>(prev)->chosenSpell = chosenSpell;
 			return prev;
 		}
 		else{
-			spellAction(game, chosenSpell);
+			spellAction(world, chosenSpell);
 		}
 	}
 }
 
-void SpellsGUI::enter(Game& game){
+void SpellsGUI::enter(World& world){
 	Graphic graphic = Graphic::INVENTORY_SPELLS;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void SpellsGUI::spellAction(Game& game, std::shared_ptr<Abilities> item){
-	enter(game);
+void SpellsGUI::spellAction(World& world, std::shared_ptr<Abilities> item){
+	enter(world);
 	std::cout << std::endl;
 	std::cout << "\t" << item->getName() << std::endl
 		<< item->getDescription() << std::endl

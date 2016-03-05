@@ -1,13 +1,2 @@
-﻿  Game.cpp
-  Generating Code...
-  Compiling...
-  StoryGUI.cpp
-  SaveGameGUI.cpp
-  Player.cpp
-  ObjectSpawn.cpp
-  MenuGUI.cpp
-  LoadGameGUI.cpp
-  Filesystem.cpp
-  CreatePlayerGUI.cpp
-  Generating Code...
+﻿  State.cpp
   myRPG.vcxproj -> C:\Users\Krzysztof\Documents\Projekty\gitRepo\myRPG\Debug\myRPG.exe

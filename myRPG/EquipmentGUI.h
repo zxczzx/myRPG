@@ -7,9 +7,9 @@ public:
 	EquipmentGUI();
 	~EquipmentGUI();
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
 
-	void takeOffItem(Game& game, ItemSlot slot);
+	void takeOffItem(World& world, ItemSlot slot);
 };
 

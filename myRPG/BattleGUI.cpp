@@ -15,12 +15,12 @@ BattleGUI::~BattleGUI(){
 
 //executeBattle powinno uruchamiaæ siê po wyœwietleniu grafiki
 
-std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
-	game.setGameState(GameState::STATE_BATTLE);
+std::shared_ptr<GUI> BattleGUI::handleInput(World& world, int input){
+	world.setGameState(GameState::STATE_BATTLE);
 
 	//create enemy list
 	std::vector<std::shared_ptr<Player> > enemiesList;
-	for (auto& character : game.getCharacters()){
+	for (auto& character : world.getCharacters()){
 		if (character->getFriendly() == false && !character->isDead()){
 			enemiesList.push_back(std::static_pointer_cast<Player>(character));
 		}
@@ -30,7 +30,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	if (enemiesList.size() == 0){
 		//add loot
 		std::unique_ptr<Loot> loot = std::make_unique<Loot>();
-		for (auto& character : game.getCharacters()){
+		for (auto& character : world.getCharacters()){
 			if (character->isDead()){
 				loot->expReward += std::static_pointer_cast<Player>(character)->getExperience();
 
@@ -40,7 +40,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				}
 			}
 		}
-		game.setLoot(std::move(loot));
+		world.setLoot(std::move(loot));
 
 		//clear table
 		loot.reset();
@@ -50,7 +50,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		return returnProperGUI<VictoryGUI>();
 	}
 
-	for (auto& character : game.getCharacters()){
+	for (auto& character : world.getCharacters()){
 		if (character->getFriendly() == false && usedPrev == true){
 			continue;
 		}
@@ -68,11 +68,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 
 				//to prevent ArrayOutOfBandsException
 				do{
-					enemyNumber = game.getInput<int>();
+					enemyNumber = world.getInput<int>();
 				} while (enemyNumber > enemiesList.size());
 
 				// make dmg to enemy
-				bool success = chosenSpell->execute(game.getActor(), enemiesList[enemyNumber - 1]);
+				bool success = chosenSpell->execute(world.getActor(), enemiesList[enemyNumber - 1]);
 				if (success){
 					usedPrev = false;
 					continue;
@@ -81,7 +81,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 			//normal turn
 			std::cout << "Your turn. " << std::endl;
 			std::cout << "> ";
-			input = game.getInput<int>();
+			input = world.getInput<int>();
 			switch (input){
 			case 1: //attack
 			{
@@ -95,11 +95,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 
 				//to prevent ArrayOutOfBandsException
 				do{
-					enemyNumber = game.getInput<int>();
+					enemyNumber = world.getInput<int>();
 				} while (enemyNumber > enemiesList.size());
 
 				// make dmg to enemy
-				game.getActor()->attack(enemiesList[enemyNumber - 1]);
+				world.getActor()->attack(enemiesList[enemyNumber - 1]);
 				usedPrev = false;
 				continue;
 			}
@@ -121,7 +121,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 				std::mt19937 gen(rd());
 				std::uniform_int_distribution<> randInit(1, 100);
 				int ActorRandInit = randInit(gen);
-				int ActorInit = game.getActor()->getInitiative() + ActorRandInit;
+				int ActorInit = world.getActor()->getInitiative() + ActorRandInit;
 				for (auto& enemy : enemiesList){
 					if (!enemy->isDead()){
 						int rand_initiative = randInit(gen);
@@ -140,11 +140,11 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 		else{
 			//enemy turn
 			if (!character->isDead()){
-				character->attack(game.getActor());
+				character->attack(world.getActor());
 			}
 			
 			//enemy gave the killing blow. Game over
-			if (game.getActor()->getHitPoints() <= 0){
+			if (world.getActor()->getHitPoints() <= 0){
 				return returnProperGUI<GameOverGUI>(); 
 			}
 		}
@@ -156,7 +156,7 @@ std::shared_ptr<GUI> BattleGUI::handleInput(Game& game, int input){
 	return returnProperGUI<BattleGUI>();
 }
 
-void BattleGUI::enter(Game& game){
+void BattleGUI::enter(World& world){
 	Graphic graphic = Graphic::BATTLE_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

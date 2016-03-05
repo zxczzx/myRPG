@@ -1,6 +1,6 @@
 #pragma once
 #include "libraries.h"
-#include "Game.h"
+#include "World.h"
 
 class GUI
 {
@@ -16,8 +16,8 @@ public:
 	void setHead(std::shared_ptr<GUI> myHead);
 	void setPrev(std::shared_ptr<GUI> myPrev);
 
-	virtual std::shared_ptr<GUI> handleInput(Game& game, int input) = 0;
-	virtual void enter(Game& game) = 0;
+	virtual std::shared_ptr<GUI> handleInput(World& world, int input) = 0;
+	virtual void enter(World& world) = 0;
 
 	template<class T>
 	std::shared_ptr<GUI> returnProperGUI();

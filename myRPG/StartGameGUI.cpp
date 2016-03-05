@@ -11,16 +11,16 @@ StartGameGUI::~StartGameGUI(){
 }
 
 
-std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> StartGameGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	//create new player
 	{
 		std::shared_ptr<Player> player = Player::createActor<Player>();
-		game.setActor(player);
+		world.setActor(player);
 		return returnProperGUI<CreatePlayerGUI>();
 	}
-	case 2:	//load game
+	case 2:	//load world
 		break;
 	case 3:	//back
 		return prev;
@@ -29,7 +29,7 @@ std::shared_ptr<GUI> StartGameGUI::handleInput(Game& game, int input){
 	}
 }
 
-void StartGameGUI::enter(Game& game){
+void StartGameGUI::enter(World& world){
 	Graphic graphic = Graphic::MENU_START_GAME_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

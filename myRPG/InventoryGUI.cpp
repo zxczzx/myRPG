@@ -11,7 +11,7 @@ InventoryGUI::InventoryGUI(){
 InventoryGUI::~InventoryGUI(){
 }
 
-std::shared_ptr<GUI> InventoryGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> InventoryGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	//equipment
@@ -29,7 +29,7 @@ std::shared_ptr<GUI> InventoryGUI::handleInput(Game& game, int input){
 	}
 }
 
-void InventoryGUI::enter(Game& game){
+void InventoryGUI::enter(World& world){
 	Graphic graphic = Graphic::INVENTORY_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

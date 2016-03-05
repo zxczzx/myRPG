@@ -9,12 +9,12 @@ Menu::Menu(sf::Vector2u wind)
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
 
-	text.setString("Start game");
+	text.setString("Start world");
 	text.setPosition(sf::Vector2f(wind.y / 2, wind.x / 6 * 1));
 	menuEntries.push_back(text);
 
 	text.setColor(sf::Color::White);
-	text.setString("Load game");
+	text.setString("Load world");
 	text.setPosition(sf::Vector2f(wind.y / 2, wind.x / 6 * 2));
 	menuEntries.push_back(text);
 

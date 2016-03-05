@@ -6,7 +6,7 @@ SaveGameGUI::SaveGameGUI(){
 SaveGameGUI::~SaveGameGUI(){
 }
 
-std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> SaveGameGUI::handleInput(World& world, int input){
 	std::string name;
 	std::string choice;
 	std::shared_ptr<Filesystem> filesystem = std::make_shared<Filesystem>();
@@ -17,11 +17,11 @@ std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
 	case 3:
 	case 4:
 	case 5:
-		if (game.getSavedGames()[input - 1] != ""){
+		if (world.getSavedGames()[input - 1] != ""){
 			std::cout << "Do you wish to override this file? (yes/no)" << std::endl;
 			std::cin >> choice;
 			if (choice == "yes"){
-				saveGame(game, filesystem, game.getSavedGames()[input - 1]);
+				saveGame(world, filesystem, world.getSavedGames()[input - 1]);
 				std::cout << "Game saved" << std::endl;
 			}
 			else{
@@ -31,7 +31,7 @@ std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
 		else{
 			std::cout << "Your save name: " << std::endl;
 			std::cin >> name;
-			saveGame(game, filesystem, name);
+			saveGame(world, filesystem, name);
 			std::cout << "Game saved" << std::endl;
 		}
 	case 6:
@@ -41,15 +41,15 @@ std::shared_ptr<GUI> SaveGameGUI::handleInput(Game& game, int input){
 	}
 }
 
-void SaveGameGUI::enter(Game& game){
+void SaveGameGUI::enter(World& world){
 	Graphic graphic = Graphic::MENU_LOAD_GAME_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }
 
-void SaveGameGUI::saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, std::string filename){
+void SaveGameGUI::saveGame(World& world, std::shared_ptr<Filesystem> filesystem, std::string filename){
 	//helper lambdas
 	auto getSlot = [&](ItemSlot slot) {
-		return game.getActor()->BodySlots[slot] == nullptr ? "0" : "\"" + game.getActor()->BodySlots[slot]->getName() + "\"";
+		return world.getActor()->BodySlots[slot] == nullptr ? "0" : "\"" + world.getActor()->BodySlots[slot]->getName() + "\"";
 	};
 
 	auto makeVector = [](std::string str){
@@ -57,21 +57,21 @@ void SaveGameGUI::saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, s
 	};
 	//maps
 	std::map<std::string, std::vector<std::string> > stats{
-		{ "name", makeVector(game.getActor()->getName()) },
-		{ "class", makeVector(game.getActor()->getClassType()) },
-		{ "level", makeVector(std::to_string(game.getActor()->getLevel())) },
-		{ "exp", makeVector(std::to_string(game.getActor()->getExperience())) },
-		{ "init", makeVector(std::to_string(game.getActor()->getRealInitiative())) },
-		{ "hp", makeVector(std::to_string(game.getActor()->getHitPoints())) },
-		{ "maxHP", makeVector(std::to_string(game.getActor()->getRealHitPoints())) },
-		{ "mp", makeVector(std::to_string(game.getActor()->getMana())) },
-		{ "maxMP", makeVector(std::to_string(game.getActor()->getRealMana())) },
-		{ "damage", makeVector(std::to_string(game.getActor()->getRealDamage())) },
-		{ "armor", makeVector(std::to_string(game.getActor()->getRealArmor())) },
-		{ "friendly", makeVector(std::to_string(game.getActor()->getFriendly())) },
-		{ "hpGrowth", makeVector(std::to_string(game.getActor()->getHpGrowth())) },
-		{ "mpGrowth", makeVector(std::to_string(game.getActor()->getMpGrowth())) },
-		{ "dmgGrowth", makeVector(std::to_string(game.getActor()->getDmgGrowth())) },
+		{ "name", makeVector(world.getActor()->getName()) },
+		{ "class", makeVector(world.getActor()->getClassType()) },
+		{ "level", makeVector(std::to_string(world.getActor()->getLevel())) },
+		{ "exp", makeVector(std::to_string(world.getActor()->getExperience())) },
+		{ "init", makeVector(std::to_string(world.getActor()->getRealInitiative())) },
+		{ "hp", makeVector(std::to_string(world.getActor()->getHitPoints())) },
+		{ "maxHP", makeVector(std::to_string(world.getActor()->getRealHitPoints())) },
+		{ "mp", makeVector(std::to_string(world.getActor()->getMana())) },
+		{ "maxMP", makeVector(std::to_string(world.getActor()->getRealMana())) },
+		{ "damage", makeVector(std::to_string(world.getActor()->getRealDamage())) },
+		{ "armor", makeVector(std::to_string(world.getActor()->getRealArmor())) },
+		{ "friendly", makeVector(std::to_string(world.getActor()->getFriendly())) },
+		{ "hpGrowth", makeVector(std::to_string(world.getActor()->getHpGrowth())) },
+		{ "mpGrowth", makeVector(std::to_string(world.getActor()->getMpGrowth())) },
+		{ "dmgGrowth", makeVector(std::to_string(world.getActor()->getDmgGrowth())) },
 
 	};
 
@@ -90,6 +90,6 @@ void SaveGameGUI::saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, s
 		filename = filename + ".save";
 	}
 	//execute
-	filesystem->writeToFile(stats, equipment, game.getActor()->getBackpack()->getItems(), 
-		game.getActor()->getAbilitiesBackpack()->getItems(), game.getActor()->getResistance(), filename);
+	filesystem->writeToFile(stats, equipment, world.getActor()->getBackpack()->getItems(), 
+		world.getActor()->getAbilitiesBackpack()->getItems(), world.getActor()->getResistance(), filename);
 }

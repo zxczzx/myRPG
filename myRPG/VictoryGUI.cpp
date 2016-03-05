@@ -7,8 +7,8 @@ VictoryGUI::VictoryGUI(){
 VictoryGUI::~VictoryGUI(){
 }
 
-std::shared_ptr<GUI> VictoryGUI::handleInput(Game& game, int input){
-	input = game.getInput<int>();
+std::shared_ptr<GUI> VictoryGUI::handleInput(World& world, int input){
+	input = world.getInput<int>();
 	switch (input)
 	{
 	default:	//press any key
@@ -16,7 +16,7 @@ std::shared_ptr<GUI> VictoryGUI::handleInput(Game& game, int input){
 	}
 }
 
-void VictoryGUI::enter(Game& game){
+void VictoryGUI::enter(World& world){
 	Graphic graphic = Graphic::BATTLE_VICTORY_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

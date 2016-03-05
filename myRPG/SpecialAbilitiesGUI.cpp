@@ -6,7 +6,7 @@ SpecialAbilitiesGUI::SpecialAbilitiesGUI(){
 SpecialAbilitiesGUI::~SpecialAbilitiesGUI(){
 }
 
-std::shared_ptr<GUI> SpecialAbilitiesGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> SpecialAbilitiesGUI::handleInput(World& world, int input){
 	switch (input)
 	{
 	case 1:	
@@ -16,7 +16,7 @@ std::shared_ptr<GUI> SpecialAbilitiesGUI::handleInput(Game& game, int input){
 	}
 }
 
-void SpecialAbilitiesGUI::enter(Game& game){
+void SpecialAbilitiesGUI::enter(World& world){
 	Graphic graphic = Graphic::INVENTORY_SPECIAL_ABILITIES;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

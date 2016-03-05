@@ -7,9 +7,9 @@ public:
 	BackpackGUI();
 	~BackpackGUI();
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
 	
-	void itemAction(Game& game, std::shared_ptr<Inventory> item, int input);
+	void itemAction(World& world, std::shared_ptr<Inventory> item, int input);
 };
 

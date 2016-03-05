@@ -20,6 +20,8 @@ public:
 	void toggleFullscreen();
 	void draw(sf::Drawable& drawable);
 
+	sf::Event event;
+
 private:
 	void setup(const std::string& title, const sf::Vector2u& size);
 	void destroy();

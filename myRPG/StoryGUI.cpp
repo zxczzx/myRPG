@@ -2,8 +2,6 @@
 #include "BattleGUI.h"
 #include "MenuGUI.h"
 #include "InventoryGUI.h"
-//#include "Enemy.h"
-//#include "Orc.h"
 #include "ObjectSpawn.h"
 
 StoryGUI::StoryGUI(){
@@ -13,14 +11,14 @@ StoryGUI::StoryGUI(){
 StoryGUI::~StoryGUI(){
 }
 
-std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> StoryGUI::handleInput(World& world, int input){
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> random_path(1, 10);
 	std::uniform_int_distribution<> random_enemies(1, 3);
 	std::uniform_int_distribution<> random_init(1, 100);
 
-	game.setGameState(GameState::STATE_STORY);
+	world.setGameState(GameState::STATE_STORY);
 
 	switch (input)
 	{
@@ -40,19 +38,19 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 				characters.push_back(spawner->spawnActor("Orc"));
 			}
 			//add characters
-			characters.push_back(game.getActor());
-			game.setCharacters(characters);
+			characters.push_back(world.getActor());
+			world.setCharacters(characters);
 			characters.clear();
 			characters.shrink_to_fit();
 
 			//initiative rolls
-			for (auto& character : game.getCharacters()){
+			for (auto& character : world.getCharacters()){
 				int rand_initiative = random_init(gen);
 				character->setInitiative(character->getInitiative() + rand_initiative);
 			}
 
 			//sort vector
-			game.initiaviveSort();
+			world.initiaviveSort();
 
 			return returnProperGUI<BattleGUI>();
 		}
@@ -66,7 +64,7 @@ std::shared_ptr<GUI> StoryGUI::handleInput(Game& game, int input){
 	}
 }
 
-void StoryGUI::enter(Game& game){
+void StoryGUI::enter(World& world){
 	Graphic graphic = Graphic::MENU_STORY_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

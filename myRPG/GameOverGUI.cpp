@@ -10,8 +10,8 @@ GameOverGUI::~GameOverGUI()
 {
 }
 
-std::shared_ptr<GUI> GameOverGUI::handleInput(Game& game, int input){
-	game.setGameState(GameState::STATE_MENU);
+std::shared_ptr<GUI> GameOverGUI::handleInput(World& world, int input){
+	world.setGameState(GameState::STATE_MENU);
 	switch (input)
 	{
 	case 1:
@@ -23,7 +23,7 @@ std::shared_ptr<GUI> GameOverGUI::handleInput(Game& game, int input){
 	}
 }
 
-void GameOverGUI::enter(Game& game){
+void GameOverGUI::enter(World& world){
 	Graphic graphic = Graphic::BATTLE_GAME_OVER_GUI;
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 }

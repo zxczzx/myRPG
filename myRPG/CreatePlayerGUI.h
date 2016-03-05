@@ -6,11 +6,11 @@ public:
 	CreatePlayerGUI();
 	~CreatePlayerGUI();
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
-	void setName(Game& game);
-	void chooseClass(Game& game);
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
+	void setName(World& world);
+	void chooseClass(World& world);
 	template<class T>
-	void changeActorClass(Game& game);
+	void changeActorClass(World& world);
 };
 

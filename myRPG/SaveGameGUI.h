@@ -5,13 +5,13 @@
 class SaveGameGUI : public GUI
 {
 private:
-	void saveGame(Game& game, std::shared_ptr<Filesystem> filesystem, std::string name);
+	void saveGame(World& world, std::shared_ptr<Filesystem> filesystem, std::string name);
 
 public:
 	SaveGameGUI();
 	~SaveGameGUI();
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
 };
 

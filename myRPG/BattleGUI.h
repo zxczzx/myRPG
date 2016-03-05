@@ -10,7 +10,7 @@ public:
 	~BattleGUI();
 	std::shared_ptr<Abilities> chosenSpell;
 
-	std::shared_ptr<GUI> handleInput(Game& game, int input) override;
-	void enter(Game& game) override;
+	std::shared_ptr<GUI> handleInput(World& world, int input) override;
+	void enter(World& world) override;
 };
 

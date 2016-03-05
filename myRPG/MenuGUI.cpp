@@ -10,14 +10,14 @@ MenuGUI::MenuGUI(){
 MenuGUI::~MenuGUI(){
 }
 
-std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
+std::shared_ptr<GUI> MenuGUI::handleInput(World& world, int input){
 	switch (input)
 	{
-	case 1:	//start game
+	case 1:	//start world
 		return returnProperGUI<StartGameGUI>();
-	case 2:	//save game
+	case 2:	//save world
 		return returnProperGUI<SaveGameGUI>();
-	case 3:	//load game
+	case 3:	//load world
 		return returnProperGUI<LoadGameGUI>();
 	case 4:	//options
 	case 5:	//exit
@@ -31,7 +31,7 @@ std::shared_ptr<GUI> MenuGUI::handleInput(Game& game, int input){
 	}
 }
 
-void MenuGUI::enter(Game& game){
+void MenuGUI::enter(World& world){
 	Graphic graphic;
 	if (prev == nullptr){
 		graphic = Graphic::MENU_GUI;
@@ -39,6 +39,6 @@ void MenuGUI::enter(Game& game){
 	else{
 		graphic = Graphic::MENU_GUI_BACK;
 	}
-	game.setGraphic(graphic);
+	world.setGraphic(graphic);
 	
 }
