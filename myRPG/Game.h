@@ -26,7 +26,7 @@ public:
 	sf::Time getElapsed();
 	void restartClock();
 
-	std::shared_ptr<World> world;;
+	World world;;
 	Windows* getWindow();	
 };
 

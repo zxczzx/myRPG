@@ -43,9 +43,6 @@
     <Filter Include="State">
       <UniqueIdentifier>{32307c9b-5238-4cac-a41c-8161e2c67fc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="State\Menu">
-      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="State\Battle">
       <UniqueIdentifier>{560bab81-3b9f-441b-8820-1b400ed1c33a}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="State\Create">
       <UniqueIdentifier>{db2b08f3-3291-4403-b014-d19ffa815ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State\Menu">
+      <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,15 +90,6 @@
     <ClCompile Include="InventoryGUI.cpp">
       <Filter>State\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="LoadGameGUI.cpp">
-      <Filter>State\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuGUI.cpp">
-      <Filter>State\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="QuitGUI.cpp">
-      <Filter>State\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="SaveGameGUI.cpp">
       <Filter>State\Menu</Filter>
     </ClCompile>
@@ -128,9 +119,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjectSpawn.cpp" />
     <ClCompile Include="Requirements.cpp" />
-    <ClCompile Include="Menu.cpp">
-      <Filter>State\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="Windows.cpp">
       <Filter>State</Filter>
     </ClCompile>
@@ -142,6 +130,18 @@
     </ClCompile>
     <ClCompile Include="World.cpp" />
     <ClCompile Include="LoadGameState.cpp">
+      <Filter>State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="StoryState.cpp">
+      <Filter>State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuGUI.cpp">
+      <Filter>State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGameGUI.cpp">
+      <Filter>State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="QuitGUI.cpp">
       <Filter>State\Menu</Filter>
     </ClCompile>
   </ItemGroup>
@@ -188,15 +188,6 @@
     <ClInclude Include="SpellsGUI.h">
       <Filter>State\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="LoadGameGUI.h">
-      <Filter>State\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuGUI.h">
-      <Filter>State\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="QuitGUI.h">
-      <Filter>State\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="SaveGameGUI.h">
       <Filter>State\Menu</Filter>
     </ClInclude>
@@ -228,9 +219,6 @@
     <ClInclude Include="ObjectSpawn.h" />
     <ClInclude Include="Paths.h" />
     <ClInclude Include="Requirements.h" />
-    <ClInclude Include="Menu.h">
-      <Filter>State\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="Windows.h">
       <Filter>State</Filter>
     </ClInclude>
@@ -242,6 +230,19 @@
     </ClInclude>
     <ClInclude Include="World.h" />
     <ClInclude Include="LoadGameState.h">
+      <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StoryState.h">
+      <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuGUI.h">
+      <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGameGUI.h">
+      <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="QuitGUI.h">
       <Filter>State\Menu</Filter>
     </ClInclude>
   </ItemGroup>
@@ -274,5 +275,10 @@
       <Filter>Inventory\Trash</Filter>
     </None>
     <None Include="scandir.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo list.txt">
+      <Filter>State</Filter>
+    </Text>
   </ItemGroup>
 </Project>

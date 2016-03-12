@@ -39,12 +39,20 @@ std::shared_ptr<Game> State::getGame()
 }
 
 //Real-Time input
-void State::handleInput()
+void State::handleInput(World& world)
 {
 }
 
 //Events input
-void State::handleInput(sf::RenderWindow & window, sf::Event event)
+void State::handleInput(World& world, sf::RenderWindow& window, sf::Event event)
+{
+}
+
+void State::update(std::shared_ptr<Player> player)
+{
+}
+
+void State::render(sf::RenderWindow & window, World & world)
 {
 }
 

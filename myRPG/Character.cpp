@@ -45,6 +45,21 @@ void Character::setRealValues(){
 
 //GETTERS
 
+sf::Vector2f Character::getPosition()
+{
+	return position;
+}
+
+sf::Texture Character::getTexture()
+{
+	return characterTexture;
+}
+
+sf::Sprite Character::getSprite()
+{
+	return character;
+}
+
 int Character::getHitPoints(){
 	return hitPoints;
 }
@@ -124,6 +139,21 @@ int Character::getRealInitiative(){
 
 void Character::setFriedly(bool ff){
 	friendly = ff;
+}
+
+void Character::setPosition(sf::Vector2f pos)
+{
+	position = pos;
+}
+
+void Character::setTexture(sf::Texture texture)
+{
+	characterTexture = texture;
+}
+
+void Character::setSprite(sf::Sprite sprite)
+{
+	character = sprite;
 }
 
 void Character::setHitPoints(int hp){

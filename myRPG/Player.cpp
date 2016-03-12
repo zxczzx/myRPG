@@ -17,13 +17,11 @@ Player::Player() : Character() {
 	mpGrowth = 0;
 	dmgGrowth = 0;
 
-	//temporary starting pack
-	//std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
-	//backpack->appendToBackpack(spawner->spawnItem("Axe", 1));
-	//backpack->appendToBackpack(spawner->spawnItem("Shirt", 1));
-	//backpack->appendToBackpack(spawner->spawnItem("Health potion", 2));
-	//end temp
-
+	position = sf::Vector2f(0.0f, 0.0f);
+	characterTexture.loadFromFile("Mushroom.png");
+	character.setTexture(characterTexture);
+	character.setPosition(position);
+		
 	std::map<ItemSlot, std::shared_ptr<Inventory> > BodySlots = {
 		{ ItemSlot::HEAD, nullptr }, { ItemSlot::BODY, nullptr }, { ItemSlot::LEGS, nullptr }, { ItemSlot::FEET, nullptr }, { ItemSlot::SHOULDERS, nullptr }, { ItemSlot::GLOVES, nullptr }, { ItemSlot::POTIONS, nullptr }, { ItemSlot::MAIN_HAND, nullptr }, { ItemSlot::OFFHAND, nullptr }
 	};

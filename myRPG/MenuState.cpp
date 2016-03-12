@@ -45,13 +45,12 @@ MenuState::~MenuState()
 {
 }
 
-void MenuState::handleInput()
+void MenuState::handleInput(World& world)
 {
 }
 
-void MenuState::handleInput(sf::RenderWindow& window, sf::Event event)
+void MenuState::handleInput(World& world, sf::RenderWindow& window, sf::Event event)
 {
-
 	if (event.type == sf::Event::KeyPressed) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (selectedItemIndex - 1 >= 0)
@@ -76,12 +75,19 @@ void MenuState::handleInput(sf::RenderWindow& window, sf::Event event)
 			if (menuEntries[selectedItemIndex].getString().toAnsiString() == "Load game") {
 				next = newState<LoadGameState>();
 			}
+			else if (menuEntries[selectedItemIndex].getString().toAnsiString() == "Exit") {
+				event.Closed;
+			}
 		}
 
 	}
 }
 
-void MenuState::render(sf::RenderWindow & window)
+void MenuState::update(std::shared_ptr<Player> player)
+{
+}
+
+void MenuState::render(sf::RenderWindow & window, World& world)
 {
 	for (auto& i : menuEntries) {
 		window.draw(i);

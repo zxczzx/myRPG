@@ -16,9 +16,10 @@ public:
 	std::shared_ptr<State> getNext();
 	std::shared_ptr<Game> getGame();
 
-	virtual void handleInput();
-	virtual void handleInput(sf::RenderWindow& window, sf::Event event);
-	virtual void render(sf::RenderWindow& window) = 0;
+	virtual void handleInput(World& world);
+	virtual void handleInput(World& world, sf::RenderWindow& window, sf::Event event);
+	virtual void update(std::shared_ptr<Player> player);
+	virtual void render(sf::RenderWindow& window, World& world) = 0;
 
 	int getPressedItem();
 

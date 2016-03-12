@@ -98,17 +98,16 @@
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="LoadGameState.cpp" />
     <ClCompile Include="Loot.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuGUI.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="ObjectSpawn.cpp" />
-    <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryGUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="MenuGUI.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="Requirements.cpp" />
     <ClCompile Include="Resistance.cpp" />
     <ClCompile Include="SaveGameGUI.cpp" />
@@ -119,6 +118,7 @@
     <ClCompile Include="StoryGUI.cpp">
       <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ShowIncludes>
     </ClCompile>
+    <ClCompile Include="StoryState.cpp" />
     <ClCompile Include="VictoryGUI.cpp" />
     <ClCompile Include="Windows.cpp" />
     <ClCompile Include="World.cpp" />
@@ -138,27 +138,28 @@
     <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="LoadGameState.h" />
     <ClInclude Include="Loot.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuGUI.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="ObjectSpawn.h" />
     <ClInclude Include="Paths.h" />
-    <ClInclude Include="QuitGUI.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryGUI.h" />
     <ClInclude Include="libraries.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="MenuGUI.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="QuitGUI.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Resistance.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SaveGameGUI.h" />
     <ClInclude Include="SpecialAbilitiesGUI.h" />
     <ClInclude Include="SpellsGUI.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StoryGUI.h" />
+    <ClInclude Include="StoryState.h" />
     <ClInclude Include="VictoryGUI.h" />
     <ClInclude Include="Windows.h" />
     <ClInclude Include="World.h" />
@@ -174,6 +175,9 @@
     <None Include="scandir.lua" />
     <None Include="Shirt.lua" />
     <None Include="Warrior.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo list.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

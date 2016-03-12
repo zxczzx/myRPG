@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "MenuState.h"
 
-Game::Game() : window("myRPG", sf::Vector2u(800, 600)), world(std::make_shared<World>()), state(std::make_shared<MenuState>(sf::Vector2u(800, 600))){
+Game::Game() : window("myRPG", sf::Vector2u(800, 600)), state(std::make_shared<MenuState>(sf::Vector2u(800, 600))){
 	state->setPrev(nullptr);
 	state->setHead(state);
 
@@ -15,26 +15,26 @@ Game::~Game(){
 //SFML
 void Game::handleInput()
 {
-	state->handleInput();
+	state->handleInput(world);
 }
 
 void Game::update()
 {
-	if(state->getNext() != nullptr)
+	if (state->getNext() != nullptr) {
 		state = state->getNext();
-	//window.update();
+	}
 	while (window.getRenderWindow()->pollEvent(window.event)) {
 		window.update();
-		state->handleInput(*window.getRenderWindow(), window.event);
-		//state->setNext(nullptr);
+		state->handleInput(world, *window.getRenderWindow(), window.event);
 	}
+	state->update(world.getActor());
 }
 
 void Game::render()
 {
 	window.beginDraw();
 	//what to draw
-	state->render(*window.getRenderWindow());
+	state->render(*window.getRenderWindow(), world);
 	window.endDraw();
 }
 

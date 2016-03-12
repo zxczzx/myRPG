@@ -1,7 +1,7 @@
 #include "LoadGameGUI.h"
 #include "StoryGUI.h"
 #include "ObjectSpawn.h"
-#include "Paths.h"
+//#include "Paths.h"
 
 LoadGameGUI::LoadGameGUI(){
 }
@@ -39,5 +39,5 @@ void LoadGameGUI::enter(World& world){
 void LoadGameGUI::loadGame(World& world, std::string filename){
 	//spawn player player
 	std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
-	world.setActor(spawner->spawnActor(Paths::saveGames + filename));
+	//world.setActor(spawner->spawnActor(Paths::saveGames + filename));
 }

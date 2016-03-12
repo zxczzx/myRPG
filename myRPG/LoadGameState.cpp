@@ -1,6 +1,8 @@
 #include "LoadGameState.h"
+#include "StoryState.h"
 #include "World.h"
-#include "Filesystem.h"
+#include "ObjectSpawn.h"
+#include "Paths.h"
 #include <iostream>
 
 LoadGameState::LoadGameState(sf::Vector2u wind) : State()
@@ -20,7 +22,8 @@ LoadGameState::LoadGameState(sf::Vector2u wind) : State()
 	auto savedGames = file->listDirectory();
 
 	for (unsigned i = 1; i <= savedGames.size(); i++) {
-		std::cout << i << ". " << savedGames[i - 1] << std::endl;
+		text.setString(savedGames[i - 1]);
+		menuEntries.push_back(text);
 	}
 
 	float height = wind.y / 3;
@@ -39,13 +42,12 @@ LoadGameState::~LoadGameState()
 {
 }
 
-void LoadGameState::handleInput()
+void LoadGameState::handleInput(World& world)
 {
 }
 
-void LoadGameState::handleInput(sf::RenderWindow& window, sf::Event event)
+void LoadGameState::handleInput(World& world, sf::RenderWindow& window, sf::Event event)
 {
-
 	if (event.type == sf::Event::KeyPressed) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (selectedItemIndex - 1 >= 0)
@@ -70,12 +72,20 @@ void LoadGameState::handleInput(sf::RenderWindow& window, sf::Event event)
 			if (menuEntries[selectedItemIndex].getString().toAnsiString() == "Back") {
 				next = prev;
 			}
+			else {
+				std::shared_ptr<ObjectSpawn> spawner = std::make_shared<ObjectSpawn>();
+				world.setActor(spawner->spawnActor(Paths::saveGames + menuEntries[selectedItemIndex].getString().toAnsiString()));
+				next = newState<StoryState>();
+			}
 		}
-
 	}
 }
 
-void LoadGameState::render(sf::RenderWindow & window)
+void LoadGameState::update(std::shared_ptr<Player> player)
+{
+}
+
+void LoadGameState::render(sf::RenderWindow & window, World& world)
 {
 	for (auto& i : menuEntries) {
 		window.draw(i);

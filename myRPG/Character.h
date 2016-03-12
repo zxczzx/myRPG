@@ -4,10 +4,14 @@
 #include "Abilities.h"
 #include "Resistance.h"
 #include "Backpack.h"
+#include <SFML/Graphics.hpp>
 
 class Character
 {
 protected:
+	sf::Texture characterTexture;
+	sf::Sprite character;
+	sf::Vector2f position;
 	int maxHitPoints;
 	int hitPoints;
 	int maxMana;
@@ -42,6 +46,9 @@ public:
 	void setRealValues();
 
 	//getter
+	sf::Vector2f getPosition();
+	sf::Texture getTexture();
+	sf::Sprite getSprite();
 	int getHitPoints();
 	int getMaxHitPoints();
 	int getMana();
@@ -65,6 +72,10 @@ public:
 	int getRealInitiative();
 	
 	//setter
+	void setPosition(sf::Vector2f pos);
+	void setTexture(sf::Texture texture);
+	void setSprite(sf::Sprite sprite);
+
 	void setHitPoints(int hp);
 	void setMaxHitPoints(int hp);
 	void setMana(int mp);

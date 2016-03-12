@@ -1,0 +1,5 @@
+files needed to be deleted (now are just removed from project):
+LoadDameGUI
+MenuGUI
+QuitGUI
+Menu
