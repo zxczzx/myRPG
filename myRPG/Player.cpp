@@ -23,7 +23,9 @@ Player::Player() : Character() {
 	character.setPosition(position);
 		
 	std::map<ItemSlot, std::shared_ptr<Inventory> > BodySlots = {
-		{ ItemSlot::HEAD, nullptr }, { ItemSlot::BODY, nullptr }, { ItemSlot::LEGS, nullptr }, { ItemSlot::FEET, nullptr }, { ItemSlot::SHOULDERS, nullptr }, { ItemSlot::GLOVES, nullptr }, { ItemSlot::POTIONS, nullptr }, { ItemSlot::MAIN_HAND, nullptr }, { ItemSlot::OFFHAND, nullptr }
+		{ ItemSlot::HEAD, nullptr }, { ItemSlot::BODY, nullptr }, { ItemSlot::LEGS, nullptr }, { ItemSlot::FEET, nullptr }, 
+		{ ItemSlot::SHOULDERS, nullptr }, { ItemSlot::GLOVES, nullptr }, { ItemSlot::POTIONS, nullptr }, { ItemSlot::MAIN_HAND, nullptr }, 
+		{ ItemSlot::OFFHAND, nullptr }
 	};
 
 	setRealValues();

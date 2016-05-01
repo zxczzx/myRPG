@@ -2,7 +2,7 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Game.h"
+#include "World.h"
 
 class State
 {
@@ -14,7 +14,7 @@ public:
 	void setPrev(std::shared_ptr<State> myPrev);
 	void setNext(std::shared_ptr<State> myNext);
 	std::shared_ptr<State> getNext();
-	std::shared_ptr<Game> getGame();
+	void setWorld(World* myWorld);
 
 	virtual void handleInput(World& world);
 	virtual void handleInput(World& world, sf::RenderWindow& window, sf::Event event);
@@ -31,7 +31,7 @@ protected:
 	std::shared_ptr<State> prev;
 	std::shared_ptr<State> next;
 
-	std::shared_ptr<Game> game;
+	World* world;
 
 	sf::Font font;
 	std::vector<sf::Text> menuEntries;

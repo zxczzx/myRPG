@@ -24,7 +24,6 @@ Character::~Character(){
 void Character::attack(std::shared_ptr<Character> enemy){
 	enemy->setHitPoints(enemy->getHitPoints() - this->realDamage);
 	std::cout << this->name << " attacked " << enemy->getName() << " for " << this->realDamage << " dmg" << std::endl;
-	Sleep(2000);
 }
 
 void Character::death(){

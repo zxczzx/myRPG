@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "PlayerWindows.h"
 
 class StoryState : public State
 {
@@ -13,7 +14,11 @@ public:
 	void render(sf::RenderWindow& window, World& world) override;
 
 private:
+	void toggleInventory();
+
 	sf::Vector2f window;
 	sf::Sprite character;
+	PlayerWindows* inventoryWindow;
+	bool inventoryState;
 };
 

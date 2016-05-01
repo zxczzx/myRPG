@@ -27,6 +27,7 @@ void Game::update()
 		window.update();
 		state->handleInput(world, *window.getRenderWindow(), window.event);
 	}
+	state->setWorld(&world);
 	state->update(world.getActor());
 }
 

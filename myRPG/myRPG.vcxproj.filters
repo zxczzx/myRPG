@@ -55,6 +55,9 @@
     <Filter Include="State\Menu">
       <UniqueIdentifier>{6beb79c4-63d0-4ed4-bdc9-314eb2215f2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{d50d10af-57c5-4d72-8e07-e42a61d1aaf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GUI.cpp">
@@ -144,6 +147,18 @@
     <ClCompile Include="QuitGUI.cpp">
       <Filter>State\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="InventoryWindow.cpp">
+      <Filter>State\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerWindows.cpp">
+      <Filter>State\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentWindow.cpp">
+      <Filter>State\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="SpellsWindow.cpp">
+      <Filter>State\Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abilities.h">
@@ -215,9 +230,7 @@
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="libraries.h" />
     <ClInclude Include="ObjectSpawn.h" />
-    <ClInclude Include="Paths.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Windows.h">
       <Filter>State</Filter>
@@ -232,7 +245,6 @@
     <ClInclude Include="LoadGameState.h">
       <Filter>State\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="StoryState.h">
       <Filter>State\Menu</Filter>
     </ClInclude>
@@ -244,6 +256,27 @@
     </ClInclude>
     <ClInclude Include="QuitGUI.h">
       <Filter>State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Paths.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryWindow.h">
+      <Filter>State\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerWindows.h">
+      <Filter>State\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentWindow.h">
+      <Filter>State\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellsWindow.h">
+      <Filter>State\Inventory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -274,7 +307,9 @@
     <None Include="Coin.lua">
       <Filter>Inventory\Trash</Filter>
     </None>
-    <None Include="scandir.lua" />
+    <None Include="scandir.lua">
+      <Filter>Utilities</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo list.txt">

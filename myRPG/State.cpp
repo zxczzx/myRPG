@@ -33,9 +33,9 @@ std::shared_ptr<State> State::getNext()
 	return next;
 }
 
-std::shared_ptr<Game> State::getGame()
+void State::setWorld(World* myWorld)
 {
-	return game;
+	world = myWorld;
 }
 
 //Real-Time input

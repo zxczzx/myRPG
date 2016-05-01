@@ -19,7 +19,6 @@ bool Abilities::execute(std::shared_ptr<Character> self, std::shared_ptr<Charact
 		else
 			target->setHitPoints(target->getHitPoints() - this->damage);
 		std::cout << this->name << " " << useString << " " << target->getName() << " for " << std::abs(this->damage) << " dmg" << std::endl;
-		Sleep(2000);
 		return true;
 	}
 	else{

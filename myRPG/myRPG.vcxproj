@@ -93,8 +93,10 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CreatePlayerGUI.cpp" />
     <ClCompile Include="EquipmentGUI.cpp" />
+    <ClCompile Include="EquipmentWindow.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GameOverGUI.cpp" />
+    <ClCompile Include="InventoryWindow.cpp" />
     <ClCompile Include="LoadGameGUI.cpp" />
     <ClCompile Include="LoadGameState.cpp" />
     <ClCompile Include="Loot.cpp" />
@@ -107,12 +109,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerWindows.cpp" />
     <ClCompile Include="QuitGUI.cpp" />
     <ClCompile Include="Requirements.cpp" />
     <ClCompile Include="Resistance.cpp" />
     <ClCompile Include="SaveGameGUI.cpp" />
     <ClCompile Include="SpecialAbilitiesGUI.cpp" />
     <ClCompile Include="SpellsGUI.cpp" />
+    <ClCompile Include="SpellsWindow.cpp" />
     <ClCompile Include="StartGameGUI.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StoryGUI.cpp">
@@ -131,9 +135,11 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CreatePlayerGUI.h" />
     <ClInclude Include="EquipmentGUI.h" />
+    <ClInclude Include="EquipmentWindow.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="GameOverGUI.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="InventoryWindow.h" />
     <ClInclude Include="ItemSlot.h" />
     <ClInclude Include="LoadGameGUI.h" />
     <ClInclude Include="LoadGameState.h" />
@@ -149,6 +155,7 @@
     <ClInclude Include="libraries.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerWindows.h" />
     <ClInclude Include="QuitGUI.h" />
     <ClInclude Include="Requirements.h" />
     <ClInclude Include="Resistance.h" />
@@ -156,6 +163,7 @@
     <ClInclude Include="SaveGameGUI.h" />
     <ClInclude Include="SpecialAbilitiesGUI.h" />
     <ClInclude Include="SpellsGUI.h" />
+    <ClInclude Include="SpellsWindow.h" />
     <ClInclude Include="StartGameGUI.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StoryGUI.h" />
