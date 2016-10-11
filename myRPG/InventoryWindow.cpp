@@ -23,18 +23,18 @@ void InventoryWindow::handleInput(sf::Event event)
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (selectedItemIndex - 1 > 0)
 			{
-				messages[selectedItemIndex].setColor(sf::Color::White);
+				messages[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex--;
-				messages[selectedItemIndex].setColor(sf::Color::Red);
+				messages[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "up" << std::endl;
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (selectedItemIndex + 1 < messages.size())
 			{
-				messages[selectedItemIndex].setColor(sf::Color::White);
+				messages[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex++;
-				messages[selectedItemIndex].setColor(sf::Color::Red);
+				messages[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "down" << std::endl;
 			}
 		}

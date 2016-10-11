@@ -38,7 +38,7 @@ void PlayerWindows::setup(int visible, int charSize, int width, sf::Vector2f scr
 	content.setFont(font);
 	content.setString("");
 	content.setCharacterSize(charSize);
-	content.setColor(sf::Color::White);
+	content.setFillColor(sf::Color::White);
 	content.setPosition(screenPos + offset + sf::Vector2f(width / 2 - 60, offset.y));
 
 	backdrop.setSize(sf::Vector2f(width, (visible * (charSize * 1.2f))));

@@ -8,11 +8,11 @@ MenuState::MenuState(sf::Vector2u wind) : State() {
 	sf::Text text;
 	text.setFont(font);
 
-	text.setColor(sf::Color::Red);
+	text.setFillColor(sf::Color::Red);
 	text.setString("Start game");
 	menuEntries.push_back(text);
 
-	text.setColor(sf::Color::White);
+	text.setFillColor(sf::Color::White);
 	if (prev != nullptr) { // != StoryMode
 		text.setString("Save game");
 		menuEntries.push_back(text);
@@ -55,18 +55,18 @@ void MenuState::handleInput(World& world, sf::RenderWindow& window, sf::Event ev
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (selectedItemIndex - 1 >= 0)
 			{
-				menuEntries[selectedItemIndex].setColor(sf::Color::White);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex--;
-				menuEntries[selectedItemIndex].setColor(sf::Color::Red);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "up" << std::endl;
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (selectedItemIndex + 1 < menuEntries.size())
 			{
-				menuEntries[selectedItemIndex].setColor(sf::Color::White);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex++;
-				menuEntries[selectedItemIndex].setColor(sf::Color::Red);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "down" << std::endl;
 			}
 		}

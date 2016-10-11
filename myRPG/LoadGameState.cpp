@@ -12,11 +12,11 @@ LoadGameState::LoadGameState(sf::Vector2u wind) : State()
 	sf::Text text;
 	text.setFont(font);
 
-	text.setColor(sf::Color::Red);
+	text.setFillColor(sf::Color::Red);
 	text.setString("Back");
 	menuEntries.push_back(text);
 
-	text.setColor(sf::Color::White);
+	text.setFillColor(sf::Color::White);
 
 	std::unique_ptr<Filesystem> file = std::make_unique<Filesystem>();
 	auto savedGames = file->listDirectory();
@@ -52,18 +52,18 @@ void LoadGameState::handleInput(World& world, sf::RenderWindow& window, sf::Even
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (selectedItemIndex - 1 >= 0)
 			{
-				menuEntries[selectedItemIndex].setColor(sf::Color::White);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex--;
-				menuEntries[selectedItemIndex].setColor(sf::Color::Red);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "up" << std::endl;
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (selectedItemIndex + 1 < menuEntries.size())
 			{
-				menuEntries[selectedItemIndex].setColor(sf::Color::White);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::White);
 				selectedItemIndex++;
-				menuEntries[selectedItemIndex].setColor(sf::Color::Red);
+				menuEntries[selectedItemIndex].setFillColor(sf::Color::Red);
 				std::cout << "down" << std::endl;
 			}
 		}
